@@ -137,12 +137,18 @@ public class HomePageMuzakki extends javax.swing.JFrame {
 
     private void btnMenuActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionActionPerformed
         // TODO add your handling code here:
-        PaymentMethod_Muzakki payment_muzakki = new PaymentMethod_Muzakki();
+        PaymentMethod_Maal_Muzakki payment_muzakki = new PaymentMethod_Maal_Muzakki();
+        FitrahMenu_Muzakki fitrahmenu_muzakki = new FitrahMenu_Muzakki();
+        KalkulatorZakat kalkulatorZakat = new KalkulatorZakat();
         if(zakat_maal_payment.isSelected()){
         this.dispose();
         payment_muzakki.show();
+        }else if(zakat_fitrah_payment.isSelected()){
+        this.dispose();
+        fitrahmenu_muzakki.show();
         }else{
-        
+        this.dispose();
+        kalkulatorZakat.show();
         }
     }//GEN-LAST:event_btnMenuActionActionPerformed
 
