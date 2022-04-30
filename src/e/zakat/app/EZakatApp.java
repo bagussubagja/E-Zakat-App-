@@ -15,6 +15,8 @@ public class EZakatApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        ChooseRoles chooseroles = new ChooseRoles();
+        chooseroles.show();
     }
     
 }

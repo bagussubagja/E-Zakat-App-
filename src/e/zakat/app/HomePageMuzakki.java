@@ -26,31 +26,125 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        zakat_maal_payment = new javax.swing.JRadioButton();
+        zakat_fitrah_payment = new javax.swing.JRadioButton();
+        kalkulator_zakat = new javax.swing.JRadioButton();
+        btnMenuAction = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        jLabel1.setText("E-Zakat - Muzakki");
+
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        jLabel2.setText("Selamat datang, ");
+
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        jLabel3.setText("Bagus Subagja");
+
+        jLabel4.setFont(new java.awt.Font("Poppins Medium", 0, 14)); // NOI18N
+        jLabel4.setText("Menu Utama");
+
+        buttonGroup1.add(zakat_maal_payment);
+        zakat_maal_payment.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        zakat_maal_payment.setText("1. Bayar Zakat Maal");
+
+        buttonGroup1.add(zakat_fitrah_payment);
+        zakat_fitrah_payment.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        zakat_fitrah_payment.setText("2. Bayar Zakat Fitrah");
+        zakat_fitrah_payment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                zakat_fitrah_paymentActionPerformed(evt);
+            }
+        });
+
+        buttonGroup1.add(kalkulator_zakat);
+        kalkulator_zakat.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        kalkulator_zakat.setText("3. Kalkulator Zakat");
+
+        btnMenuAction.setFont(new java.awt.Font("Poppins", 0, 12)); // NOI18N
+        btnMenuAction.setText("Pilih Menu");
+        btnMenuAction.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMenuActionActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(114, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 174, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(112, 112, 112))
             .addGroup(layout.createSequentialGroup()
-                .addGap(141, 141, 141)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(kalkulator_zakat)
+                            .addComponent(zakat_fitrah_payment)
+                            .addComponent(zakat_maal_payment))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnMenuAction))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3)))
+                        .addGap(28, 28, 28))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(81, 81, 81)
+                .addGap(28, 28, 28)
                 .addComponent(jLabel1)
-                .addContainerGap(206, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(zakat_maal_payment)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(zakat_fitrah_payment)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(kalkulator_zakat)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMenuAction)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void zakat_fitrah_paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zakat_fitrah_paymentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_zakat_fitrah_paymentActionPerformed
+
+    private void btnMenuActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMenuActionActionPerformed
+        // TODO add your handling code here:
+        PaymentMethod_Muzakki payment_muzakki = new PaymentMethod_Muzakki();
+        if(zakat_maal_payment.isSelected()){
+        this.dispose();
+        payment_muzakki.show();
+        }else{
+        
+        }
+    }//GEN-LAST:event_btnMenuActionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -88,6 +182,14 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMenuAction;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JRadioButton kalkulator_zakat;
+    private javax.swing.JRadioButton zakat_fitrah_payment;
+    private javax.swing.JRadioButton zakat_maal_payment;
     // End of variables declaration//GEN-END:variables
 }
