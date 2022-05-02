@@ -4,6 +4,10 @@
  */
 package e.zakat.app;
 
+import java.awt.Image;
+import java.awt.Toolkit;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author bagus
@@ -15,6 +19,22 @@ public class ChooseRoles extends javax.swing.JFrame {
      */
     public ChooseRoles() {
         initComponents();
+        
+    ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-choose-roles.png")));
+    
+    Image img1 = myimage.getImage();
+    Image img2 = img1.getScaledInstance(IconLabel.getWidth(), IconLabel.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon i = new ImageIcon(img2);
+    
+    IconLabel.setIcon(i);
+    
+    ImageIcon myimage2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-copyright.png")));
+    
+    Image img3 = myimage2.getImage();
+    Image img4 = img3.getScaledInstance(CopyrightLabel.getWidth(), CopyrightLabel.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon j = new ImageIcon(img4);
+    
+    CopyrightLabel.setIcon(j);
     }
 
     /**
@@ -32,23 +52,31 @@ public class ChooseRoles extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         muzakki_role = new javax.swing.JRadioButton();
         amilzakat_role = new javax.swing.JRadioButton();
-        selectRole = new javax.swing.JButton();
+        IconLabel = new javax.swing.JLabel();
+        CopyrightLabel = new javax.swing.JLabel();
+        btn_next = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Pilih Peran");
+        setAutoRequestFocus(false);
+        setBackground(new java.awt.Color(238, 238, 238));
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
-        jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("Selamat datang di Program E-Zakat!");
 
-        jLabel2.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
+        jLabel2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(170, 170, 170));
         jLabel2.setText("Bayar zakat jadi lebih mudah!");
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel3.setText("Silahkan Pilih Peran Anda :");
 
         buttonGroup1.add(muzakki_role);
-        muzakki_role.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        muzakki_role.setText("1. Muzakki");
+        muzakki_role.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        muzakki_role.setText("Muzakki");
+        muzakki_role.setIconTextGap(10);
         muzakki_role.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 muzakki_roleActionPerformed(evt);
@@ -56,19 +84,22 @@ public class ChooseRoles extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(amilzakat_role);
-        amilzakat_role.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        amilzakat_role.setText("2. Amil Zakat");
+        amilzakat_role.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        amilzakat_role.setText("Amil Zakat");
+        amilzakat_role.setIconTextGap(10);
         amilzakat_role.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 amilzakat_roleActionPerformed(evt);
             }
         });
 
-        selectRole.setFont(new java.awt.Font("Poppins", 0, 14)); // NOI18N
-        selectRole.setText("Next");
-        selectRole.addActionListener(new java.awt.event.ActionListener() {
+        btn_next.setBackground(new java.awt.Color(24, 152, 139));
+        btn_next.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        btn_next.setForeground(new java.awt.Color(255, 255, 255));
+        btn_next.setText("Selanjutnya");
+        btn_next.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                selectRoleActionPerformed(evt);
+                btn_nextActionPerformed(evt);
             }
         });
 
@@ -77,44 +108,58 @@ public class ChooseRoles extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(amilzakat_role)
-                    .addComponent(muzakki_role)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(amilzakat_role)
+                            .addComponent(muzakki_role)
+                            .addComponent(jLabel3)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(341, 341, 341)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(452, 452, 452)
+                        .addComponent(jLabel2)))
+                .addContainerGap(344, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(65, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(178, 178, 178))
+                        .addComponent(btn_next)
+                        .addGap(536, 536, 536))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(58, 58, 58))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(selectRole)
-                        .addGap(48, 48, 48))))
+                        .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(8, 8, 8)
                 .addComponent(jLabel2)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(muzakki_role)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(amilzakat_role)
-                .addGap(18, 18, 18)
-                .addComponent(selectRole)
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(67, 67, 67)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(muzakki_role)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(amilzakat_role)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_next)
+                .addGap(99, 99, 99)
+                .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void muzakki_roleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_muzakki_roleActionPerformed
@@ -125,21 +170,9 @@ public class ChooseRoles extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_amilzakat_roleActionPerformed
 
-    private void selectRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectRoleActionPerformed
+    private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
         // TODO add your handling code here:
-        LoginMuzakki loginMuzakki = new LoginMuzakki();
-        LoginAmilZakat loginAmilZakat = new LoginAmilZakat();
-        
-        if (muzakki_role.isSelected()) {
-            loginMuzakki.setVisible(true);
-            this.dispose();
-        } else if(amilzakat_role.isSelected()){
-            loginAmilZakat.setVisible(true);
-            this.dispose();
-        }else{
-        
-        }
-    }//GEN-LAST:event_selectRoleActionPerformed
+    }//GEN-LAST:event_btn_nextActionPerformed
 
     /**
      * @param args the command line arguments
@@ -178,12 +211,14 @@ public class ChooseRoles extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CopyrightLabel;
+    private javax.swing.JLabel IconLabel;
     private javax.swing.JRadioButton amilzakat_role;
+    private javax.swing.JButton btn_next;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton muzakki_role;
-    private javax.swing.JButton selectRole;
     // End of variables declaration//GEN-END:variables
 }
