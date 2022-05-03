@@ -5,8 +5,12 @@
 package e.zakat.app.auth_screen.muzakki;
 
 import e.zakat.app.initial_screen.ChooseRoles;
+<<<<<<< HEAD
 import e.zakat.app.muzakki_features.maal.HomePageMuzakki;
 import e.zakat.app.initial_screen.OnboardingOne;
+=======
+import e.zakat.app.muzakki_features.HomePageMuzakki;
+>>>>>>> ba8edab717b1b877910623bb0d2bc1f8acd35ffc
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.*;  
