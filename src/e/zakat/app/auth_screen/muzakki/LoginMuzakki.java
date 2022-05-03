@@ -1,11 +1,11 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package e.zakat.app.auth_screen.muzakki;
 
 import e.zakat.app.initial_screen.ChooseRoles;
-import e.zakat.app.muzakki_features.HomePageMuzakki;
+import e.zakat.app.muzakki_features.maal.HomePageMuzakki;
 import e.zakat.app.initial_screen.OnboardingOne;
 import java.awt.Image;
 import java.awt.Toolkit;

@@ -40,7 +40,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                      <Component id="btnRegister" min="-2" pref="213" max="-2" attributes="0"/>
+                      <Component id="btn_register" min="-2" pref="213" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btn_back" min="-2" pref="153" max="-2" attributes="0"/>
                   </Group>
@@ -70,7 +70,7 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel6" min="-2" pref="131" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="edtNoHP" min="-2" pref="400" max="-2" attributes="0"/>
+                              <Component id="edtKodePos" min="-2" pref="400" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="jLabel5" min="-2" pref="131" max="-2" attributes="0"/>
@@ -127,7 +127,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="edtNoHP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="edtKodePos" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -143,7 +143,7 @@
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnRegister" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                  <Component id="btn_register" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                   <Component id="btn_back" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -204,7 +204,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="No HP"/>
+        <Property name="text" type="java.lang.String" value="Kode Pos"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -232,7 +232,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtNamaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="edtNoHP">
+    <Component class="javax.swing.JTextField" name="edtKodePos">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="24" style="0"/>
@@ -246,7 +246,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btnRegister">
+    <Component class="javax.swing.JButton" name="btn_register">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="8b" green="98" red="18" type="rgb"/>
@@ -260,7 +260,7 @@
         <Property name="text" type="java.lang.String" value="Daftar Sekarang"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_registerActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="CopyrightLabel">

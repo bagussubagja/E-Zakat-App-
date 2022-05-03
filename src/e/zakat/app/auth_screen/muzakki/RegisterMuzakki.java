@@ -6,7 +6,7 @@ package e.zakat.app.auth_screen.muzakki;
 
 import java.awt.EventQueue;
 import e.zakat.app.initial_screen.ChooseRoles;
-import e.zakat.app.muzakki_features.HomePageMuzakki;
+import e.zakat.app.muzakki_features.maal.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -64,9 +64,9 @@ public class RegisterMuzakki extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         edtAlamat = new javax.swing.JTextField();
         edtNama = new javax.swing.JTextField();
-        edtNoHP = new javax.swing.JTextField();
+        edtKodePos = new javax.swing.JTextField();
         edtUsername = new javax.swing.JTextField();
-        btnRegister = new javax.swing.JButton();
+        btn_register = new javax.swing.JButton();
         CopyrightLabel = new javax.swing.JLabel();
         btn_back = new javax.swing.JButton();
         edtPassword = new javax.swing.JTextField();
@@ -95,7 +95,7 @@ public class RegisterMuzakki extends javax.swing.JFrame {
         jLabel5.setText("Alamat");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel6.setText("No HP");
+        jLabel6.setText("Kode Pos");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel7.setText("Username");
@@ -109,17 +109,17 @@ public class RegisterMuzakki extends javax.swing.JFrame {
             }
         });
 
-        edtNoHP.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        edtKodePos.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
 
         edtUsername.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
 
-        btnRegister.setBackground(new java.awt.Color(24, 152, 139));
-        btnRegister.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
-        btnRegister.setForeground(new java.awt.Color(238, 238, 238));
-        btnRegister.setText("Daftar Sekarang");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
+        btn_register.setBackground(new java.awt.Color(24, 152, 139));
+        btn_register.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        btn_register.setForeground(new java.awt.Color(238, 238, 238));
+        btn_register.setText("Daftar Sekarang");
+        btn_register.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
+                btn_registerActionPerformed(evt);
             }
         });
 
@@ -149,7 +149,7 @@ public class RegisterMuzakki extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(101, 101, 101)
-                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_register, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -173,7 +173,7 @@ public class RegisterMuzakki extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(edtNoHP, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(edtKodePos, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
@@ -215,7 +215,7 @@ public class RegisterMuzakki extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtNoHP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(edtKodePos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -226,7 +226,7 @@ public class RegisterMuzakki extends javax.swing.JFrame {
                             .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_register, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -241,12 +241,12 @@ public class RegisterMuzakki extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_edtNamaActionPerformed
 
-    private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
+    private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
         // TODO add your handling code here:
         int id;
         String nama = edtNama.getText();
         String alamat = edtAlamat.getText();
-        String noHp = edtNoHP.getText();
+        String kodePos = edtKodePos.getText();
         String username = edtUsername.getText();
         String password = edtPassword.getText();
         String msg = "" + nama;
@@ -258,7 +258,7 @@ public class RegisterMuzakki extends javax.swing.JFrame {
 //                    String query = "INSERT INTO users_muzakki values('" + username + "','" + password + "','" + nama + "','" +
 //                        alamat + "','" + noHp + "')";
 
-String query = "INSERT INTO users_muzakki(username, password, nama, alamat, no_hp) VALUES ('" + username + "', '" + password + "', '" + nama + "', '" + alamat + "', '" + noHp +"');";
+String query = "INSERT INTO users_muzakki(username, password, nama, alamat, kodepos) VALUES ('" + username + "', '" + password + "', '" + nama + "', '" + alamat + "', '" + kodePos +"');";
 
 
                     
@@ -279,9 +279,9 @@ String query = "INSERT INTO users_muzakki(username, password, nama, alamat, no_h
 //            }
                     int x = sta.executeUpdate(query);
                     if (x == 0) {
-                        JOptionPane.showMessageDialog(btnRegister, "This is alredy exist");
+                        JOptionPane.showMessageDialog(btn_register, "This is alredy exist");
                     } else {
-                        JOptionPane.showMessageDialog(btnRegister,
+                        JOptionPane.showMessageDialog(btn_register,
                             "Welcome, " + msg + "Your account is sucessfully created");
                     }
                     connection.close();
@@ -289,7 +289,7 @@ String query = "INSERT INTO users_muzakki(username, password, nama, alamat, no_h
         } catch (Exception e) {
             e.printStackTrace();
         }
-    }//GEN-LAST:event_btnRegisterActionPerformed
+    }//GEN-LAST:event_btn_registerActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
@@ -340,11 +340,11 @@ String query = "INSERT INTO users_muzakki(username, password, nama, alamat, no_h
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
-    private javax.swing.JButton btnRegister;
     private javax.swing.JButton btn_back;
+    private javax.swing.JButton btn_register;
     private javax.swing.JTextField edtAlamat;
+    private javax.swing.JTextField edtKodePos;
     private javax.swing.JTextField edtNama;
-    private javax.swing.JTextField edtNoHP;
     private javax.swing.JTextField edtPassword;
     private javax.swing.JTextField edtUsername;
     private javax.swing.JLabel jLabel1;
