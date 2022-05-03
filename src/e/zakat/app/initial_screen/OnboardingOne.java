@@ -55,7 +55,7 @@ public class OnboardingOne extends javax.swing.JFrame {
         DescLabel.setText("<html><center>Bayar Zakat Maal dan Zakat Fitrah<br>kini lebih mudah!</html>");
 
         btn_next.setBackground(new java.awt.Color(24, 152, 139));
-        btn_next.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        btn_next.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         btn_next.setForeground(new java.awt.Color(255, 255, 255));
         btn_next.setText("Selanjutnya");
         btn_next.addActionListener(new java.awt.event.ActionListener() {

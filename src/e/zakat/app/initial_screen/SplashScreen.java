@@ -31,8 +31,8 @@ public class SplashScreen extends javax.swing.JFrame {
         
         initComponents();
         OnboardingOne one = new OnboardingOne();
-        timer2 = new Timer(3000, e -> dispose());
-        timer = new Timer(1000, e -> one.show());
+        timer2 = new Timer(4000, e -> dispose());
+        timer = new Timer(3000, e -> one.show());
         timer.setRepeats(false);
         timer.start();
         timer2.setRepeats(false);

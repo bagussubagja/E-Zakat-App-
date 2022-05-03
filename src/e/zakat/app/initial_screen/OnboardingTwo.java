@@ -55,7 +55,7 @@ public class OnboardingTwo extends javax.swing.JFrame {
         DescLabel.setText("<html><center>Tidak tahu besaran zakat yang harus<br>dikeluarkan? Kalkulator Zakat<br>solusinya...</html>");
 
         btn_next.setBackground(new java.awt.Color(24, 152, 139));
-        btn_next.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        btn_next.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         btn_next.setForeground(new java.awt.Color(255, 255, 255));
         btn_next.setText("Mulai Sekarang");
         btn_next.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +76,7 @@ public class OnboardingTwo extends javax.swing.JFrame {
                         .addGap(60, 60, 60)
                         .addComponent(DescLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(245, 245, 245)
+                        .addGap(267, 267, 267)
                         .addComponent(btn_next)))
                 .addContainerGap(120, Short.MAX_VALUE))
         );
@@ -90,7 +90,7 @@ public class OnboardingTwo extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(259, 259, 259)
                         .addComponent(DescLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(43, 43, 43)
+                        .addGap(42, 42, 42)
                         .addComponent(btn_next)))
                 .addContainerGap(135, Short.MAX_VALUE))
         );
