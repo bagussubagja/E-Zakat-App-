@@ -4,12 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/EZakatApp.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/ChooseRoles.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/FitrahMenu_Muzakki.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/onboarding/OnboardingOne.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/PaymentMethod_Maal_Muzakki.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/SplashScreen.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/KalkulatorZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/auth_screen/muzakki/LoginMuzakki.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/auth_screen/muzakki/RegisterMuzakki.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App/src/e/zakat/app/initial_screen/SplashScreen.java</file>
         </group>
     </open-files>
 </project-private>

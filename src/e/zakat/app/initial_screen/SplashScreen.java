@@ -24,18 +24,22 @@ public class SplashScreen extends javax.swing.JFrame {
     /**
      * Creates new form SplashScreen
      */
-    Timer timer;
+    Timer timer, timer2;
     int second = 0;
     public SplashScreen() {
         
         
         initComponents();
-        timer = new Timer(3000, e -> this.dispose());
-        
+        OnboardingOne one = new OnboardingOne();
+        timer2 = new Timer(3000, e -> dispose());
+        timer = new Timer(1000, e -> one.show());
         timer.setRepeats(false);
         timer.start();
-        OnboardingOne one = new OnboardingOne();
-        one.show();
+        timer2.setRepeats(false);
+        timer2.start();
+        
+        
+        
         
     ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-e-zakat.png")));
     
