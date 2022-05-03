@@ -4,6 +4,8 @@
  */
 package e.zakat.app;
 
+import e.zakat.app.initial_screen.SplashScreen;
+
 /**
  *
  * @author bagus
@@ -15,8 +17,10 @@ public class EZakatApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        ChooseRoles chooseroles = new ChooseRoles();
-        chooseroles.show();
+//        ChooseRoles chooseroles = new ChooseRoles();
+//        chooseroles.show();
+        SplashScreen splashscreen = new SplashScreen();
+        splashscreen.show();
     }
     
 }
