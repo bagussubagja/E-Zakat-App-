@@ -3,7 +3,7 @@
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
-    <Property name="title" type="java.lang.String" value="Niat Zakat Maal"/>
+    <Property name="title" type="java.lang.String" value="Choose Payment Muzakki"/>
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="ee" green="ee" red="ee" type="rgb"/>
     </Property>
@@ -32,41 +32,36 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="459" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="CopyrightLabel" min="-2" pref="173" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="-2" pref="543" max="-2" attributes="0"/>
-              <Component id="AlamatLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
               <Component id="IconLabel" min="-2" pref="272" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                      <Component id="btn_next" min="-2" pref="152" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="btn_back" min="-2" pref="153" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="55" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="AlamatLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="AlamatLabel1" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_transfer_bank" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="radio_e_wallet" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="446" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="CopyrightLabel" min="-2" pref="173" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="95" max="32767" attributes="0"/>
-                      <Component id="NiatLabel" min="-2" pref="788" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                      <Component id="btn_select_payment" min="-2" pref="152" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <Component id="btn_back" min="-2" pref="153" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="464" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="466" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="PaymentLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="506" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -78,30 +73,29 @@
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="AlamatLabel" min="-2" max="-2" attributes="0"/>
+              <Component id="PaymentLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="51" max="32767" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                      <Component id="NiatLabel" min="-2" pref="83" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="AlamatLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
-                      <Component id="AlamatLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="IconLabel" min="-2" pref="293" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="176" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_transfer_bank" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="radio_e_wallet" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_next" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="btn_select_payment" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="btn_back" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
-                      <Component id="CopyrightLabel" min="-2" pref="34" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="IconLabel" min="-2" pref="293" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="233" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <Component id="CopyrightLabel" min="-2" pref="34" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -115,7 +109,15 @@
         <Property name="text" type="java.lang.String" value="&#xe9;-Zakat - Zakat Maal"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_next">
+    <Component class="javax.swing.JLabel" name="jLabel3">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Poppins Medium" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Pilih Metode Pembayaran Zakat"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_select_payment">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="8b" green="98" red="18" type="rgb"/>
@@ -126,10 +128,10 @@
         <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ee" green="ee" red="ee" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Lanjutkan"/>
+        <Property name="text" type="java.lang.String" value="Pilih Metode"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_nextActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_select_paymentActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="IconLabel">
@@ -150,31 +152,37 @@
     </Component>
     <Component class="javax.swing.JLabel" name="CopyrightLabel">
     </Component>
-    <Component class="javax.swing.JLabel" name="AlamatLabel">
+    <Component class="javax.swing.JLabel" name="PaymentLabel">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins Medium" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Niat Zakat Maal"/>
+        <Property name="text" type="java.lang.String" value="Metode Pembayaran"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="AlamatLabel1">
+    <Component class="javax.swing.JRadioButton" name="radio_transfer_bank">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Poppins Light" size="20" style="0"/>
+          <Font name="Poppins" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;b&gt;Artinya&lt;/b&gt; : &#x201c;Saya Niat Mengeluarkan Zakat Maal Dari Diriku Sendiri Fardhu Karena&lt;br&gt;Allah Ta`ala&#x201d;&lt;html&gt;"/>
+        <Property name="text" type="java.lang.String" value="Transfer Bank (Verifikasi Manual)"/>
+        <Property name="iconTextGap" type="int" value="10"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radio_transfer_bankActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="AlamatLabel2">
+    <Component class="javax.swing.JRadioButton" name="radio_e_wallet">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Poppins Medium" size="28" style="0"/>
+          <Font name="Poppins" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Nawaitu an ukhrija zakatadz maali fardhan lillahi ta`ala."/>
+        <Property name="text" type="java.lang.String" value="E-Wallet (Verifikasi Otomatis)"/>
+        <Property name="iconTextGap" type="int" value="10"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="NiatLabel">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="radio_e_walletActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

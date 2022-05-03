@@ -61,8 +61,9 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         CopyrightLabel = new javax.swing.JLabel();
         UsernameLabel = new javax.swing.JLabel();
         radio_zakat_maal = new javax.swing.JRadioButton();
-        radio_kalkulator_zakat = new javax.swing.JRadioButton();
+        radio_riwayat_transaksi = new javax.swing.JRadioButton();
         radio_zakat_fitrah = new javax.swing.JRadioButton();
+        radio_kalkulator_zakat1 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home Page Muzakki");
@@ -110,12 +111,12 @@ public class HomePageMuzakki extends javax.swing.JFrame {
             }
         });
 
-        radio_kalkulator_zakat.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        radio_kalkulator_zakat.setText("Kalkulator Zakat");
-        radio_kalkulator_zakat.setIconTextGap(10);
-        radio_kalkulator_zakat.addActionListener(new java.awt.event.ActionListener() {
+        radio_riwayat_transaksi.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        radio_riwayat_transaksi.setText("Riwayat Transaksi");
+        radio_riwayat_transaksi.setIconTextGap(10);
+        radio_riwayat_transaksi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                radio_kalkulator_zakatActionPerformed(evt);
+                radio_riwayat_transaksiActionPerformed(evt);
             }
         });
 
@@ -125,6 +126,15 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         radio_zakat_fitrah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 radio_zakat_fitrahActionPerformed(evt);
+            }
+        });
+
+        radio_kalkulator_zakat1.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        radio_kalkulator_zakat1.setText("Kalkulator Zakat");
+        radio_kalkulator_zakat1.setIconTextGap(10);
+        radio_kalkulator_zakat1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio_kalkulator_zakat1ActionPerformed(evt);
             }
         });
 
@@ -144,7 +154,8 @@ public class HomePageMuzakki extends javax.swing.JFrame {
                         .addComponent(UsernameLabel))
                     .addComponent(radio_zakat_maal)
                     .addComponent(radio_zakat_fitrah)
-                    .addComponent(radio_kalkulator_zakat))
+                    .addComponent(radio_riwayat_transaksi)
+                    .addComponent(radio_kalkulator_zakat1))
                 .addContainerGap(398, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -170,20 +181,23 @@ public class HomePageMuzakki extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(UsernameLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(176, 176, 176))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(radio_zakat_maal)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(radio_zakat_fitrah)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(radio_kalkulator_zakat)
-                        .addGap(84, 84, 84)
+                        .addComponent(radio_kalkulator_zakat1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radio_riwayat_transaksi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_select_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -208,13 +222,17 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_radio_zakat_maalActionPerformed
 
-    private void radio_kalkulator_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_kalkulator_zakatActionPerformed
+    private void radio_riwayat_transaksiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_riwayat_transaksiActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_radio_kalkulator_zakatActionPerformed
+    }//GEN-LAST:event_radio_riwayat_transaksiActionPerformed
 
     private void radio_zakat_fitrahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_zakat_fitrahActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radio_zakat_fitrahActionPerformed
+
+    private void radio_kalkulator_zakat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_kalkulator_zakat1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radio_kalkulator_zakat1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -263,7 +281,8 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton radio_kalkulator_zakat;
+    private javax.swing.JRadioButton radio_kalkulator_zakat1;
+    private javax.swing.JRadioButton radio_riwayat_transaksi;
     private javax.swing.JRadioButton radio_zakat_fitrah;
     private javax.swing.JRadioButton radio_zakat_maal;
     // End of variables declaration//GEN-END:variables
