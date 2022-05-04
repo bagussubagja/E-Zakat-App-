@@ -4,6 +4,7 @@
  */
 package e.zakat.app.auth_screen.amilzakat;
 
+import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
 import e.zakat.app.auth_screen.muzakki.RegisterMuzakki;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.maal.HomePageMuzakki;
@@ -224,14 +225,14 @@ public class LoginAmilZakat extends javax.swing.JFrame {
             Statement stm = con.createStatement();
 
             //            String sql = "SELECT * FROM users where username ='"+username+"' and password '"+password+"'";
-            String sql = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'";
+            String sql = "SELECT * FROM users_amilzakat where username = '" + username + "' and password = '" + password + "'";
 
             ResultSet rs = stm.executeQuery(sql);
 
             if (rs.next()) {
                 dispose();
-                HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
-                homePageMuzakki.show();
+                HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+                homePageAmilZakat.show();
             }else{
                 JOptionPane.showMessageDialog(this, "username or password wrong");
                 edtUsername.setText("");

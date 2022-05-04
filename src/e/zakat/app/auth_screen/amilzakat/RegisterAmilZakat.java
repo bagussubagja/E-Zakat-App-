@@ -27,6 +27,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
      */
     public RegisterAmilZakat() {
         initComponents();
+        
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/auth-logo2.png")));
     
     Image img1 = myimage.getImage();
@@ -226,6 +227,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
+        RegisterSuccessAmilZakat amilZakat = new RegisterSuccessAmilZakat();
         int id;
         String nama_masjid = edtNama.getText();
         String alamat = edtAlamat.getText();
@@ -243,12 +245,8 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
             Statement sta = connection.createStatement();
 
             int x = sta.executeUpdate(query);
-            if (x == 0) {
-                JOptionPane.showMessageDialog(btnRegister, "This is alredy exist");
-            } else {
-                JOptionPane.showMessageDialog(btnRegister,
-                    "Welcome, " + msg + "Your account is sucessfully created");
-            }
+            this.dispose();
+            amilZakat.show();
             connection.close();
 
         } catch (Exception e) {

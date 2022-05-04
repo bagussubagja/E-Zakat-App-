@@ -177,7 +177,7 @@ public class StrukturKepengurusan_AmilZakat extends javax.swing.JFrame {
                         .addComponent(IconLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 324, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel6)))
-                .addContainerGap(104, Short.MAX_VALUE))
+                .addContainerGap(95, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(159, 159, 159)
@@ -190,7 +190,9 @@ public class StrukturKepengurusan_AmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-
+        HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+        this.dispose();
+        homePageAmilZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     /**
