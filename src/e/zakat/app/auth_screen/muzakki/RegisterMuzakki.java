@@ -6,7 +6,7 @@ package e.zakat.app.auth_screen.muzakki;
 
 import java.awt.EventQueue;
 import e.zakat.app.initial_screen.ChooseRoles;
-import e.zakat.app.muzakki_features.maal.HomePageMuzakki;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
