@@ -5,10 +5,10 @@
         <group>
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/auth_screen/amilzakat/LoginAmilZakat.java</file>
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/StrukturKepengurusan_AmilZakat.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/HomePageAmilZakat.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/auth_screen/amilzakat/RegisterAmilZakat.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/DataTransaksi_AmilZakat.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/auth_screen/amilzakat/RegisterSuccessAmilZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/HapusRiwayat_AmilZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/PesanKonfirmasiZakatMaal_AmilZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/CariNamaByName_AmilZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/HapusRiwayatSuccess_AmilZakat.java</file>
         </group>
     </open-files>
 </project-private>
