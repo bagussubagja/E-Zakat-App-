@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/auth_screen/amilzakat/LoginAmilZakat.java</file>
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/CariDataByName_AmilZakat.java</file>
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/StrukturKepengurusan_AmilZakat.java</file>
@@ -11,6 +12,9 @@
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/HapusRiwayatSuccess_AmilZakat.java</file>
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/ProsesTransaksi_AmilZakat.java</file>
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/CariDataResult_AmilZakat.java</file>
+=======
+            <file>file:/E:/DATA%20RIYANDI/KULIAH/SEMESTER%204/SENIN/PEMROGRAMAN%20BERBASIS%20OBJEK/PROJECT/E-Zakat-App-JavaGUI/src/e/zakat/app/muzakki_features/history/HistoryTransactionMuzakki.java</file>
+>>>>>>> def92929a39f7a457086c02de81c3e83757d1803
         </group>
     </open-files>
 </project-private>
