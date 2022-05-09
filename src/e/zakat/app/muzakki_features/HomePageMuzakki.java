@@ -52,6 +52,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -102,6 +103,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         UsernameLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         UsernameLabel.setText("Alif Ilman Nurrohman");
 
+        buttonGroup1.add(radio_zakat_maal);
         radio_zakat_maal.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_zakat_maal.setText("Bayar Zakat Maal");
         radio_zakat_maal.setIconTextGap(10);
@@ -111,6 +113,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radio_riwayat_transaksi);
         radio_riwayat_transaksi.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_riwayat_transaksi.setText("Riwayat Transaksi");
         radio_riwayat_transaksi.setIconTextGap(10);
@@ -120,6 +123,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radio_zakat_fitrah);
         radio_zakat_fitrah.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_zakat_fitrah.setText("Bayar Zakat Fitrah");
         radio_zakat_fitrah.setIconTextGap(10);
@@ -129,6 +133,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radio_kalkulator_zakat1);
         radio_kalkulator_zakat1.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_kalkulator_zakat1.setText("Kalkulator Zakat");
         radio_kalkulator_zakat1.setIconTextGap(10);
@@ -216,6 +221,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
 
     private void btn_select_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_menuActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_select_menuActionPerformed
 
     private void radio_zakat_maalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_zakat_maalActionPerformed
@@ -278,6 +284,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     private javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btn_exit;
     private javax.swing.JButton btn_select_menu;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
