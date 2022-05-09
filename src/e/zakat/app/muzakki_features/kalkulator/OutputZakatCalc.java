@@ -87,7 +87,7 @@ public class OutputZakatCalc extends javax.swing.JFrame {
         AlamatLabel1.setText("<html>Berdasarkan Peraturan Menteri Agama Nomor 31 tahun 2019, kadar zakat yang<br>harus dikeluarkan adalah sebesar 2.5% dari total pendapatan selama sebulan</html>");
 
         ZakatLabel.setFont(new java.awt.Font("Poppins Medium", 0, 64)); // NOI18N
-        ZakatLabel.setText("Rp 175.000");
+        ZakatLabel.setText("0");
 
         AlamatLabel.setBackground(new java.awt.Color(170, 170, 170));
         AlamatLabel.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
@@ -104,7 +104,7 @@ public class OutputZakatCalc extends javax.swing.JFrame {
 
         SalaryInputLabel.setBackground(new java.awt.Color(170, 170, 170));
         SalaryInputLabel.setFont(new java.awt.Font("Poppins Light", 0, 18)); // NOI18N
-        SalaryInputLabel.setText("Rp 7.000.000");
+        SalaryInputLabel.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -181,6 +181,9 @@ public class OutputZakatCalc extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        InputSalaryZakat inputSalaryZakat = new InputSalaryZakat();
+        this.dispose();
+        inputSalaryZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     /**
@@ -352,8 +355,8 @@ public class OutputZakatCalc extends javax.swing.JFrame {
     private javax.swing.JLabel AlamatLabel3;
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
-    private javax.swing.JLabel SalaryInputLabel;
-    private javax.swing.JLabel ZakatLabel;
+    public javax.swing.JLabel SalaryInputLabel;
+    public javax.swing.JLabel ZakatLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

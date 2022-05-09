@@ -7,6 +7,7 @@ package e.zakat.app.muzakki_features.kalkulator;
 import e.zakat.app.muzakki_features.maal.*;
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
@@ -172,10 +173,22 @@ public class InputSalaryZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
+        homePageMuzakki.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_calc_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calc_zakatActionPerformed
         // TODO add your handling code here:
+        OutputZakatCalc outputZakatCalc = new OutputZakatCalc();
+        int salary = Integer.parseInt(inputSalary.getText());
+        
+        
+        double zakatSalary = salary * 0.025;
+        outputZakatCalc.ZakatLabel.setText("Rp" + zakatSalary);
+        outputZakatCalc.SalaryInputLabel.setText("Rp" + salary);
+        this.dispose();
+        outputZakatCalc.show();
+        System.out.println("Jumlah zakat yang harus diberikan " + zakatSalary);
     }//GEN-LAST:event_btn_calc_zakatActionPerformed
 
     /**

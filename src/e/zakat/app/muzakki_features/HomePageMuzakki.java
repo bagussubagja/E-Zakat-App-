@@ -6,6 +6,9 @@ package e.zakat.app.muzakki_features;
 
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
+import e.zakat.app.muzakki_features.history.HistoryTransactionMuzakki;
+import e.zakat.app.muzakki_features.maal.ChooseMosqueMaal;
+import e.zakat.app.muzakki_features.maal.InputSalaryMaal;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
@@ -221,6 +224,22 @@ public class HomePageMuzakki extends javax.swing.JFrame {
 
     private void btn_select_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_menuActionPerformed
         // TODO add your handling code here:
+        InputSalaryMaal inputSalaryMaal = new InputSalaryMaal();
+        ChooseMosqueMaal chooseMosqueMaal = new ChooseMosqueMaal();
+        HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
+        
+        if(radio_zakat_maal.isSelected()){
+        this.dispose();
+        chooseMosqueMaal.show();
+        }else if(radio_zakat_fitrah.isSelected()){
+        this.dispose();
+        chooseMosqueMaal.show();
+        }else if(radio_kalkulator_zakat1.isSelected()){
+        this.dispose();
+        inputSalaryMaal.show();
+        }else if(radio_riwayat_transaksi.isSelected()){
+        historyTransactionMuzakki.show();
+        }
         
     }//GEN-LAST:event_btn_select_menuActionPerformed
 
