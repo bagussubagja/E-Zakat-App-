@@ -261,7 +261,7 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JTable TableHistory;
-    private javax.swing.JLabel UsernameLabel;
+    public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;

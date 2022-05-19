@@ -269,7 +269,7 @@ public class OutputZakatMaal extends javax.swing.JFrame {
     private javax.swing.JLabel AlamatLabel1;
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
-    private javax.swing.JLabel ZakatLabel;
+    public javax.swing.JLabel ZakatLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_pay_zakat;
     private javax.swing.JLabel jLabel1;

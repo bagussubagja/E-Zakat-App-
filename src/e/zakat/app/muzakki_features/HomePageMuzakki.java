@@ -8,7 +8,7 @@ import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.history.HistoryTransactionMuzakki;
 import e.zakat.app.muzakki_features.maal.ChooseMosqueMaal;
-import e.zakat.app.muzakki_features.maal.InputSalaryMaal;
+import e.zakat.app.muzakki_features.kalkulator.InputSalaryZakat;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
@@ -224,7 +224,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
 
     private void btn_select_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_menuActionPerformed
         // TODO add your handling code here:
-        InputSalaryMaal inputSalaryMaal = new InputSalaryMaal();
+        InputSalaryZakat inputSalaryZakat = new InputSalaryZakat();
         ChooseMosqueMaal chooseMosqueMaal = new ChooseMosqueMaal();
         HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
         
@@ -236,7 +236,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         chooseMosqueMaal.show();
         }else if(radio_kalkulator_zakat1.isSelected()){
         this.dispose();
-        inputSalaryMaal.show();
+        inputSalaryZakat.show();
         }else if(radio_riwayat_transaksi.isSelected()){
         historyTransactionMuzakki.show();
         }
@@ -300,7 +300,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
-    private javax.swing.JLabel UsernameLabel;
+    public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btn_exit;
     private javax.swing.JButton btn_select_menu;
     private javax.swing.ButtonGroup buttonGroup1;

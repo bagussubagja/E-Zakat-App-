@@ -206,6 +206,7 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
 
     private void btn_select_mosqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_mosqueActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_btn_select_mosqueActionPerformed
 
     private void radio_mosque_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mosque_1ActionPerformed

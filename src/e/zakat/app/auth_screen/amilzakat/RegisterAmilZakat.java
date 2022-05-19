@@ -4,6 +4,7 @@
  */
 package e.zakat.app.auth_screen.amilzakat;
 
+import e.zakat.app.auth_screen.muzakki.RegisterSuccessMuzakki;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
@@ -245,8 +246,13 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
             Statement sta = connection.createStatement();
 
             int x = sta.executeUpdate(query);
-            this.dispose();
-            amilZakat.show();
+            if (x == 0) {
+                        JOptionPane.showMessageDialog(btnRegister, "This already exist.");
+                    } else {
+                        this.dispose();
+                        amilZakat.show();
+                    }
+                    connection.close();
             connection.close();
 
         } catch (Exception e) {

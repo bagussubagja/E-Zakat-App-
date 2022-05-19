@@ -7,6 +7,7 @@ package e.zakat.app.auth_screen.muzakki;
 import java.awt.EventQueue;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.HomePageMuzakki;
+import e.zakat.app.auth_screen.muzakki.RegisterSuccessMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -279,8 +280,9 @@ String query = "INSERT INTO users_muzakki(username, password, nama, alamat, kode
                     if (x == 0) {
                         JOptionPane.showMessageDialog(btn_register, "This is alredy exist");
                     } else {
-                        JOptionPane.showMessageDialog(btn_register,
-                            "Welcome, " + msg + "Your account is sucessfully created");
+                        RegisterSuccessMuzakki reg = new RegisterSuccessMuzakki();
+                        this.dispose();
+                        reg.show();
                     }
                     connection.close();
             

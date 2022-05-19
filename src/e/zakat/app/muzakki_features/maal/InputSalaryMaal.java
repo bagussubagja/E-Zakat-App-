@@ -6,6 +6,8 @@ package e.zakat.app.muzakki_features.maal;
 
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
+import e.zakat.app.muzakki_features.kalkulator.OutputZakatCalc;
+import e.zakat.app.muzakki_features.maal.OutputZakatMaal;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
@@ -171,6 +173,15 @@ public class InputSalaryMaal extends javax.swing.JFrame {
 
     private void btn_calc_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calc_zakatActionPerformed
         // TODO add your handling code here:
+        OutputZakatMaal outputZakatMaal = new OutputZakatMaal();
+        int salary = Integer.parseInt(inputSalary.getText());
+        
+        
+        double zakatSalary = salary * 0.025;
+        outputZakatMaal.ZakatLabel.setText("Rp" + zakatSalary);
+        this.dispose();
+        outputZakatMaal.show();
+        System.out.println("Jumlah zakat yang harus diberikan " + zakatSalary);
     }//GEN-LAST:event_btn_calc_zakatActionPerformed
 
     /**

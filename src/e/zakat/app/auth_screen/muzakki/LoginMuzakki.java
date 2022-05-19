@@ -7,6 +7,7 @@ package e.zakat.app.auth_screen.muzakki;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.HomePageMuzakki;
 import e.zakat.app.initial_screen.OnboardingOne;
+import e.zakat.app.muzakki_features.history.HistoryTransactionMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.*;  
@@ -225,13 +226,16 @@ public class LoginMuzakki extends javax.swing.JFrame {
             Statement stm = con.createStatement();
             
 //            String sql = "SELECT * FROM users where username ='"+username+"' and password '"+password+"'";
-            String sql = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'"; 
+            String sql = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'";
             
             ResultSet rs = stm.executeQuery(sql);
             
             if (rs.next()) {
                 dispose();
                 HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
+                HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
+                homePageMuzakki.UsernameLabel.setText(rs.getString("nama"));
+                historyTransactionMuzakki.UsernameLabel.setText(rs.getString("nama"));
                 homePageMuzakki.show();
             }else{
                 JOptionPane.showMessageDialog(this, "username or password wrong");
