@@ -234,8 +234,8 @@ public class LoginMuzakki extends javax.swing.JFrame {
                 dispose();
                 HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
                 HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
-                homePageMuzakki.UsernameLabel.setText(rs.getString("nama"));
-                historyTransactionMuzakki.UsernameLabel.setText(rs.getString("nama"));
+                homePageMuzakki.UsernameLabel.setText(rs.getString("name"));
+                historyTransactionMuzakki.UsernameLabel.setText(rs.getString("name"));
                 homePageMuzakki.show();
             }else{
                 JOptionPane.showMessageDialog(this, "username or password wrong");
