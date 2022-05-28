@@ -5,8 +5,9 @@
 package e.zakat.app.auth_screen.muzakki;
 
 import e.zakat.app.initial_screen.ChooseRoles;
-import e.zakat.app.muzakki_features.maal.HomePageMuzakki;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
 import e.zakat.app.initial_screen.OnboardingOne;
+import e.zakat.app.muzakki_features.history.HistoryTransactionMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.*;  
@@ -217,21 +218,23 @@ public class LoginMuzakki extends javax.swing.JFrame {
         try {
             // open connection
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:4000/ezakat_db?useSSL=false","root", "mypass");
             
             String username = edtUsername.getText();
             String password = edtPassword.getText();
             
             Statement stm = con.createStatement();
             
-//            String sql = "SELECT * FROM users where username ='"+username+"' and password '"+password+"'";
-            String sql = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'"; 
-            
+            String sql = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'";
             ResultSet rs = stm.executeQuery(sql);
             
             if (rs.next()) {
                 dispose();
                 HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
+                HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
+                homePageMuzakki.UsernameLabel.setText(rs.getString("name"));
+                historyTransactionMuzakki.UsernameLabel.setText(rs.getString("name"));
                 homePageMuzakki.show();
             }else{
                 JOptionPane.showMessageDialog(this, "username or password wrong");

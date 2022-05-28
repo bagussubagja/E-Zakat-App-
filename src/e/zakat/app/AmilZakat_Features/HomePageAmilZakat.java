@@ -4,6 +4,9 @@
  */
 package e.zakat.app.AmilZakat_Features;
 
+import e.zakat.app.AmilZakat_Features.DataAntrian.ProsesZakat_AmilZakat;
+import e.zakat.app.AmilZakat_Features.StrukturKepengurusan.StrukturKepengurusan_AmilZakat;
+import e.zakat.app.AmilZakat_Features.DataTransaksi.DataTransaksi_AmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -180,8 +183,18 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
+        DataTransaksi_AmilZakat dataTransaksi_AmilZakat = new DataTransaksi_AmilZakat();
+        ProsesZakat_AmilZakat prosesZakat_AmilZakat = new ProsesZakat_AmilZakat();
+        StrukturKepengurusan_AmilZakat kepengurusan_AmilZakat = new StrukturKepengurusan_AmilZakat();
         if(dataTransaksi_radio.isSelected()){
-        
+        this.dispose();
+        dataTransaksi_AmilZakat.show();
+        }else if(dataAntrian_radio.isSelected()){
+            this.dispose();
+        prosesZakat_AmilZakat.show();
+        }else{
+            this.dispose();
+        kepengurusan_AmilZakat.show();
         }
         
     }//GEN-LAST:event_btn_loginActionPerformed

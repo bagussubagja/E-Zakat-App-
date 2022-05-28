@@ -117,9 +117,9 @@ public class RegisterSuccessMuzakki extends javax.swing.JFrame {
 
     private void btn_sign_inActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_sign_inActionPerformed
         // TODO add your handling code here:
-        ChooseRoles chooseRoles = new ChooseRoles();
+        LoginMuzakki loginMuzakki = new LoginMuzakki();
         this.dispose();
-        chooseRoles.show();
+        loginMuzakki.show();
     }//GEN-LAST:event_btn_sign_inActionPerformed
 
     /**

@@ -4,8 +4,9 @@
  */
 package e.zakat.app.auth_screen.amilzakat;
 
+import e.zakat.app.auth_screen.muzakki.RegisterSuccessMuzakki;
 import e.zakat.app.initial_screen.ChooseRoles;
-import e.zakat.app.muzakki_features.maal.HomePageMuzakki;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -27,6 +28,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
      */
     public RegisterAmilZakat() {
         initComponents();
+        
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/auth-logo2.png")));
     
     Image img1 = myimage.getImage();
@@ -226,6 +228,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
+        RegisterSuccessAmilZakat amilZakat = new RegisterSuccessAmilZakat();
         int id;
         String nama_masjid = edtNama.getText();
         String alamat = edtAlamat.getText();
@@ -244,11 +247,12 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
 
             int x = sta.executeUpdate(query);
             if (x == 0) {
-                JOptionPane.showMessageDialog(btnRegister, "This is alredy exist");
-            } else {
-                JOptionPane.showMessageDialog(btnRegister,
-                    "Welcome, " + msg + "Your account is sucessfully created");
-            }
+                        JOptionPane.showMessageDialog(btnRegister, "This already exist.");
+                    } else {
+                        this.dispose();
+                        amilZakat.show();
+                    }
+                    connection.close();
             connection.close();
 
         } catch (Exception e) {

@@ -4,9 +4,10 @@
  */
 package e.zakat.app.auth_screen.amilzakat;
 
+import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
 import e.zakat.app.auth_screen.muzakki.RegisterMuzakki;
 import e.zakat.app.initial_screen.ChooseRoles;
-import e.zakat.app.muzakki_features.maal.HomePageMuzakki;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.*;  
@@ -148,7 +149,7 @@ public class LoginAmilZakat extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(53, 53, 53)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(573, Short.MAX_VALUE))
+                .addContainerGap(570, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(360, 360, 360)
@@ -183,7 +184,7 @@ public class LoginAmilZakat extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(20, 20, 20)
                 .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 208, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 238, Short.MAX_VALUE)
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +205,7 @@ public class LoginAmilZakat extends javax.swing.JFrame {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(btnNavigateToRegister)
                         .addComponent(jLabel6))
-                    .addContainerGap(210, Short.MAX_VALUE)))
+                    .addContainerGap(240, Short.MAX_VALUE)))
         );
 
         pack();
@@ -224,14 +225,14 @@ public class LoginAmilZakat extends javax.swing.JFrame {
             Statement stm = con.createStatement();
 
             //            String sql = "SELECT * FROM users where username ='"+username+"' and password '"+password+"'";
-            String sql = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'";
+            String sql = "SELECT * FROM users_amilzakat where username = '" + username + "' and password = '" + password + "'";
 
             ResultSet rs = stm.executeQuery(sql);
 
             if (rs.next()) {
                 dispose();
-                HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
-                homePageMuzakki.show();
+                HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+                homePageAmilZakat.show();
             }else{
                 JOptionPane.showMessageDialog(this, "username or password wrong");
                 edtUsername.setText("");
