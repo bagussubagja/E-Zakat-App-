@@ -274,10 +274,17 @@ public class TransferBankMaal extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        ChoosePaymentMaal choosePaymentMaal = new ChoosePaymentMaal();
+        this.dispose();
+        choosePaymentMaal.show();
+        
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_confirm_payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirm_payActionPerformed
         // TODO add your handling code here:
+        PaymentSuccessMaal paymentSuccessMaal = new PaymentSuccessMaal();
+        this.dispose();
+        paymentSuccessMaal.show();
     }//GEN-LAST:event_btn_confirm_payActionPerformed
 
     /**

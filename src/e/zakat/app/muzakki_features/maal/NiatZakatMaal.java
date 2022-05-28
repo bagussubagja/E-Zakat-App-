@@ -176,10 +176,16 @@ public class NiatZakatMaal extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        OutputZakatMaal outputZakatMaal = new OutputZakatMaal();
+        this.dispose();
+        outputZakatMaal.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
         // TODO add your handling code here:
+        ChoosePaymentMaal choosePaymentMaal = new ChoosePaymentMaal();
+        this.dispose();
+        choosePaymentMaal.show();
     }//GEN-LAST:event_btn_nextActionPerformed
 
     /**

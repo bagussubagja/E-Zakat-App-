@@ -160,6 +160,9 @@ public class OutputZakatMaal extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        InputSalaryMaal inputSalaryMaal = new InputSalaryMaal();
+        this.dispose();
+        inputSalaryMaal.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_pay_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pay_zakatActionPerformed

@@ -220,6 +220,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
 
     private void btn_exitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_exitActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
     }//GEN-LAST:event_btn_exitActionPerformed
 
     private void btn_select_menuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_menuActionPerformed

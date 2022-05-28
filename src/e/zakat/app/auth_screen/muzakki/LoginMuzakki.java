@@ -218,16 +218,15 @@ public class LoginMuzakki extends javax.swing.JFrame {
         try {
             // open connection
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:4000/ezakat_db?useSSL=false","root", "mypass");
             
             String username = edtUsername.getText();
             String password = edtPassword.getText();
             
             Statement stm = con.createStatement();
             
-//            String sql = "SELECT * FROM users where username ='"+username+"' and password '"+password+"'";
             String sql = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'";
-            
             ResultSet rs = stm.executeQuery(sql);
             
             if (rs.next()) {

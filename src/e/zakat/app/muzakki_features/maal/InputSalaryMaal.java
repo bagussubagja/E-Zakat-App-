@@ -169,6 +169,9 @@ public class InputSalaryMaal extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        ChooseMosqueMaal chooseMosqueMaal = new ChooseMosqueMaal();
+        this.dispose();
+        chooseMosqueMaal.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_calc_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calc_zakatActionPerformed

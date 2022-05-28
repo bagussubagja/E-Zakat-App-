@@ -6,6 +6,7 @@ package e.zakat.app.muzakki_features.maal;
 
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.*;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -134,9 +135,9 @@ public class PaymentSuccessMaal extends javax.swing.JFrame {
 
     private void btn_home_pageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_home_pageActionPerformed
         // TODO add your handling code here:
-        ChooseRoles chooseRoles = new ChooseRoles();
+        HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
         this.dispose();
-        chooseRoles.show();
+        homePageMuzakki.show();
     }//GEN-LAST:event_btn_home_pageActionPerformed
 
     /**

@@ -52,6 +52,7 @@ public class ChoosePaymentMaal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btn_select_payment = new javax.swing.JButton();
@@ -96,6 +97,7 @@ public class ChoosePaymentMaal extends javax.swing.JFrame {
         PaymentLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         PaymentLabel.setText("Metode Pembayaran");
 
+        buttonGroup1.add(radio_transfer_bank);
         radio_transfer_bank.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_transfer_bank.setText("Transfer Bank (Verifikasi Manual)");
         radio_transfer_bank.setIconTextGap(10);
@@ -105,6 +107,7 @@ public class ChoosePaymentMaal extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radio_e_wallet);
         radio_e_wallet.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_e_wallet.setText("E-Wallet (Verifikasi Otomatis)");
         radio_e_wallet.setIconTextGap(10);
@@ -178,10 +181,23 @@ public class ChoosePaymentMaal extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        NiatZakatMaal niatZakatMaal = new NiatZakatMaal();
+        this.dispose();
+        niatZakatMaal.show();
+        
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_select_paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_paymentActionPerformed
         // TODO add your handling code here:
+        TransferBankMaal bankMaal = new TransferBankMaal();
+        EWalletMaal eWalletMaal = new EWalletMaal();
+        if(radio_transfer_bank.isSelected()){
+        this.dispose();
+        bankMaal.show();
+        }else if(radio_e_wallet.isSelected()){
+        this.dispose();
+        eWalletMaal.show();
+        }
     }//GEN-LAST:event_btn_select_paymentActionPerformed
 
     private void radio_transfer_bankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_transfer_bankActionPerformed
@@ -264,6 +280,7 @@ public class ChoosePaymentMaal extends javax.swing.JFrame {
     private javax.swing.JLabel PaymentLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_select_payment;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton radio_e_wallet;
