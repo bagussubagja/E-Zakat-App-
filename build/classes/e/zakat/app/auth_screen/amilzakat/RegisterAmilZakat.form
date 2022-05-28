@@ -56,7 +56,7 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="edtNoHP" min="-2" pref="400" max="-2" attributes="0"/>
+                                          <Component id="edtKodePos" min="-2" pref="400" max="-2" attributes="0"/>
                                           <Component id="edtUsername" min="-2" pref="400" max="-2" attributes="0"/>
                                           <Component id="edtAlamat" alignment="1" min="-2" pref="400" max="-2" attributes="0"/>
                                           <Component id="edtNama" min="-2" pref="400" max="-2" attributes="0"/>
@@ -103,7 +103,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                          <Component id="edtNoHP" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="edtKodePos" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -180,7 +180,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="24" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="No HP"/>
+        <Property name="text" type="java.lang.String" value="Kode Pos"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
@@ -208,7 +208,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="edtNamaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="edtNoHP">
+    <Component class="javax.swing.JTextField" name="edtKodePos">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="24" style="0"/>

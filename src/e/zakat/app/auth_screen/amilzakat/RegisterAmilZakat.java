@@ -64,7 +64,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         edtAlamat = new javax.swing.JTextField();
         edtNama = new javax.swing.JTextField();
-        edtNoHP = new javax.swing.JTextField();
+        edtKodePos = new javax.swing.JTextField();
         edtUsername = new javax.swing.JTextField();
         btnRegister = new javax.swing.JButton();
         CopyrightLabel = new javax.swing.JLabel();
@@ -90,7 +90,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
         jLabel5.setText("Alamat");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel6.setText("No HP");
+        jLabel6.setText("Kode Pos");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel7.setText("Username");
@@ -104,7 +104,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
             }
         });
 
-        edtNoHP.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        edtKodePos.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
 
         edtUsername.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
 
@@ -167,7 +167,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(44, 44, 44)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(edtNoHP, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(edtKodePos, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(edtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(edtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -201,7 +201,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edtNoHP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(edtKodePos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,16 +232,17 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
         int id;
         String nama_masjid = edtNama.getText();
         String alamat = edtAlamat.getText();
-        String noHp = edtNoHP.getText();
+        String kodePos = edtKodePos.getText();
         String username = edtUsername.getText();
         String password = edtPassword.getText();
         String msg = "" + nama_masjid;
 
         try {
             
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
+//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
+              Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:4000/ezakat_db?useSSL=false","root", "mypass");
 
-            String query = "INSERT INTO users_amilzakat(nama_masjid, alamat, no_hp, username, password) VALUES ('" + nama_masjid + "', '" + alamat + "', '" + noHp + "', '" + username + "', '" + password +"');";
+            String query = "INSERT INTO users_amilzakat(name, address, postalcode, username, password) VALUES ('" + nama_masjid + "', '" + alamat + "', '" + kodePos + "', '" + username + "', '" + password +"');";
 
             Statement sta = connection.createStatement();
 
@@ -312,8 +313,8 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btn_back;
     private javax.swing.JTextField edtAlamat;
+    private javax.swing.JTextField edtKodePos;
     private javax.swing.JTextField edtNama;
-    private javax.swing.JTextField edtNoHP;
     private javax.swing.JTextField edtPassword;
     private javax.swing.JTextField edtUsername;
     private javax.swing.JLabel jLabel1;

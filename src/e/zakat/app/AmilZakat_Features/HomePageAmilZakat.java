@@ -59,6 +59,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         btn_back = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         CopyrightLabel = new javax.swing.JLabel();
+        UsernameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,7 +68,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel2.setText("Selamat datang, Masjid Nurul Falah");
+        jLabel2.setText("Selamat datang,");
 
         buttonGroup1.add(dataTransaksi_radio);
         dataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
@@ -113,6 +114,10 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel3.setText("Menu Utama");
 
+        UsernameLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        UsernameLabel.setForeground(new java.awt.Color(153, 153, 153));
+        UsernameLabel.setText("Masjid");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -121,7 +126,9 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(399, 399, 399)
-                        .addComponent(jLabel2))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(UsernameLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -155,7 +162,9 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(UsernameLabel))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
@@ -250,6 +259,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
+    public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_login;
     private javax.swing.ButtonGroup buttonGroup1;

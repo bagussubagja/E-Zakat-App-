@@ -217,7 +217,8 @@ public class LoginAmilZakat extends javax.swing.JFrame {
         try {
             // open connection
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
+              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:4000/ezakat_db?useSSL=false","root", "mypass");
 
             String username = edtUsername.getText();
             String password = edtPassword.getText();
@@ -233,6 +234,7 @@ public class LoginAmilZakat extends javax.swing.JFrame {
                 dispose();
                 HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
                 homePageAmilZakat.show();
+                homePageAmilZakat.UsernameLabel.setText(rs.getString("name"));
             }else{
                 JOptionPane.showMessageDialog(this, "username or password wrong");
                 edtUsername.setText("");
