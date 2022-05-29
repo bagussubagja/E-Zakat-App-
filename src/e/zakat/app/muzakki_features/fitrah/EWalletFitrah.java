@@ -262,10 +262,16 @@ public class EWalletFitrah extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        ChoosePaymentFitrah paymentFitrah = new ChoosePaymentFitrah();
+        this.dispose();
+        paymentFitrah.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_confirm_payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirm_payActionPerformed
         // TODO add your handling code here:
+        PaymentSuccessFitrah successFitrah = new PaymentSuccessFitrah();
+        this.dispose();
+        successFitrah.show();
     }//GEN-LAST:event_btn_confirm_payActionPerformed
 
     /**

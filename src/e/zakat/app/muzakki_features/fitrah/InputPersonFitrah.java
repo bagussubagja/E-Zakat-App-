@@ -171,10 +171,21 @@ public class InputPersonFitrah extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        ChooseMosqueFitrah chooseMosqueFitrah = new ChooseMosqueFitrah();
+        this.dispose();
+        chooseMosqueFitrah.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_calc_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calc_zakatActionPerformed
         // TODO add your handling code here:
+        int person = (int) SpinnerPerson.getValue();
+        System.out.println(person);
+        int dependents = person * 45000;
+        String result = Integer.toString(dependents);
+        OutputZakatFitrah outputZakatFitrah = new OutputZakatFitrah();
+        outputZakatFitrah.ZakatLabel.setText("Rp"+ result +"");
+        this.dispose();
+        outputZakatFitrah.show();
     }//GEN-LAST:event_btn_calc_zakatActionPerformed
 
     /**
