@@ -6,6 +6,7 @@ package e.zakat.app.muzakki_features;
 
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
+import e.zakat.app.muzakki_features.fitrah.ChooseMosqueFitrah;
 import e.zakat.app.muzakki_features.history.HistoryTransactionMuzakki;
 import e.zakat.app.muzakki_features.maal.ChooseMosqueMaal;
 import e.zakat.app.muzakki_features.kalkulator.InputSalaryZakat;
@@ -227,6 +228,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         // TODO add your handling code here:
         InputSalaryZakat inputSalaryZakat = new InputSalaryZakat();
         ChooseMosqueMaal chooseMosqueMaal = new ChooseMosqueMaal();
+        ChooseMosqueFitrah chooseMosqueFitrah = new ChooseMosqueFitrah();
         HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
         
         if(radio_zakat_maal.isSelected()){
@@ -234,7 +236,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         chooseMosqueMaal.show();
         }else if(radio_zakat_fitrah.isSelected()){
         this.dispose();
-        chooseMosqueMaal.show();
+        chooseMosqueFitrah.show();
         }else if(radio_kalkulator_zakat1.isSelected()){
         this.dispose();
         inputSalaryZakat.show();

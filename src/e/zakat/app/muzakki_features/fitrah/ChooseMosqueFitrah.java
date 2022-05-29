@@ -53,6 +53,7 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -102,6 +103,7 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
         AlamatLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         AlamatLabel.setText("Ujungberung");
 
+        buttonGroup1.add(radio_mosque_1);
         radio_mosque_1.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_mosque_1.setText("Masjid Agung Ujung Berung");
         radio_mosque_1.setIconTextGap(10);
@@ -111,6 +113,7 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radio_mosque_3);
         radio_mosque_3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_mosque_3.setText("Masjid Al-Hidayah");
         radio_mosque_3.setIconTextGap(10);
@@ -120,6 +123,7 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(radio_mosque_2);
         radio_mosque_2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         radio_mosque_2.setText("Masjid Nurul Iman");
         radio_mosque_2.setIconTextGap(10);
@@ -206,6 +210,17 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
 
     private void btn_select_mosqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_mosqueActionPerformed
         // TODO add your handling code here:
+        InputPersonFitrah inputPersonFitrah = new InputPersonFitrah();
+        if(radio_mosque_1.isSelected()){
+        this.dispose();
+        inputPersonFitrah.show();
+        }else if(radio_mosque_2.isSelected()){
+        this.dispose();
+        inputPersonFitrah.show();
+        }else if(radio_mosque_3.isSelected()){
+        this.dispose();
+        inputPersonFitrah.show();
+        }
         
     }//GEN-LAST:event_btn_select_mosqueActionPerformed
 
@@ -293,6 +308,7 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
     private javax.swing.JLabel IconLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_select_mosque;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

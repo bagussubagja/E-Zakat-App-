@@ -107,7 +107,9 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(189, 189, 189)
-                .addComponent(AlamatLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(AlamatLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ZakatLabel))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(460, Short.MAX_VALUE)
@@ -122,12 +124,9 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
                         .addComponent(AlamatLabel)
                         .addGap(519, 519, 519))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ZakatLabel)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btn_pay_zakat, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_pay_zakat, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(464, 464, 464))))
         );
         layout.setVerticalGroup(
@@ -145,7 +144,7 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(96, 96, 96)
                         .addComponent(AlamatLabel1)
-                        .addGap(56, 56, 56)
+                        .addGap(53, 53, 53)
                         .addComponent(ZakatLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -162,10 +161,16 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        InputPersonFitrah inputPersonFitrah = new InputPersonFitrah();
+        this.dispose();
+        inputPersonFitrah.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_pay_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pay_zakatActionPerformed
         // TODO add your handling code here:
+        NiatZakatFitrah niatZakatFitrah = new NiatZakatFitrah();
+        this.dispose();
+        niatZakatFitrah.show();
     }//GEN-LAST:event_btn_pay_zakatActionPerformed
 
     /**
@@ -335,7 +340,7 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
     private javax.swing.JLabel AlamatLabel1;
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
-    private javax.swing.JLabel ZakatLabel;
+    public javax.swing.JLabel ZakatLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_pay_zakat;
     private javax.swing.JLabel jLabel1;

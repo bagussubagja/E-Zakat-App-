@@ -178,10 +178,16 @@ public class NiatZakatFitrah extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        OutputZakatFitrah outputZakatFitrah = new OutputZakatFitrah();
+        this.dispose();
+        outputZakatFitrah.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_nextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_nextActionPerformed
         // TODO add your handling code here:
+        ChoosePaymentFitrah choosePaymentFitrah = new ChoosePaymentFitrah();
+        this.dispose();
+        choosePaymentFitrah.show();
     }//GEN-LAST:event_btn_nextActionPerformed
 
     /**
