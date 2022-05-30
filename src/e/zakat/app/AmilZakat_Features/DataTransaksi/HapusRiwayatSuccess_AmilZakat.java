@@ -4,6 +4,7 @@
  */
 package e.zakat.app.AmilZakat_Features.DataTransaksi;
 
+import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
@@ -121,6 +122,9 @@ public class HapusRiwayatSuccess_AmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+        this.dispose();
+        homePageAmilZakat.show();
 
     }//GEN-LAST:event_btn_backActionPerformed
 

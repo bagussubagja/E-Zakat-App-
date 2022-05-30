@@ -265,8 +265,8 @@ public class RegisterMuzakki extends javax.swing.JFrame {
 
         try {
             Class.forName("com.mysql.jdbc.Driver");
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
-              Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:4000/ezakat_db?useSSL=false","root", "mypass");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
+       
 
             String query = "INSERT INTO users_muzakki(username, password, name, address, postalcode, dependents) VALUES ('" + username + "', '" + password + "', '" + nama + "', '" + alamat + "', '" + kodePos +"', '" + tanggungan +"');";
 

@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
  *
  * @author bagus
  */
-public class DataTransaksi_AmilZakat extends javax.swing.JFrame {
+public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
 
     /**
      * Creates new form DataTransaksi_AmilZakat
      */
-    public DataTransaksi_AmilZakat() {
+    public DataTransaksiMaal_AmilZakat() {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/sub-menu-logo.png")));
     
@@ -177,8 +177,18 @@ public class DataTransaksi_AmilZakat extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
+        TampilkanDataMaal_AmilZakat tampilkanData_AmilZakat = new TampilkanDataMaal_AmilZakat();
+        ProsesTransaksi_AmilZakat prosesTransaksi_AmilZakat = new ProsesTransaksi_AmilZakat();
+        HapusRiwayat_AmilZakat hapusRiwayat_AmilZakat = new HapusRiwayat_AmilZakat();
         if(showDataTransaksi_radio.isSelected()){
-
+            this.dispose();
+            tampilkanData_AmilZakat.show();
+        }else if(dataAntrian_radio.isSelected()){
+            this.dispose();
+            prosesTransaksi_AmilZakat.show();
+        }else if(hapusRiwayat_radio.isSelected()){
+            this.dispose();
+            hapusRiwayat_AmilZakat.show();
         }
 
     }//GEN-LAST:event_btn_loginActionPerformed
@@ -207,20 +217,21 @@ public class DataTransaksi_AmilZakat extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DataTransaksi_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataTransaksiMaal_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DataTransaksi_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataTransaksiMaal_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DataTransaksi_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataTransaksiMaal_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DataTransaksi_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataTransaksiMaal_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DataTransaksi_AmilZakat().setVisible(true);
+                new DataTransaksiMaal_AmilZakat().setVisible(true);
             }
         });
     }

@@ -13,12 +13,12 @@ import javax.swing.ImageIcon;
  *
  * @author bagus
  */
-public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
+public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
 
     /**
      * Creates new form ProsesZakat_AmilZakat
      */
-    public ProsesZakat_AmilZakat() {
+    public DataTransaksiFitrah_AmilZakat() {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/sub-menu-logo.png")));
     
@@ -46,11 +46,12 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         IconLabel = new javax.swing.JLabel();
         showDataTransaksi_radio = new javax.swing.JRadioButton();
         dataAntrian_radio = new javax.swing.JRadioButton();
-        hapusRiwayat_radio = new javax.swing.JRadioButton();
+        cariNama_radio = new javax.swing.JRadioButton();
         btn_login = new javax.swing.JButton();
         btn_back = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -61,6 +62,7 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Proses Zakat Fitrah");
 
+        buttonGroup1.add(showDataTransaksi_radio);
         showDataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         showDataTransaksi_radio.setText("Tampilkan Data Antrian Zakat Fitrah");
         showDataTransaksi_radio.addActionListener(new java.awt.event.ActionListener() {
@@ -69,6 +71,7 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(dataAntrian_radio);
         dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         dataAntrian_radio.setText("Proses Data Zakat Fitrah");
         dataAntrian_radio.addActionListener(new java.awt.event.ActionListener() {
@@ -77,8 +80,9 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
             }
         });
 
-        hapusRiwayat_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        hapusRiwayat_radio.setText("Cari Data Antrian Berdasarkan Nama");
+        buttonGroup1.add(cariNama_radio);
+        cariNama_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        cariNama_radio.setText("Cari Data Antrian Berdasarkan Nama");
 
         btn_login.setBackground(new java.awt.Color(24, 152, 139));
         btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
@@ -120,7 +124,7 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(showDataTransaksi_radio)
                             .addComponent(dataAntrian_radio)
-                            .addComponent(hapusRiwayat_radio)
+                            .addComponent(cariNama_radio)
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -147,7 +151,7 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(dataAntrian_radio)
                         .addGap(18, 18, 18)
-                        .addComponent(hapusRiwayat_radio)
+                        .addComponent(cariNama_radio)
                         .addGap(143, 143, 143)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,8 +177,18 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
+        TampilkanDataFitrah_AmilZakat tampilkanDataFitrah_AmilZakat = new TampilkanDataFitrah_AmilZakat();
+        ProsesFitrah_AmilZakat prosesFitrah_AmilZakat = new ProsesFitrah_AmilZakat();
+        CariDataByName_AmilZakat byName_AmilZakat = new CariDataByName_AmilZakat();
         if(showDataTransaksi_radio.isSelected()){
-
+            this.dispose();
+            tampilkanDataFitrah_AmilZakat.show();
+        }else if(dataAntrian_radio.isSelected()){
+            this.dispose();
+            prosesFitrah_AmilZakat.show();
+        }else if(cariNama_radio.isSelected()){
+            this.dispose();
+            byName_AmilZakat.show();
         }
     }//GEN-LAST:event_btn_loginActionPerformed
 
@@ -202,20 +216,21 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ProsesZakat_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataTransaksiFitrah_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ProsesZakat_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataTransaksiFitrah_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ProsesZakat_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataTransaksiFitrah_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ProsesZakat_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DataTransaksiFitrah_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProsesZakat_AmilZakat().setVisible(true);
+                new DataTransaksiFitrah_AmilZakat().setVisible(true);
             }
         });
     }
@@ -225,8 +240,9 @@ public class ProsesZakat_AmilZakat extends javax.swing.JFrame {
     private javax.swing.JLabel IconLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_login;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton cariNama_radio;
     private javax.swing.JRadioButton dataAntrian_radio;
-    private javax.swing.JRadioButton hapusRiwayat_radio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton showDataTransaksi_radio;

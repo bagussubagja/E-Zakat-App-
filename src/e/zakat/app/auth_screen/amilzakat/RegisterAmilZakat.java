@@ -239,8 +239,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
 
         try {
             
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
-              Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:4000/ezakat_db?useSSL=false","root", "mypass");
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
 
             String query = "INSERT INTO users_amilzakat(name, address, postalcode, username, password) VALUES ('" + nama_masjid + "', '" + alamat + "', '" + kodePos + "', '" + username + "', '" + password +"');";
 

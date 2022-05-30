@@ -32,7 +32,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="btn_back" min="-2" pref="153" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
-                      <Component id="btn_login" min="-2" pref="152" max="-2" attributes="0"/>
+                      <Component id="btn_confirm" min="-2" pref="152" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
@@ -70,7 +70,7 @@
                       <Component id="DescLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="btn_login" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="btn_confirm" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                           <Component id="btn_back" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
@@ -111,7 +111,7 @@
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;Anda yakin dengan keputusan anda? Setelah semua riwayat&lt;br&gt;transaksi dihapus, data riwayat tidak akan bisa di akses kembali!&lt;/html&gt;"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_login">
+    <Component class="javax.swing.JButton" name="btn_confirm">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="8b" green="98" red="18" type="rgb"/>
@@ -125,7 +125,7 @@
         <Property name="text" type="java.lang.String" value="Konfirmasi"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_loginActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_confirmActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_back">

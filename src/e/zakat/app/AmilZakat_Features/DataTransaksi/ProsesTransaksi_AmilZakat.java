@@ -202,13 +202,16 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+        DataTransaksiMaal_AmilZakat dataTransaksi_AmilZakat = new DataTransaksiMaal_AmilZakat();
         this.dispose();
-        homePageAmilZakat.show();
+        dataTransaksi_AmilZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
+        PesanKonfirmasiZakatMaal_AmilZakat pesanKonfirmasiZakatMaal_AmilZakat = new PesanKonfirmasiZakatMaal_AmilZakat();
+        this.dispose();
+        pesanKonfirmasiZakatMaal_AmilZakat.show();
         
     }//GEN-LAST:event_btnConfirmActionPerformed
 

@@ -217,8 +217,8 @@ public class LoginAmilZakat extends javax.swing.JFrame {
         try {
             // open connection
             Class.forName("com.mysql.jdbc.Driver");
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
-              Connection con = DriverManager.getConnection("jdbc:mysql://localhost:4000/ezakat_db?useSSL=false","root", "mypass");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
+             
 
             String username = edtUsername.getText();
             String password = edtPassword.getText();
