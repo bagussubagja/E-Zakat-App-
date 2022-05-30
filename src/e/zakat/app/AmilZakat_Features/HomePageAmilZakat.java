@@ -210,6 +210,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        System.exit(0);
         
     }//GEN-LAST:event_btn_backActionPerformed
 

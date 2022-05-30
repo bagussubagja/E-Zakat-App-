@@ -41,7 +41,7 @@ public class HapusRiwayat_AmilZakat extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         IconLabel = new javax.swing.JLabel();
         DescLabel = new javax.swing.JLabel();
-        btn_login = new javax.swing.JButton();
+        btn_confirm = new javax.swing.JButton();
         btn_back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -57,13 +57,13 @@ public class HapusRiwayat_AmilZakat extends javax.swing.JFrame {
         DescLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         DescLabel.setText("<html><center>Anda yakin dengan keputusan anda? Setelah semua riwayat<br>transaksi dihapus, data riwayat tidak akan bisa di akses kembali!</html>");
 
-        btn_login.setBackground(new java.awt.Color(24, 152, 139));
-        btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
-        btn_login.setForeground(new java.awt.Color(238, 238, 238));
-        btn_login.setText("Konfirmasi");
-        btn_login.addActionListener(new java.awt.event.ActionListener() {
+        btn_confirm.setBackground(new java.awt.Color(24, 152, 139));
+        btn_confirm.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        btn_confirm.setForeground(new java.awt.Color(238, 238, 238));
+        btn_confirm.setText("Konfirmasi");
+        btn_confirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_loginActionPerformed(evt);
+                btn_confirmActionPerformed(evt);
             }
         });
 
@@ -89,7 +89,7 @@ public class HapusRiwayat_AmilZakat extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(57, 57, 57)
-                        .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(btn_confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(125, 125, 125))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -118,7 +118,7 @@ public class HapusRiwayat_AmilZakat extends javax.swing.JFrame {
                         .addComponent(DescLabel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_confirm, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(72, 72, 72))))
         );
@@ -126,14 +126,20 @@ public class HapusRiwayat_AmilZakat extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+    private void btn_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmActionPerformed
         // TODO add your handling code here:
+        HapusRiwayatSuccess_AmilZakat hapusRiwayatSuccess_AmilZakat = new HapusRiwayatSuccess_AmilZakat();
+        this.dispose();
+        hapusRiwayatSuccess_AmilZakat.show();
 
        
-    }//GEN-LAST:event_btn_loginActionPerformed
+    }//GEN-LAST:event_btn_confirmActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        DataTransaksi_AmilZakat amilZakat = new DataTransaksi_AmilZakat();
+        this.dispose();
+        amilZakat.show();
 
     }//GEN-LAST:event_btn_backActionPerformed
 
@@ -176,7 +182,7 @@ public class HapusRiwayat_AmilZakat extends javax.swing.JFrame {
     private javax.swing.JLabel DescLabel;
     private javax.swing.JLabel IconLabel;
     private javax.swing.JButton btn_back;
-    private javax.swing.JButton btn_login;
+    private javax.swing.JButton btn_confirm;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     // End of variables declaration//GEN-END:variables

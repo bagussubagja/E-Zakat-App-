@@ -209,6 +209,9 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
+        PesanKonfirmasiZakatMaal_AmilZakat pesanKonfirmasiZakatMaal_AmilZakat = new PesanKonfirmasiZakatMaal_AmilZakat();
+        this.dispose();
+        pesanKonfirmasiZakatMaal_AmilZakat.show();
         
     }//GEN-LAST:event_btnConfirmActionPerformed
 
