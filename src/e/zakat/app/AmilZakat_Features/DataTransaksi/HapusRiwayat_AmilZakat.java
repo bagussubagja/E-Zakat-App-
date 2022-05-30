@@ -137,7 +137,7 @@ public class HapusRiwayat_AmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        DataTransaksi_AmilZakat amilZakat = new DataTransaksi_AmilZakat();
+        DataTransaksiMaal_AmilZakat amilZakat = new DataTransaksiMaal_AmilZakat();
         this.dispose();
         amilZakat.show();
 

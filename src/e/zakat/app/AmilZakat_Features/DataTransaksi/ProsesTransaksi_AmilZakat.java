@@ -202,7 +202,7 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        DataTransaksi_AmilZakat dataTransaksi_AmilZakat = new DataTransaksi_AmilZakat();
+        DataTransaksiMaal_AmilZakat dataTransaksi_AmilZakat = new DataTransaksiMaal_AmilZakat();
         this.dispose();
         dataTransaksi_AmilZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed

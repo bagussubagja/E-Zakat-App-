@@ -41,9 +41,9 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         IconLabel = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        edtUsername = new javax.swing.JTextField();
+        findUsername = new javax.swing.JTextField();
         btn_back1 = new javax.swing.JButton();
-        btn_login = new javax.swing.JButton();
+        btn_confirmAction = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,7 +57,7 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel4.setText("Nama Lengkap");
 
-        edtUsername.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        findUsername.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
 
         btn_back1.setBackground(new java.awt.Color(221, 221, 221));
         btn_back1.setFont(new java.awt.Font("Poppins Light", 0, 18)); // NOI18N
@@ -68,13 +68,13 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
             }
         });
 
-        btn_login.setBackground(new java.awt.Color(24, 152, 139));
-        btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
-        btn_login.setForeground(new java.awt.Color(238, 238, 238));
-        btn_login.setText("Cari Nama");
-        btn_login.addActionListener(new java.awt.event.ActionListener() {
+        btn_confirmAction.setBackground(new java.awt.Color(24, 152, 139));
+        btn_confirmAction.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        btn_confirmAction.setForeground(new java.awt.Color(238, 238, 238));
+        btn_confirmAction.setText("Cari Nama");
+        btn_confirmAction.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_loginActionPerformed(evt);
+                btn_confirmActionActionPerformed(evt);
             }
         });
 
@@ -101,8 +101,8 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(btn_back1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(65, 65, 65)
-                                .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(btn_confirmAction, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(findUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 403, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(206, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -119,12 +119,12 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(findUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(100, 100, 100)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_back1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btn_confirmAction, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 16, Short.MAX_VALUE)))
                 .addGap(139, 139, 139))
         );
@@ -134,14 +134,19 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
 
     private void btn_back1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_back1ActionPerformed
         // TODO add your handling code here:
-        
+        DataTransaksiFitrah_AmilZakat dataTransaksiFitrah_AmilZakat = new DataTransaksiFitrah_AmilZakat();
+        this.dispose();
+        dataTransaksiFitrah_AmilZakat.show();
     }//GEN-LAST:event_btn_back1ActionPerformed
 
-    private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
+    private void btn_confirmActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmActionActionPerformed
         // TODO add your handling code here:
-
+        CariDataResult_AmilZakat result_AmilZakat = new CariDataResult_AmilZakat();
+        this.dispose();
+        result_AmilZakat.show();
         
-    }//GEN-LAST:event_btn_loginActionPerformed
+        
+    }//GEN-LAST:event_btn_confirmActionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,8 +187,8 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel IconLabel;
     private javax.swing.JButton btn_back1;
-    private javax.swing.JButton btn_login;
-    private javax.swing.JTextField edtUsername;
+    private javax.swing.JButton btn_confirmAction;
+    private javax.swing.JTextField findUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

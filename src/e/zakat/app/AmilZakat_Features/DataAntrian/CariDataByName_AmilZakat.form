@@ -44,9 +44,9 @@
                           <Group type="102" attributes="0">
                               <Component id="btn_back1" min="-2" pref="153" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
-                              <Component id="btn_login" min="-2" pref="152" max="-2" attributes="0"/>
+                              <Component id="btn_confirmAction" min="-2" pref="152" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="edtUsername" min="-2" pref="403" max="-2" attributes="0"/>
+                          <Component id="findUsername" min="-2" pref="403" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -69,13 +69,13 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="184" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="edtUsername" min="-2" max="-2" attributes="0"/>
+                          <Component id="findUsername" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btn_back1" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
-                          <Component id="btn_login" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
+                          <Component id="btn_confirmAction" alignment="3" min="-2" pref="47" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
                   </Group>
@@ -115,7 +115,7 @@
         <Property name="text" type="java.lang.String" value="Nama Lengkap"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="edtUsername">
+    <Component class="javax.swing.JTextField" name="findUsername">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Poppins" size="24" style="0"/>
@@ -136,7 +136,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_back1ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btn_login">
+    <Component class="javax.swing.JButton" name="btn_confirmAction">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="8b" green="98" red="18" type="rgb"/>
@@ -150,7 +150,7 @@
         <Property name="text" type="java.lang.String" value="Cari Nama"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_loginActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_confirmActionActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
