@@ -25,6 +25,7 @@ import javax.swing.JOptionPane;
  */
 public class HomePageMuzakki extends javax.swing.JFrame {
     public static String choosenMenu;
+    
     /**
      * Creates new form LoginMuzakki
      */
@@ -37,7 +38,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     ImageIcon i = new ImageIcon(img2);
     
     IconLabel.setIcon(i);
-    
+    UsernameLabel.setText(LoginMuzakki.name);
     ImageIcon myimage2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-copyright.png")));
     
     Image img3 = myimage2.getImage();

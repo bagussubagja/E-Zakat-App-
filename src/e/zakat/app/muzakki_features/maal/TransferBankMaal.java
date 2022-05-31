@@ -220,8 +220,7 @@ public class TransferBankMaal extends javax.swing.JFrame {
                                     .addComponent(NoRekMandiri)
                                     .addComponent(NoRekBNI)
                                     .addComponent(NoRekBCA)
-                                    .addComponent(AlamatAmilZakatLabel))
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(AlamatAmilZakatLabel)))
                             .addComponent(NoHpAmilZakatLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(416, 416, 416)
@@ -295,7 +294,7 @@ public class TransferBankMaal extends javax.swing.JFrame {
         
         try {
             String success = "Sukses";
-            String sql_history = "INSERT INTO zakat_history(type_zakat, nominal, mosque, phone_number, status, date) VALUES ('" + HomePageMuzakki.choosenMenu + "', '" + OutputZakatMaal.nominal + "', '" + ChooseMosqueMaal.choosenMosque + "', '" + phone_number + "', '" + success +"', NOW());";
+            String sql_history = "INSERT INTO zakat_history(name, type_zakat, nominal, mosque, phone_number, status, date) VALUES ('" + LoginMuzakki.name +  "', '" + HomePageMuzakki.choosenMenu + "', '" + OutputZakatMaal.nominal + "', '" + ChooseMosqueMaal.choosenMosque + "', '" + phone_number + "', '" + success +"', NOW());";
             System.out.println(sql_history);
             Connection hubung = (Connection)KoneksiDB.configDB();
             Statement stm = hubung.createStatement();

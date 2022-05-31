@@ -27,6 +27,7 @@ import javax.swing.JOptionPane;
 public class LoginMuzakki extends javax.swing.JFrame {
     public static ArrayList<String> masjid = new ArrayList<String>();
     public static String userLocation;
+    public static String name;
     /**
      * Creates new form LoginMuzakki
      */
@@ -311,9 +312,9 @@ public class LoginMuzakki extends javax.swing.JFrame {
                 homePageMuzakki.show();
             }
              while(rs_mosque.next()){
-             System.out.println(rs_mosque.getString("name"));
              masjid.add(rs_mosque.getString("name"));
              userLocation = rs_user.getString("region");
+             name = rs_user.getString("name");
             }
             
             hubung.close();

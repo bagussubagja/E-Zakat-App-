@@ -7,6 +7,7 @@ package e.zakat.app.muzakki_features.fitrah;
 import e.zakat.app.muzakki_features.maal.*;
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
@@ -21,7 +22,7 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class ChooseMosqueFitrah extends javax.swing.JFrame {
-
+    public static String choosenMosque;
     /**
      * Creates new form LoginMuzakki
      */
@@ -42,6 +43,14 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
     ImageIcon j = new ImageIcon(img4);
     
     CopyrightLabel.setIcon(j);
+    try {
+            radio_mosque_1.setText(LoginMuzakki.masjid.get(0));
+            radio_mosque_2.setText(LoginMuzakki.masjid.get(1));
+            radio_mosque_3.setText(LoginMuzakki.masjid.get(2));
+            AlamatLabel.setText(LoginMuzakki.userLocation);
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
     }
 
     /**
@@ -206,18 +215,24 @@ public class ChooseMosqueFitrah extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
+        HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
+        this.dispose();
+        homePageMuzakki.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_select_mosqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_mosqueActionPerformed
         // TODO add your handling code here:
         InputPersonFitrah inputPersonFitrah = new InputPersonFitrah();
         if(radio_mosque_1.isSelected()){
+        choosenMosque = radio_mosque_1.getText();
         this.dispose();
         inputPersonFitrah.show();
         }else if(radio_mosque_2.isSelected()){
+        choosenMosque = radio_mosque_2.getText();
         this.dispose();
         inputPersonFitrah.show();
         }else if(radio_mosque_3.isSelected()){
+        choosenMosque = radio_mosque_3.getText();
         this.dispose();
         inputPersonFitrah.show();
         }

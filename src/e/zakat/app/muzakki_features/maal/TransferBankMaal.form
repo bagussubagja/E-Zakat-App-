@@ -96,7 +96,6 @@
                                   <Component id="NoRekBCA" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="AlamatAmilZakatLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="NoHpAmilZakatLabel4" min="-2" max="-2" attributes="0"/>
                       </Group>

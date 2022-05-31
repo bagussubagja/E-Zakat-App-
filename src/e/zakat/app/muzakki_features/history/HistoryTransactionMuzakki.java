@@ -39,51 +39,11 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
     Image img3 = myimage2.getImage();
     Image img4 = img3.getScaledInstance(CopyrightLabel.getWidth(), CopyrightLabel.getHeight(), Image.SCALE_SMOOTH);
     ImageIcon j = new ImageIcon(img4);
-    
+    UsernameLabel.setText(LoginMuzakki.name);
     CopyrightLabel.setIcon(j);
     
     display_table();
     
-//    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-//    centerRenderer.setHorizontalAlignment( JLabel.CENTER );
-//    
-//    JTableHeader Theader = TableHistory.getTableHeader();
-//    Theader.setFont(new Font("Poppins", Font.BOLD, 16));
-//    ((DefaultTableCellRenderer)Theader.getDefaultRenderer())
-//            .setHorizontalAlignment(JLabel.CENTER);
-//    TableHistory.setFont(new Font("Poppins", Font.PLAIN, 16));
-//    TableHistory.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-//    TableHistory.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
-//    TableHistory.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
-//    TableHistory.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
-//    TableHistory.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-//    TableHistory.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
-//    TableHistory.getColumnModel().getColumn(6).setCellRenderer(centerRenderer);
-//    
-//    TableHistory.getColumnModel().getColumn(0).setPreferredWidth(50);
-//    TableHistory.getColumnModel().getColumn(0).setMaxWidth(50);
-//    TableHistory.getColumnModel().getColumn(1).setPreferredWidth(150);
-//    TableHistory.getColumnModel().getColumn(1).setMaxWidth(150);
-//    TableHistory.getColumnModel().getColumn(2).setPreferredWidth(180);
-//    TableHistory.getColumnModel().getColumn(2).setMaxWidth(180);
-//    TableHistory.getColumnModel().getColumn(3).setPreferredWidth(300);
-//    TableHistory.getColumnModel().getColumn(3).setMaxWidth(300);
-//    TableHistory.getColumnModel().getColumn(4).setPreferredWidth(170);
-//    TableHistory.getColumnModel().getColumn(4).setMaxWidth(170);
-//    TableHistory.getColumnModel().getColumn(5).setPreferredWidth(100);
-//    TableHistory.getColumnModel().getColumn(5).setMaxWidth(100);
-    
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
-//            String query1 = "SELECT * FROM zakat_history";
-//            Statement st = con.createStatement();
-//            ResultSet rs = st.executeQuery(query1);
-//            while(rs.next()){
-//            
-//            }
-//        } catch (Exception e) {
-//        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -263,6 +223,7 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
     {
         DefaultTableModel table = new DefaultTableModel();
         table.addColumn("ID");
+        table.addColumn("Nama");
         table.addColumn("Jenis Zakat");
         table.addColumn("Nominal");
         table.addColumn("Masjid");
@@ -277,7 +238,7 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
         try {
             int counter = 1;
             //Query
-            String sql = "SELECT * FROM zakat_history";
+            String sql = "SELECT * FROM zakat_history WHERE name = '"+ LoginMuzakki.name +"';";
             
             //Koneksi
 //            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
@@ -292,7 +253,7 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
             //Looping
             while (rs.next()) {
                 table.addRow(new Object[]{
-                   counter++,rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7)
+                   counter++,rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8)
                 });
                 
             }

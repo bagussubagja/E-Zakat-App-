@@ -195,7 +195,7 @@ public class ChoosePaymentMaal extends javax.swing.JFrame {
         try {
             bankMaal = new TransferBankMaal();
             EWalletMaal eWalletMaal = new EWalletMaal();
-            if(radio_transfer_bank.isSelected()){
+        if(radio_transfer_bank.isSelected()){
         this.dispose();
         bankMaal.show();
         }else if(radio_e_wallet.isSelected()){
