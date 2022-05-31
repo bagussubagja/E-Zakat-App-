@@ -181,7 +181,12 @@ public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         TampilkanDataFitrah_AmilZakat tampilkanDataFitrah_AmilZakat = new TampilkanDataFitrah_AmilZakat();
-        ProsesFitrah_AmilZakat prosesFitrah_AmilZakat = new ProsesFitrah_AmilZakat();
+        ProsesFitrah_AmilZakat prosesFitrah_AmilZakat = null;
+        try {
+            prosesFitrah_AmilZakat = new ProsesFitrah_AmilZakat();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataTransaksiFitrah_AmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+        }
         CariDataByName_AmilZakat byName_AmilZakat = new CariDataByName_AmilZakat();
         if(showDataTransaksi_radio.isSelected()){
             this.dispose();

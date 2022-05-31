@@ -4,8 +4,11 @@
  */
 package e.zakat.app.AmilZakat_Features.DataAntrian;
 
+import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
 import javax.swing.ImageIcon;
 
 /**
@@ -13,7 +16,9 @@ import javax.swing.ImageIcon;
  * @author bagus
  */
 public class CariDataByName_AmilZakat extends javax.swing.JFrame {
-
+    public static String resultName;
+    public static String resultNominal;
+    public static String resultDate;
     /**
      * Creates new form CariNamaByName_AmilZakat
      */
@@ -141,9 +146,39 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
 
     private void btn_confirmActionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmActionActionPerformed
         // TODO add your handling code here:
-        CariDataResult_AmilZakat result_AmilZakat = new CariDataResult_AmilZakat();
+        String name = findUsername.getText();
+        try {
+            int counter = 1;
+            //Query
+            String sql = "SELECT name, date, nominal FROM data_zakat_amilzakat WHERE name = '"+name+"' ";
+            
+            //Koneksi
+//            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
+            java.sql.Connection hubung = (Connection)KoneksiDB.configDB();
+            
+            //Parameter Java SQL
+            java.sql.Statement s = hubung.createStatement();
+            
+            //Eksekusi
+            java.sql.ResultSet rs = s.executeQuery(sql);
+            
+            //Looping
+            while(rs.next()){
+            resultDate = rs.getString("date");
+            resultName = rs.getString("name");
+            resultNominal = rs.getString("nominal");
+            }
+            
+            System.out.println(resultName);
+            CariDataResult_AmilZakat result_AmilZakat = new CariDataResult_AmilZakat();
         this.dispose();
         result_AmilZakat.show();
+        } catch (Exception e) {
+            CariDataResult_NotFound_AmilZakat1 notFound_AmilZakat1 = new CariDataResult_NotFound_AmilZakat1();
+            this.dispose();
+            notFound_AmilZakat1.show();
+        }
+        
         
         
     }//GEN-LAST:event_btn_confirmActionActionPerformed

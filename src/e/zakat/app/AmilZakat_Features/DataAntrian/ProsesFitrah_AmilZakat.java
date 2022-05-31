@@ -6,9 +6,19 @@ package e.zakat.app.AmilZakat_Features.DataAntrian;
 
 import e.zakat.app.AmilZakat_Features.DataTransaksi.*;
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
+import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,10 +29,18 @@ public class ProsesFitrah_AmilZakat extends javax.swing.JFrame {
     /**
      * Creates new form ProsesTransaksi_AmilZakat
      */
-    public ProsesFitrah_AmilZakat() {
+    public ProsesFitrah_AmilZakat() throws SQLException {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/ilust-onboarding-two.png")));
-    
+    Connection hubung = (Connection)KoneksiDB.configDB();
+     Statement stm = hubung.createStatement(); 
+     String sql_user = "SELECT name, date, nominal FROM data_zakat_amilzakat WHERE type_zakat = 'Zakat Fitrah' AND mosque = '"+LoginAmilZakat.mosqueName+"' LIMIT 1";
+     ResultSet result_mosque = stm.executeQuery(sql_user);
+     if(result_mosque.next()){
+     UsernameLabel.setText(result_mosque.getString("name"));
+     NominalLabel.setText(result_mosque.getString("nominal"));
+     DateLabel.setText(result_mosque.getString("date"));
+     }
     Image img1 = myimage.getImage();
     Image img2 = img1.getScaledInstance(IconLabel.getWidth(), IconLabel.getHeight(), Image.SCALE_SMOOTH);
     ImageIcon i = new ImageIcon(img2);
@@ -44,12 +62,12 @@ public class ProsesFitrah_AmilZakat extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btn_back = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        MosqueLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        DateLabel = new javax.swing.JLabel();
+        UsernameLabel = new javax.swing.JLabel();
+        NominalLabel = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
@@ -76,29 +94,29 @@ public class ProsesFitrah_AmilZakat extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("Nama ");
 
-        jLabel5.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("Masjid Nurul Falah");
+        MosqueLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        MosqueLabel.setForeground(new java.awt.Color(153, 153, 153));
+        MosqueLabel.setText("Masjid Nurul Falah");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setText("Alamat");
+        jLabel6.setText("Tanggal Transaksi");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("Nominal");
 
-        jLabel8.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Ujung Berung");
+        DateLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        DateLabel.setForeground(new java.awt.Color(51, 51, 51));
+        DateLabel.setText("27-07-2022");
 
-        jLabel9.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Alif Ilman Nafian");
+        UsernameLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        UsernameLabel.setForeground(new java.awt.Color(51, 51, 51));
+        UsernameLabel.setText("Alif Ilman Nafian");
 
-        jLabel10.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("27-04-2022");
+        NominalLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        NominalLabel.setForeground(new java.awt.Color(51, 51, 51));
+        NominalLabel.setText("Rp100.00");
 
         jLabel11.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
@@ -130,15 +148,15 @@ public class ProsesFitrah_AmilZakat extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(124, 124, 124)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(jLabel3)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel4)
-                                        .addGap(145, 145, 145)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel10)))))
+                                            .addComponent(DateLabel)
+                                            .addComponent(UsernameLabel)
+                                            .addComponent(NominalLabel)))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(127, 127, 127)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +171,7 @@ public class ProsesFitrah_AmilZakat extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(502, 502, 502)
-                        .addComponent(jLabel5)))
+                        .addComponent(MosqueLabel)))
                 .addContainerGap(326, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -174,21 +192,21 @@ public class ProsesFitrah_AmilZakat extends javax.swing.JFrame {
                         .addGap(118, 118, 118))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(MosqueLabel)
                         .addGap(49, 49, 49)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel9))
+                            .addComponent(UsernameLabel))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel8))
+                            .addComponent(DateLabel))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel10))
+                            .addComponent(NominalLabel))
                         .addGap(33, 33, 33)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -210,6 +228,22 @@ public class ProsesFitrah_AmilZakat extends javax.swing.JFrame {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
+        try {
+            //        1. SQL
+          String SQL = "DELETE FROM data_zakat_amilzakat WHERE type_zakat = 'Zakat Fitrah' AND mosque = '"+LoginAmilZakat.mosqueName+"' LIMIT 1";
+//        2. Koneksi
+          Connection hubung = (Connection)KoneksiDB.configDB();
+//        3. Jalankan perintah SQL
+          PreparedStatement s = hubung.prepareStatement(SQL);
+
+//        4. Eksekusi
+          s.execute();
+          
+//            JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Gagal HAPUS \n"+e.getMessage());
+        }
         PesanKonfirmasiZakatMaal_AmilZakat pesanKonfirmasiZakatMaal_AmilZakat = new PesanKonfirmasiZakatMaal_AmilZakat();
         this.dispose();
         pesanKonfirmasiZakatMaal_AmilZakat.show();
@@ -247,25 +281,29 @@ public class ProsesFitrah_AmilZakat extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProsesFitrah_AmilZakat().setVisible(true);
+                try {
+                    new ProsesFitrah_AmilZakat().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProsesFitrah_AmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DateLabel;
     private javax.swing.JLabel IconLabel;
+    private javax.swing.JLabel MosqueLabel;
+    private javax.swing.JLabel NominalLabel;
+    private javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

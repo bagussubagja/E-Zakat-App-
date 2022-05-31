@@ -5,9 +5,13 @@
 package e.zakat.app.AmilZakat_Features.DataAntrian;
 
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -20,6 +24,16 @@ public class CariDataResult_AmilZakat extends javax.swing.JFrame {
      */
     public CariDataResult_AmilZakat() {
         initComponents();
+        ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/carinama.png")));
+    MosqueLabel.setText(LoginAmilZakat.mosqueName);
+    UsernameLabel.setText(CariDataByName_AmilZakat.resultName);
+    DateLabel.setText(CariDataByName_AmilZakat.resultDate);
+    NominalLabel.setText(CariDataByName_AmilZakat.resultNominal);
+    Image img1 = myimage.getImage();
+    Image img2 = img1.getScaledInstance(IconLabel.getWidth(), IconLabel.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon i = new ImageIcon(img2);
+    
+    IconLabel.setIcon(i);
     }
 
     /**
@@ -36,12 +50,12 @@ public class CariDataResult_AmilZakat extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btn_back = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        MosqueLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        DateLabel = new javax.swing.JLabel();
+        UsernameLabel = new javax.swing.JLabel();
+        NominalLabel = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -66,29 +80,29 @@ public class CariDataResult_AmilZakat extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("Nama ");
 
-        jLabel5.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("Masjid Nurul Falah");
+        MosqueLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        MosqueLabel.setForeground(new java.awt.Color(153, 153, 153));
+        MosqueLabel.setText("Masjid Nurul Falah");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setText("Alamat");
+        jLabel6.setText("Waktu Transaksi");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("Nominal");
 
-        jLabel8.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Ujung Berung");
+        DateLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        DateLabel.setForeground(new java.awt.Color(51, 51, 51));
+        DateLabel.setText("Ujung Berung");
 
-        jLabel9.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Alif Ilman Nafian");
+        UsernameLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        UsernameLabel.setForeground(new java.awt.Color(51, 51, 51));
+        UsernameLabel.setText("Alif Ilman Nafian");
 
-        jLabel10.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Rp1.000.000,00");
+        NominalLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        NominalLabel.setForeground(new java.awt.Color(51, 51, 51));
+        NominalLabel.setText("Rp1.000.000,00");
 
         btnConfirm.setBackground(new java.awt.Color(24, 152, 139));
         btnConfirm.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
@@ -120,9 +134,9 @@ public class CariDataResult_AmilZakat extends javax.swing.JFrame {
                                             .addComponent(jLabel4)
                                             .addGap(145, 145, 145)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jLabel8)
-                                                .addComponent(jLabel9)
-                                                .addComponent(jLabel10))))))
+                                                .addComponent(DateLabel)
+                                                .addComponent(UsernameLabel)
+                                                .addComponent(NominalLabel))))))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(127, 127, 127)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,8 +149,8 @@ public class CariDataResult_AmilZakat extends javax.swing.JFrame {
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(502, 502, 502)
-                        .addComponent(jLabel5)))
-                .addContainerGap(342, Short.MAX_VALUE))
+                        .addComponent(MosqueLabel)))
+                .addContainerGap(333, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,21 +166,21 @@ public class CariDataResult_AmilZakat extends javax.swing.JFrame {
                         .addGap(118, 118, 118))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
+                        .addComponent(MosqueLabel)
                         .addGap(49, 49, 49)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jLabel9))
+                            .addComponent(UsernameLabel))
                         .addGap(35, 35, 35)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel8))
+                            .addComponent(DateLabel))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
-                            .addComponent(jLabel10))
+                            .addComponent(NominalLabel))
                         .addGap(55, 55, 55)
                         .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -230,17 +244,17 @@ public class CariDataResult_AmilZakat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel DateLabel;
     private javax.swing.JLabel IconLabel;
+    private javax.swing.JLabel MosqueLabel;
+    private javax.swing.JLabel NominalLabel;
+    private javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

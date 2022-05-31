@@ -6,6 +6,7 @@ package e.zakat.app.AmilZakat_Features.DataAntrian;
 
 import e.zakat.app.AmilZakat_Features.DataTransaksi.DataTransaksiMaal_AmilZakat;
 import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Font;
 import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
@@ -23,6 +24,7 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
     public TampilkanDataFitrah_AmilZakat() {
         initComponents();
         display_table();
+        UsernameLabel.setText(LoginAmilZakat.mosqueName);
     }
 
     /**
@@ -113,9 +115,9 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        DataTransaksiMaal_AmilZakat amilZakat = new DataTransaksiMaal_AmilZakat();
+        DataTransaksiFitrah_AmilZakat fitrah_AmilZakat = new DataTransaksiFitrah_AmilZakat();
         this.dispose();
-        amilZakat.show();
+        fitrah_AmilZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     /**
@@ -156,22 +158,21 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
     private void display_table()
     {
         DefaultTableModel table = new DefaultTableModel();
-        table.addColumn("ID");
+        table.addColumn("No");
         table.addColumn("Nama");
-        table.addColumn("Alamat");
+        table.addColumn("Jenis Zakat");
+        table.addColumn("Nominal");
+        table.addColumn("Masjid");
+        table.addColumn("Nomor HP");
         table.addColumn("Tanggal");
-        table.addColumn("Kode Pos");
-
         JTableHeader Theader = table_data_fitrah.getTableHeader();
         Theader.setFont(new Font("Poppins", Font.BOLD, 16));
         table_data_fitrah.setFont(new Font("Poppins", Font.PLAIN, 16));
         
-//        table.addColumn("Nilai");
-        
         try {
             int counter = 1;
             //Query
-            String sql = "SELECT * FROM queue_fitrah_amilzakat";
+            String sql = "SELECT * FROM data_zakat_amilzakat where type_zakat = 'Zakat Fitrah' AND mosque = '"+LoginAmilZakat.mosqueName+"'; ";
             
             //Koneksi
 //            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
@@ -186,7 +187,7 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
             //Looping
             while (rs.next()) {
                 table.addRow(new Object[]{
-                   counter++,rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5)
+                   counter++,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7) 
                 });
                 
             }
