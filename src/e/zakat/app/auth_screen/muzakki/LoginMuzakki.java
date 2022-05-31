@@ -4,16 +4,19 @@
  */
 package e.zakat.app.auth_screen.muzakki;
 
+import e.zakat.app.KoneksiDB;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.HomePageMuzakki;
 import e.zakat.app.initial_screen.OnboardingOne;
 import e.zakat.app.muzakki_features.history.HistoryTransactionMuzakki;
+import e.zakat.app.muzakki_features.maal.ChooseMosqueMaal;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.*;  
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -22,12 +25,14 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class LoginMuzakki extends javax.swing.JFrame {
-
+    public static ArrayList<String> masjid = new ArrayList<String>();
+    public static String userLocation;
     /**
      * Creates new form LoginMuzakki
      */
     public LoginMuzakki() {
         initComponents();
+        
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/auth-logo.png")));
     
     Image img1 = myimage.getImage();
@@ -214,39 +219,8 @@ public class LoginMuzakki extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
-         
-        try {
-            // open connection
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
-              
-            
-            String username = edtUsername.getText();
-            String password = edtPassword.getText();
-            
-            Statement stm = con.createStatement();
-            
-            String sql = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'";
-            ResultSet rs = stm.executeQuery(sql);
-            
-            if (rs.next()) {
-                dispose();
-                HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
-                HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
-                homePageMuzakki.UsernameLabel.setText(rs.getString("name"));
-                historyTransactionMuzakki.UsernameLabel.setText(rs.getString("name"));
-                homePageMuzakki.show();
-            }else{
-                JOptionPane.showMessageDialog(this, "username or password wrong");
-                edtUsername.setText("");
-                edtPassword.setText("");
-            }
-            
-            con.close();
-            
-        } catch (Exception e) {
-            System.out.print(e.getMessage());
-        }
+         login();
+        
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
@@ -304,8 +278,49 @@ public class LoginMuzakki extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new LoginMuzakki().setVisible(true);
+                
             }
         });
+    }
+    
+    public void login(){
+    try {
+
+            HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
+            String username = edtUsername.getText();
+            String password = edtPassword.getText();
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            Statement stm = hubung.createStatement();
+            Statement stm2 = hubung.createStatement();
+            
+            String sql_user = "SELECT * FROM users_muzakki where username = '" + username + "' and password = '" + password + "'";
+        
+            ResultSet rs_user = stm.executeQuery(sql_user);
+            boolean isExist = rs_user.next();;
+
+            String postalCode = rs_user.getString("postalcode");
+            String sql_mosque = "SELECT mosque.postalcode, mosque.name, users_muzakki.postalcode FROM mosque INNER JOIN users_muzakki ON mosque.postalcode = users_muzakki.postalcode WHERE users_muzakki.postalcode = '"+postalCode+"'";
+            ResultSet rs_mosque = stm2.executeQuery(sql_mosque);
+
+            
+            if(isExist){
+            this.dispose();
+                HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
+                homePageMuzakki.UsernameLabel.setText(rs_user.getString("name"));
+                
+                homePageMuzakki.show();
+            }
+             while(rs_mosque.next()){
+             System.out.println(rs_mosque.getString("name"));
+             masjid.add(rs_mosque.getString("name"));
+             userLocation = rs_user.getString("region");
+            }
+            
+            hubung.close();
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, "Silahkan periksa kembali username / password yang anda masukkan sebelumnya!", "Username / Password Salah ", HEIGHT);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

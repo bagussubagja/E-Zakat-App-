@@ -5,6 +5,11 @@
 package e.zakat.app.AmilZakat_Features.DataAntrian;
 
 import e.zakat.app.AmilZakat_Features.DataTransaksi.DataTransaksiMaal_AmilZakat;
+import e.zakat.app.KoneksiDB;
+import java.awt.Font;
+import java.sql.Connection;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
 
 /**
  *
@@ -17,6 +22,7 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
      */
     public TampilkanDataFitrah_AmilZakat() {
         initComponents();
+        display_table();
     }
 
     /**
@@ -32,7 +38,7 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
         UsernameLabel = new javax.swing.JLabel();
         btn_back = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_data_fitrah = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,7 +57,7 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_data_fitrah.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -62,7 +68,7 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
                 "No", "Nama Lengkap", "Alamat", "Waktu Antrian", "Kode Pos"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table_data_fitrah);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,8 +88,8 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(362, 362, 362))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1063, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,9 +103,9 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
+                .addGap(32, 32, 32)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
 
         pack();
@@ -146,12 +152,56 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void display_table()
+    {
+        DefaultTableModel table = new DefaultTableModel();
+        table.addColumn("ID");
+        table.addColumn("Nama");
+        table.addColumn("Alamat");
+        table.addColumn("Tanggal");
+        table.addColumn("Kode Pos");
+
+        JTableHeader Theader = table_data_fitrah.getTableHeader();
+        Theader.setFont(new Font("Poppins", Font.BOLD, 16));
+        table_data_fitrah.setFont(new Font("Poppins", Font.PLAIN, 16));
+        
+//        table.addColumn("Nilai");
+        
+        try {
+            int counter = 1;
+            //Query
+            String sql = "SELECT * FROM queue_fitrah_amilzakat";
+            
+            //Koneksi
+//            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
+            java.sql.Connection hubung = (Connection)KoneksiDB.configDB();
+            
+            //Parameter Java SQL
+            java.sql.Statement s = hubung.createStatement();
+            
+            //Eksekusi
+            java.sql.ResultSet rs = s.executeQuery(sql);
+            
+            //Looping
+            while (rs.next()) {
+                table.addRow(new Object[]{
+                   counter++,rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5)
+                });
+                
+            }
+            table_data_fitrah.setModel(table);
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel UsernameLabel;
+    public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable table_data_fitrah;
     // End of variables declaration//GEN-END:variables
 }

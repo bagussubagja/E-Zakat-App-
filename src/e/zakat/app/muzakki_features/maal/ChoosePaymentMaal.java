@@ -12,6 +12,8 @@ import java.sql.*;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -189,15 +191,22 @@ public class ChoosePaymentMaal extends javax.swing.JFrame {
 
     private void btn_select_paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_paymentActionPerformed
         // TODO add your handling code here:
-        TransferBankMaal bankMaal = new TransferBankMaal();
-        EWalletMaal eWalletMaal = new EWalletMaal();
-        if(radio_transfer_bank.isSelected()){
+        TransferBankMaal bankMaal;
+        try {
+            bankMaal = new TransferBankMaal();
+            EWalletMaal eWalletMaal = new EWalletMaal();
+            if(radio_transfer_bank.isSelected()){
         this.dispose();
         bankMaal.show();
         }else if(radio_e_wallet.isSelected()){
         this.dispose();
         eWalletMaal.show();
         }
+        } catch (SQLException ex) {
+            Logger.getLogger(ChoosePaymentMaal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_btn_select_paymentActionPerformed
 
     private void radio_transfer_bankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_transfer_bankActionPerformed

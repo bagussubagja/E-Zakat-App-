@@ -4,6 +4,7 @@
  */
 package e.zakat.app.auth_screen.amilzakat;
 
+import e.zakat.app.KoneksiDB;
 import e.zakat.app.auth_screen.muzakki.RegisterSuccessMuzakki;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.HomePageMuzakki;
@@ -70,6 +71,8 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
         CopyrightLabel = new javax.swing.JLabel();
         btn_back = new javax.swing.JButton();
         edtPassword = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        edtRegion = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -134,6 +137,16 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
             }
         });
 
+        jLabel8.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel8.setText("Wilayah");
+
+        edtRegion.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        edtRegion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtRegionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -145,15 +158,20 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(531, 531, 531)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(505, 505, 505)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
                         .addGap(69, 69, 69)
-                        .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(101, 101, 101)
-                                .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(85, 85, 85)
+                                .addComponent(edtRegion, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(57, 57, 57)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,13 +189,11 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
                                             .addComponent(edtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(edtAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(edtNama, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(531, 531, 531)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(505, 505, 505)
-                        .addComponent(jLabel1)))
+                                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(48, 48, 48)
+                                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -210,13 +226,17 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(edtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38)
-                .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(edtRegion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CopyrightLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(74, Short.MAX_VALUE))
         );
 
         pack();
@@ -235,25 +255,25 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
         String kodePos = edtKodePos.getText();
         String username = edtUsername.getText();
         String password = edtPassword.getText();
+        String wilayah = edtRegion.getText();
         String msg = "" + nama_masjid;
 
         try {
-            
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
+           
 
-            String query = "INSERT INTO users_amilzakat(name, address, postalcode, username, password) VALUES ('" + nama_masjid + "', '" + alamat + "', '" + kodePos + "', '" + username + "', '" + password +"');";
+            String query = "INSERT INTO users_amilzakat(name, address, postalcode, username, password, region) VALUES ('" + nama_masjid + "', '" + alamat + "', '" + kodePos + "', '" + username + "', '" + password +"', '" + wilayah +"');";
 
-            Statement sta = connection.createStatement();
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            Statement stm = hubung.createStatement();
 
-            int x = sta.executeUpdate(query);
+            int x = stm.executeUpdate(query);
             if (x == 0) {
-                        JOptionPane.showMessageDialog(btnRegister, "This already exist.");
+                        JOptionPane.showMessageDialog(btnRegister, "Akun sudah ada!");
                     } else {
                         this.dispose();
                         amilZakat.show();
                     }
-                    connection.close();
-            connection.close();
+                    hubung.close();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -270,6 +290,10 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
     private void edtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edtPasswordActionPerformed
+
+    private void edtRegionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtRegionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtRegionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,6 +339,7 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
     private javax.swing.JTextField edtKodePos;
     private javax.swing.JTextField edtNama;
     private javax.swing.JTextField edtPassword;
+    private javax.swing.JTextField edtRegion;
     private javax.swing.JTextField edtUsername;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -323,5 +348,6 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     // End of variables declaration//GEN-END:variables
 }

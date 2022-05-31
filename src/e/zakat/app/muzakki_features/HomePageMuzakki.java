@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class HomePageMuzakki extends javax.swing.JFrame {
-
+    public static String choosenMenu;
     /**
      * Creates new form LoginMuzakki
      */
@@ -233,9 +233,13 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         
         if(radio_zakat_maal.isSelected()){
         this.dispose();
+        choosenMenu = "Zakat Maal";
+            System.out.println("Menu Pilihan : '"+choosenMenu+"'");
         chooseMosqueMaal.show();
         }else if(radio_zakat_fitrah.isSelected()){
         this.dispose();
+        choosenMenu = "Zakat Fitrah";
+        System.out.println("Menu Pilihan : '"+choosenMenu+"'");
         chooseMosqueFitrah.show();
         }else if(radio_kalkulator_zakat1.isSelected()){
         this.dispose();

@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class ChooseMosqueMaal extends javax.swing.JFrame {
-
+    public static String choosenMosque;
     /**
      * Creates new form LoginMuzakki
      */
@@ -42,6 +42,14 @@ public class ChooseMosqueMaal extends javax.swing.JFrame {
     ImageIcon j = new ImageIcon(img4);
     
     CopyrightLabel.setIcon(j);
+        try {
+            radio_mosque_1.setText(LoginMuzakki.masjid.get(0));
+            radio_mosque_2.setText(LoginMuzakki.masjid.get(1));
+            radio_mosque_3.setText(LoginMuzakki.masjid.get(2));
+            AlamatLabel.setText(LoginMuzakki.userLocation);
+        } catch (Exception e) {
+            System.err.println(e.toString());
+        }
     }
 
     /**
@@ -214,16 +222,24 @@ public class ChooseMosqueMaal extends javax.swing.JFrame {
     private void btn_select_mosqueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_mosqueActionPerformed
         // TODO add your handling code here:
         InputSalaryMaal inputSalaryMaal = new InputSalaryMaal();
+        
         if(radio_mosque_1.isSelected()){
         this.dispose();
         inputSalaryMaal.show();
+        choosenMosque = radio_mosque_1.getText();
+            System.out.println(choosenMosque);
         }else if(radio_mosque_2.isSelected()){
         this.dispose();
         inputSalaryMaal.show();
+        choosenMosque = radio_mosque_2.getText();
+         System.out.println(choosenMosque);
         }else if(radio_mosque_3.isSelected()){
         this.dispose();
         inputSalaryMaal.show();
+        choosenMosque = radio_mosque_3.getText();
+         System.out.println(choosenMosque);
         }
+        
     }//GEN-LAST:event_btn_select_mosqueActionPerformed
 
     private void radio_mosque_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_mosque_1ActionPerformed
@@ -293,12 +309,12 @@ public class ChooseMosqueMaal extends javax.swing.JFrame {
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
     private javax.swing.JButton btn_back;
-    private javax.swing.JButton btn_select_mosque;
+    public javax.swing.JButton btn_select_mosque;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton radio_mosque_1;
+    public javax.swing.JRadioButton radio_mosque_1;
     private javax.swing.JRadioButton radio_mosque_2;
     private javax.swing.JRadioButton radio_mosque_3;
     // End of variables declaration//GEN-END:variables
