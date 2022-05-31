@@ -28,6 +28,13 @@ public class LoginMuzakki extends javax.swing.JFrame {
     public static ArrayList<String> masjid = new ArrayList<String>();
     public static String userLocation;
     public static String name;
+    public static String address;
+    public static String postalcode;
+    public static String userName;
+    public static String pwd;
+    public static String dependents;
+    public static int id;
+    
     /**
      * Creates new form LoginMuzakki
      */
@@ -312,7 +319,14 @@ public class LoginMuzakki extends javax.swing.JFrame {
              masjid.add(rs_mosque.getString("name"));
              userLocation = rs_user.getString("region");
              name = rs_user.getString("name");
+             address = rs_user.getString("address");
+             userName = rs_user.getString("username");
+             pwd = rs_user.getString("password");
+             postalcode = rs_user.getString("postalcode");
+             dependents = rs_user.getString("dependents");
+             id = rs_user.getInt("id");
             }
+             System.out.println("id user : '"+id+"'");
             
             hubung.close();
             

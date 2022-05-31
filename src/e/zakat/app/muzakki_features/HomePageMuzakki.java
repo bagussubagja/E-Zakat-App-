@@ -10,12 +10,15 @@ import e.zakat.app.muzakki_features.fitrah.ChooseMosqueFitrah;
 import e.zakat.app.muzakki_features.history.HistoryTransactionMuzakki;
 import e.zakat.app.muzakki_features.maal.ChooseMosqueMaal;
 import e.zakat.app.muzakki_features.kalkulator.InputSalaryZakat;
+import e.zakat.app.muzakki_updateprofile.UpdateMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -93,6 +96,12 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         btn_select_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_select_menuActionPerformed(evt);
+            }
+        });
+
+        IconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IconLabelMouseClicked(evt);
             }
         });
 
@@ -266,6 +275,18 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     private void radio_kalkulator_zakat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_kalkulator_zakat1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radio_kalkulator_zakat1ActionPerformed
+
+    private void IconLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconLabelMouseClicked
+        // TODO add your handling code here:
+        UpdateMuzakki updateMuzakki = null;
+        try {
+            updateMuzakki = new UpdateMuzakki();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomePageMuzakki.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+        updateMuzakki.show();
+    }//GEN-LAST:event_IconLabelMouseClicked
 
     /**
      * @param args the command line arguments
