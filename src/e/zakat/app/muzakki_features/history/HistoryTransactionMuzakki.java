@@ -222,7 +222,7 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
     private void display_table()
     {
         DefaultTableModel table = new DefaultTableModel();
-        table.addColumn("ID");
+        table.addColumn("No");
         table.addColumn("Nama");
         table.addColumn("Jenis Zakat");
         table.addColumn("Nominal");

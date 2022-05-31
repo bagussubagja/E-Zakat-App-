@@ -283,11 +283,14 @@ public class EWalletMaal extends javax.swing.JFrame {
         try {
             String success = "Sukses";
             String sql_history = "INSERT INTO zakat_history(name, type_zakat, nominal, mosque, phone_number, status, date) VALUES ('" + LoginMuzakki.name +  "', '" + HomePageMuzakki.choosenMenu + "', '" + OutputZakatMaal.nominal + "', '" + ChooseMosqueMaal.choosenMosque + "', '" + phone_number + "', '" + success +"', NOW());";
+            String sql_data_amilzakat = "INSERT INTO data_zakat_amilzakat(name, type_zakat, nominal, mosque, phone_number, date) VALUES ('" + LoginMuzakki.name +  "', '" + HomePageMuzakki.choosenMenu + "', '" + OutputZakatMaal.nominal + "', '" + ChooseMosqueMaal.choosenMosque + "', '" + phone_number + "', NOW());";
             System.out.println(sql_history);
+            System.out.println(sql_data_amilzakat);
             Connection hubung = (Connection)KoneksiDB.configDB();
             Statement stm = hubung.createStatement();
             int x = stm.executeUpdate(sql_history);
-            if (x != 0) {
+            int y = stm.executeUpdate(sql_data_amilzakat);
+            if (x != 0 && y != 0) {
                 PaymentSuccessMaal maal = new PaymentSuccessMaal();
                 this.dispose();
                 maal.show();

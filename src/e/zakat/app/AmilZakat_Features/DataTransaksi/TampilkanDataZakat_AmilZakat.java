@@ -14,12 +14,12 @@ import javax.swing.table.JTableHeader;
  *
  * @author bagus
  */
-public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
+public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
 
     /**
      * Creates new form TampilkanData_AmilZakat
      */
-    public TampilkanDataMaal_AmilZakat() {
+    public TampilkanDataZakat_AmilZakat() {
         initComponents();
         display_table();
     }
@@ -35,7 +35,7 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table_data_maal = new javax.swing.JTable();
+        table_data_zakat = new javax.swing.JTable();
         btn_back = new javax.swing.JButton();
         UsernameLabel = new javax.swing.JLabel();
 
@@ -44,19 +44,15 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Riwayat Pembayaran Zakat");
 
-        table_data_maal.setModel(new javax.swing.table.DefaultTableModel(
+        table_data_zakat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "No", "Nama Lengkap", "Alamat", "Nominal"
             }
         ));
-        jScrollPane1.setViewportView(table_data_maal);
+        jScrollPane1.setViewportView(table_data_zakat);
 
         btn_back.setBackground(new java.awt.Color(221, 221, 221));
         btn_back.setFont(new java.awt.Font("Poppins Light", 0, 18)); // NOI18N
@@ -135,21 +131,23 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TampilkanDataMaal_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TampilkanDataZakat_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TampilkanDataMaal_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TampilkanDataZakat_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TampilkanDataMaal_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TampilkanDataZakat_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TampilkanDataMaal_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TampilkanDataZakat_AmilZakat.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TampilkanDataMaal_AmilZakat().setVisible(true);
+                new TampilkanDataZakat_AmilZakat().setVisible(true);
             }
         });
     }
@@ -157,20 +155,21 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
     private void display_table()
     {
         DefaultTableModel table = new DefaultTableModel();
-        table.addColumn("ID");
+        table.addColumn("No");
         table.addColumn("Nama");
-        table.addColumn("Alamat");
+        table.addColumn("Jenis Zakat");
         table.addColumn("Nominal");
-        JTableHeader Theader = table_data_maal.getTableHeader();
+        table.addColumn("Masjid");
+        table.addColumn("Nomor HP");
+        table.addColumn("Tanggal");
+        JTableHeader Theader = table_data_zakat.getTableHeader();
         Theader.setFont(new Font("Poppins", Font.BOLD, 16));
-        table_data_maal.setFont(new Font("Poppins", Font.PLAIN, 16));
-        
-//        table.addColumn("Nilai");
+        table_data_zakat.setFont(new Font("Poppins", Font.PLAIN, 16));
         
         try {
             int counter = 1;
             //Query
-            String sql = "SELECT * FROM data_zakatfitrah_amilzakat";
+            String sql = "SELECT * FROM data_zakat_amilzakat where type_zakat = 'Zakat Maal'";
             
             //Koneksi
 //            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
@@ -185,11 +184,11 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
             //Looping
             while (rs.next()) {
                 table.addRow(new Object[]{
-                   counter++,rs.getString(2),rs.getString(3),rs.getString(4)
+                   counter++,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7) 
                 });
                 
             }
-            table_data_maal.setModel(table);
+            table_data_zakat.setModel(table);
             
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -201,6 +200,6 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable table_data_maal;
+    private javax.swing.JTable table_data_zakat;
     // End of variables declaration//GEN-END:variables
 }

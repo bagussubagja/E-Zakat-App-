@@ -177,7 +177,7 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
-        TampilkanDataMaal_AmilZakat tampilkanData_AmilZakat = new TampilkanDataMaal_AmilZakat();
+        TampilkanDataZakat_AmilZakat tampilkanData_AmilZakat = new TampilkanDataZakat_AmilZakat();
         ProsesTransaksi_AmilZakat prosesTransaksi_AmilZakat = new ProsesTransaksi_AmilZakat();
         HapusRiwayat_AmilZakat hapusRiwayat_AmilZakat = new HapusRiwayat_AmilZakat();
         if(showDataTransaksi_radio.isSelected()){
