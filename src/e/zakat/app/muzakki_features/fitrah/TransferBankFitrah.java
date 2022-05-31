@@ -31,12 +31,12 @@ public class TransferBankFitrah extends javax.swing.JFrame {
      */
     public TransferBankFitrah() throws SQLException {
         initComponents();
-        ChoosenMosqueLabel.setText(ChooseMosqueMaal.choosenMosque);
+        ChoosenMosqueLabel.setText(ChooseMosqueFitrah.choosenMosque);
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-payment2.png")));
     
      Connection hubung = (Connection)KoneksiDB.configDB();
      Statement stm = hubung.createStatement(); 
-     String sql_mosque = "SELECT * FROM mosque where name = '"+ ChooseMosqueMaal.choosenMosque + "'; ";
+     String sql_mosque = "SELECT * FROM mosque where name = '"+ ChooseMosqueFitrah.choosenMosque + "'; ";
      ResultSet result_mosque = stm.executeQuery(sql_mosque);
      if(result_mosque.next()){
      phone_number = result_mosque.getString("phone_number");
@@ -283,9 +283,9 @@ public class TransferBankFitrah extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        ChoosePaymentMaal choosePaymentMaal = new ChoosePaymentMaal();
+        ChoosePaymentFitrah choosePaymentFitrah = new ChoosePaymentFitrah();
         this.dispose();
-        choosePaymentMaal.show();
+        choosePaymentFitrah.show();
         
     }//GEN-LAST:event_btn_backActionPerformed
 

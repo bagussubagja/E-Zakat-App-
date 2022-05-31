@@ -62,7 +62,7 @@ public class EWalletFitrah extends javax.swing.JFrame {
     
     Connection hubung = (Connection)KoneksiDB.configDB();
      Statement stm = hubung.createStatement(); 
-     String sql_mosque = "SELECT * FROM mosque where name = '"+ ChooseMosqueMaal.choosenMosque + "'; ";
+     String sql_mosque = "SELECT * FROM mosque where name = '"+ ChooseMosqueFitrah.choosenMosque + "'; ";
      ResultSet result_mosque = stm.executeQuery(sql_mosque);
      if(result_mosque.next()){
      choosenMosqueLabel.setText(result_mosque.getString("name"));
@@ -273,9 +273,9 @@ public class EWalletFitrah extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        ChoosePaymentMaal choosePaymentMaal = new ChoosePaymentMaal();
+        ChoosePaymentFitrah choosePaymentFitrah = new ChoosePaymentFitrah();
         this.dispose();
-        choosePaymentMaal.show();
+        choosePaymentFitrah.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_confirm_payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirm_payActionPerformed
