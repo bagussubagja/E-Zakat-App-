@@ -20,7 +20,7 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class OutputZakatMaal extends javax.swing.JFrame {
-
+    public static String nominal;
     /**
      * Creates new form LoginMuzakki
      */
@@ -167,6 +167,11 @@ public class OutputZakatMaal extends javax.swing.JFrame {
 
     private void btn_pay_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_pay_zakatActionPerformed
         // TODO add your handling code here:
+        NiatZakatMaal niatZakatMaal = new NiatZakatMaal();
+        this.dispose();
+        nominal = ZakatLabel.getText();
+        System.out.println(nominal);
+        niatZakatMaal.show();
     }//GEN-LAST:event_btn_pay_zakatActionPerformed
 
     /**

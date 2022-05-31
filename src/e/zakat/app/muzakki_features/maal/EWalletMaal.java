@@ -4,14 +4,22 @@
  */
 package e.zakat.app.muzakki_features.maal;
 
+import e.zakat.app.KoneksiDB;
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
+import e.zakat.app.muzakki_features.fitrah.ChooseMosqueFitrah;
+import e.zakat.app.muzakki_features.fitrah.OutputZakatFitrah;
+import e.zakat.app.muzakki_features.fitrah.PaymentSuccessFitrah;
+import static e.zakat.app.muzakki_features.maal.TransferBankMaal.phone_number;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -20,11 +28,11 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class EWalletMaal extends javax.swing.JFrame {
-
+    public static String phone_number;
     /**
      * Creates new form LoginMuzakki
      */
-    public EWalletMaal() {
+    public EWalletMaal() throws SQLException {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-payment2.png")));
     
@@ -49,6 +57,17 @@ public class EWalletMaal extends javax.swing.JFrame {
     ImageIcon k = new ImageIcon(img6);
     
     QrLabel.setIcon(k);
+    
+    Connection hubung = (Connection)KoneksiDB.configDB();
+     Statement stm = hubung.createStatement(); 
+     String sql_mosque = "SELECT * FROM mosque where name = '"+ ChooseMosqueMaal.choosenMosque + "'; ";
+     ResultSet result_mosque = stm.executeQuery(sql_mosque);
+     if(result_mosque.next()){
+     choosenMosqueLabel.setText(result_mosque.getString("name"));
+     phone_number = result_mosque.getString("phone_number");
+     NamaAmilZakatLabel.setText("A/N " + result_mosque.getString("contact_person") + " (" + phone_number + ")" );
+     AlamatAmilZakatLabel.setText(result_mosque.getString("address") + " " + result_mosque.getString("region") + " " + result_mosque.getString("postalcode"));
+     }
     }
 
     /**
@@ -68,14 +87,13 @@ public class EWalletMaal extends javax.swing.JFrame {
         AlamatLabel = new javax.swing.JLabel();
         AlamatLabel1 = new javax.swing.JLabel();
         MoqsueLabel = new javax.swing.JLabel();
-        MosqueLabel = new javax.swing.JLabel();
+        choosenMosqueLabel = new javax.swing.JLabel();
         AlamatLabel3 = new javax.swing.JLabel();
         AlamatLabel4 = new javax.swing.JLabel();
         AlamatLabel5 = new javax.swing.JLabel();
         AlamatLabel6 = new javax.swing.JLabel();
-        NamaAmilZakatLabel2 = new javax.swing.JLabel();
-        AlamatAmilZakatLabel1 = new javax.swing.JLabel();
-        NoHpAmilZakatLabel1 = new javax.swing.JLabel();
+        NamaAmilZakatLabel = new javax.swing.JLabel();
+        AlamatAmilZakatLabel = new javax.swing.JLabel();
         NoHpAmilZakatLabel4 = new javax.swing.JLabel();
         QrLabel = new javax.swing.JLabel();
         AlamatLabel2 = new javax.swing.JLabel();
@@ -118,8 +136,8 @@ public class EWalletMaal extends javax.swing.JFrame {
         MoqsueLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         MoqsueLabel.setText("Masjid Pilihan :");
 
-        MosqueLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
-        MosqueLabel.setText("Masjid Agung Ujung Berung");
+        choosenMosqueLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        choosenMosqueLabel.setText("Masjid Agung Ujung Berung");
 
         AlamatLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         AlamatLabel3.setText("Informasi Terkait :");
@@ -133,14 +151,11 @@ public class EWalletMaal extends javax.swing.JFrame {
         AlamatLabel6.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         AlamatLabel6.setText(":");
 
-        NamaAmilZakatLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        NamaAmilZakatLabel2.setText("A/N Nikita Sabila");
+        NamaAmilZakatLabel.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        NamaAmilZakatLabel.setText("A/N Nikita Sabila");
 
-        AlamatAmilZakatLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        AlamatAmilZakatLabel1.setText("Jl. A.H Nasution No.177, Kec. Ujung Berung 40386");
-
-        NoHpAmilZakatLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        NoHpAmilZakatLabel1.setText("(0831313131313)");
+        AlamatAmilZakatLabel.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        AlamatAmilZakatLabel.setText("Jl. A.H Nasution No.177, Kec. Ujung Berung 40386");
 
         NoHpAmilZakatLabel4.setFont(new java.awt.Font("Poppins Light", 0, 12)); // NOI18N
         NoHpAmilZakatLabel4.setText("<html>Pembayaran akan diverifikasi secara otomatis oleh maksimal 10 menit,<br>jika melebihi batas waktu, silahkan hubungi narahubung</html>");
@@ -173,7 +188,7 @@ public class EWalletMaal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(MoqsueLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(MosqueLabel))
+                        .addComponent(choosenMosqueLabel))
                     .addComponent(AlamatLabel3)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -193,11 +208,8 @@ public class EWalletMaal extends javax.swing.JFrame {
                                     .addComponent(AlamatLabel6))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(NamaAmilZakatLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(NoHpAmilZakatLabel1))
-                                    .addComponent(AlamatAmilZakatLabel1)))))
+                                    .addComponent(NamaAmilZakatLabel)
+                                    .addComponent(AlamatAmilZakatLabel)))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(29, 29, 29)
                         .addComponent(btn_confirm_pay, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -221,7 +233,7 @@ public class EWalletMaal extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(MoqsueLabel)
-                            .addComponent(MosqueLabel))
+                            .addComponent(choosenMosqueLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -233,13 +245,12 @@ public class EWalletMaal extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(AlamatLabel1)
                                     .addComponent(AlamatLabel5)
-                                    .addComponent(NamaAmilZakatLabel2)
-                                    .addComponent(NoHpAmilZakatLabel1))
+                                    .addComponent(NamaAmilZakatLabel))
                                 .addGap(9, 9, 9)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(AlamatLabel4)
                                     .addComponent(AlamatLabel6)
-                                    .addComponent(AlamatAmilZakatLabel1))
+                                    .addComponent(AlamatAmilZakatLabel))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -268,9 +279,23 @@ public class EWalletMaal extends javax.swing.JFrame {
 
     private void btn_confirm_payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirm_payActionPerformed
         // TODO add your handling code here:
-        PaymentSuccessMaal paymentSuccessMaal = new PaymentSuccessMaal();
-        this.dispose();
-        paymentSuccessMaal.show();
+        
+        try {
+            String success = "Sukses";
+            String sql_history = "INSERT INTO zakat_history(name, type_zakat, nominal, mosque, phone_number, status, date) VALUES ('" + LoginMuzakki.name +  "', '" + HomePageMuzakki.choosenMenu + "', '" + OutputZakatMaal.nominal + "', '" + ChooseMosqueMaal.choosenMosque + "', '" + phone_number + "', '" + success +"', NOW());";
+            System.out.println(sql_history);
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            Statement stm = hubung.createStatement();
+            int x = stm.executeUpdate(sql_history);
+            if (x != 0) {
+                PaymentSuccessMaal maal = new PaymentSuccessMaal();
+                this.dispose();
+                maal.show();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.toString());
+        }
+        
     }//GEN-LAST:event_btn_confirm_payActionPerformed
 
     /**
@@ -299,528 +324,22 @@ public class EWalletMaal extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EWalletMaal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EWalletMaal().setVisible(true);
+                try {
+                    new EWalletMaal().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(EWalletMaal.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AlamatAmilZakatLabel1;
+    private javax.swing.JLabel AlamatAmilZakatLabel;
     private javax.swing.JLabel AlamatLabel;
     private javax.swing.JLabel AlamatLabel1;
     private javax.swing.JLabel AlamatLabel2;
@@ -831,13 +350,12 @@ public class EWalletMaal extends javax.swing.JFrame {
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
     private javax.swing.JLabel MoqsueLabel;
-    private javax.swing.JLabel MosqueLabel;
-    private javax.swing.JLabel NamaAmilZakatLabel2;
-    private javax.swing.JLabel NoHpAmilZakatLabel1;
+    private javax.swing.JLabel NamaAmilZakatLabel;
     private javax.swing.JLabel NoHpAmilZakatLabel4;
     private javax.swing.JLabel QrLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_confirm_pay;
+    private javax.swing.JLabel choosenMosqueLabel;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

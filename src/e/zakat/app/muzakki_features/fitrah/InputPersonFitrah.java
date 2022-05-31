@@ -179,13 +179,19 @@ public class InputPersonFitrah extends javax.swing.JFrame {
     private void btn_calc_zakatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_calc_zakatActionPerformed
         // TODO add your handling code here:
         int person = (int) SpinnerPerson.getValue();
-        System.out.println(person);
         int dependents = person * 45000;
         String result = Integer.toString(dependents);
+        if(person == 0){
+        JOptionPane.showMessageDialog(rootPane, "Jumlah wajib zakat minimal 1 orang");
+        }else if(person > 0){
         OutputZakatFitrah outputZakatFitrah = new OutputZakatFitrah();
         outputZakatFitrah.ZakatLabel.setText("Rp"+ result +"");
         this.dispose();
         outputZakatFitrah.show();
+        }else{
+        JOptionPane.showMessageDialog(rootPane, "Masukkan kembali angka yang valid");
+        }
+        
     }//GEN-LAST:event_btn_calc_zakatActionPerformed
 
     /**

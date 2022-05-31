@@ -21,7 +21,7 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class OutputZakatFitrah extends javax.swing.JFrame {
-
+    public static String nominal;
     /**
      * Creates new form LoginMuzakki
      */
@@ -97,7 +97,7 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
         AlamatLabel1.setText("Jumlah zakat fitrah");
 
         ZakatLabel.setFont(new java.awt.Font("Poppins Medium", 0, 64)); // NOI18N
-        ZakatLabel.setText("Rp 315.000");
+        ZakatLabel.setText("Rp.");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -171,6 +171,8 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
         NiatZakatFitrah niatZakatFitrah = new NiatZakatFitrah();
         this.dispose();
         niatZakatFitrah.show();
+        nominal = ZakatLabel.getText();
+        System.out.println(nominal);
     }//GEN-LAST:event_btn_pay_zakatActionPerformed
 
     /**

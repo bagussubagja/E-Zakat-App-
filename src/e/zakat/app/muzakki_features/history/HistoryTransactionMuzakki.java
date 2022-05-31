@@ -4,6 +4,7 @@
  */
 package e.zakat.app.muzakki_features.history;
 
+import e.zakat.app.KoneksiDB;
 import e.zakat.app.muzakki_features.*;
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
@@ -18,6 +19,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
 /**
@@ -37,39 +39,12 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
     Image img3 = myimage2.getImage();
     Image img4 = img3.getScaledInstance(CopyrightLabel.getWidth(), CopyrightLabel.getHeight(), Image.SCALE_SMOOTH);
     ImageIcon j = new ImageIcon(img4);
-    
+    UsernameLabel.setText(LoginMuzakki.name);
     CopyrightLabel.setIcon(j);
     
-    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-    centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+    display_table();
     
-    JTableHeader Theader = TableHistory.getTableHeader();
-    Theader.setFont(new Font("Poppins", Font.BOLD, 16));
-    ((DefaultTableCellRenderer)Theader.getDefaultRenderer())
-            .setHorizontalAlignment(JLabel.CENTER);
-    TableHistory.setFont(new Font("Poppins", Font.PLAIN, 16));
-    TableHistory.getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
-    TableHistory.getColumnModel().getColumn(1).setCellRenderer(centerRenderer);
-    TableHistory.getColumnModel().getColumn(2).setCellRenderer(centerRenderer);
-    TableHistory.getColumnModel().getColumn(3).setCellRenderer(centerRenderer);
-    TableHistory.getColumnModel().getColumn(4).setCellRenderer(centerRenderer);
-    TableHistory.getColumnModel().getColumn(5).setCellRenderer(centerRenderer);
-    TableHistory.getColumnModel().getColumn(6).setCellRenderer(centerRenderer);
-    
-    TableHistory.getColumnModel().getColumn(0).setPreferredWidth(50);
-    TableHistory.getColumnModel().getColumn(0).setMaxWidth(50);
-    TableHistory.getColumnModel().getColumn(1).setPreferredWidth(150);
-    TableHistory.getColumnModel().getColumn(1).setMaxWidth(150);
-    TableHistory.getColumnModel().getColumn(2).setPreferredWidth(180);
-    TableHistory.getColumnModel().getColumn(2).setMaxWidth(180);
-    TableHistory.getColumnModel().getColumn(3).setPreferredWidth(300);
-    TableHistory.getColumnModel().getColumn(3).setMaxWidth(300);
-    TableHistory.getColumnModel().getColumn(4).setPreferredWidth(170);
-    TableHistory.getColumnModel().getColumn(4).setMaxWidth(170);
-    TableHistory.getColumnModel().getColumn(5).setPreferredWidth(100);
-    TableHistory.getColumnModel().getColumn(5).setMaxWidth(100);
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -113,21 +88,7 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
         TableHistory.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         TableHistory.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "Id", "Jenis Zakat", "Besaran Zakat", "Masjid Pilihan", "Narahubung", "Status", "Waktu"
@@ -256,6 +217,51 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
                 new HistoryTransactionMuzakki().setVisible(true);
             }
         });
+    }
+    
+    private void display_table()
+    {
+        DefaultTableModel table = new DefaultTableModel();
+        table.addColumn("ID");
+        table.addColumn("Nama");
+        table.addColumn("Jenis Zakat");
+        table.addColumn("Nominal");
+        table.addColumn("Masjid");
+        table.addColumn("Nomor HP");
+        table.addColumn("Status");
+        table.addColumn("Tanggal");
+        JTableHeader Theader = TableHistory.getTableHeader();
+        Theader.setFont(new Font("Poppins", Font.BOLD, 16));
+        TableHistory.setFont(new Font("Poppins", Font.PLAIN, 16));
+        
+        
+        try {
+            int counter = 1;
+            //Query
+            String sql = "SELECT * FROM zakat_history WHERE name = '"+ LoginMuzakki.name +"';";
+            
+            //Koneksi
+//            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
+            java.sql.Connection hubung = (Connection)KoneksiDB.configDB();
+            
+            //Parameter Java SQL
+            java.sql.Statement s = hubung.createStatement();
+            
+            //Eksekusi
+            java.sql.ResultSet rs = s.executeQuery(sql);
+            
+            //Looping
+            while (rs.next()) {
+                table.addRow(new Object[]{
+                   counter++,rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5),rs.getString(6), rs.getString(7), rs.getString(8)
+                });
+                
+            }
+            TableHistory.setModel(table);
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

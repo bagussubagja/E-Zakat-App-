@@ -24,7 +24,8 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class HomePageMuzakki extends javax.swing.JFrame {
-
+    public static String choosenMenu;
+    
     /**
      * Creates new form LoginMuzakki
      */
@@ -37,7 +38,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     ImageIcon i = new ImageIcon(img2);
     
     IconLabel.setIcon(i);
-    
+    UsernameLabel.setText(LoginMuzakki.name);
     ImageIcon myimage2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-copyright.png")));
     
     Image img3 = myimage2.getImage();
@@ -233,9 +234,13 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         
         if(radio_zakat_maal.isSelected()){
         this.dispose();
+        choosenMenu = "Zakat Maal";
+            System.out.println("Menu Pilihan : '"+choosenMenu+"'");
         chooseMosqueMaal.show();
         }else if(radio_zakat_fitrah.isSelected()){
         this.dispose();
+        choosenMenu = "Zakat Fitrah";
+        System.out.println("Menu Pilihan : '"+choosenMenu+"'");
         chooseMosqueFitrah.show();
         }else if(radio_kalkulator_zakat1.isSelected()){
         this.dispose();

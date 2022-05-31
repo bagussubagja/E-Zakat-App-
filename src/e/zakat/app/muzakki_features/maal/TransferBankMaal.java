@@ -4,14 +4,18 @@
  */
 package e.zakat.app.muzakki_features.maal;
 
+import e.zakat.app.KoneksiDB;
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
+import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -20,14 +24,27 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class TransferBankMaal extends javax.swing.JFrame {
-
+    public static String phone_number;
     /**
      * Creates new form LoginMuzakki
      */
-    public TransferBankMaal() {
+    public TransferBankMaal() throws SQLException {
         initComponents();
+        ChoosenMosqueLabel.setText(ChooseMosqueMaal.choosenMosque);
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-payment2.png")));
     
+     Connection hubung = (Connection)KoneksiDB.configDB();
+     Statement stm = hubung.createStatement(); 
+     String sql_mosque = "SELECT * FROM mosque where name = '"+ ChooseMosqueMaal.choosenMosque + "'; ";
+     ResultSet result_mosque = stm.executeQuery(sql_mosque);
+     if(result_mosque.next()){
+     phone_number = result_mosque.getString("phone_number");
+     NamaAmilZakatLabel.setText("A/N " + result_mosque.getString("contact_person") + " (" + phone_number + ")" );
+     AlamatAmilZakatLabel.setText(result_mosque.getString("address") + " " + result_mosque.getString("region") + " " + result_mosque.getString("postalcode"));
+     NoRekBCA.setText(result_mosque.getString("bca_account_number") + " (Bank BCA)");
+     NoRekBNI.setText(result_mosque.getString("bni_account_number") + " (Bank BNI)");
+     NoRekMandiri.setText(result_mosque.getString("mandiri_account_number") + " (Bank Mandiri)");
+     }
     Image img1 = myimage.getImage();
     Image img2 = img1.getScaledInstance(IconLabel.getWidth(), IconLabel.getHeight(), Image.SCALE_SMOOTH);
     ImageIcon i = new ImageIcon(img2);
@@ -60,19 +77,18 @@ public class TransferBankMaal extends javax.swing.JFrame {
         AlamatLabel = new javax.swing.JLabel();
         AlamatLabel1 = new javax.swing.JLabel();
         MoqsueLabel = new javax.swing.JLabel();
-        MosqueLabel = new javax.swing.JLabel();
+        ChoosenMosqueLabel = new javax.swing.JLabel();
         AlamatLabel3 = new javax.swing.JLabel();
         AlamatLabel2 = new javax.swing.JLabel();
         AlamatLabel4 = new javax.swing.JLabel();
         AlamatLabel5 = new javax.swing.JLabel();
         AlamatLabel6 = new javax.swing.JLabel();
         AlamatLabel7 = new javax.swing.JLabel();
-        NoRekBRI = new javax.swing.JLabel();
-        NamaAmilZakatLabel2 = new javax.swing.JLabel();
-        AlamatAmilZakatLabel1 = new javax.swing.JLabel();
         NoRekBNI = new javax.swing.JLabel();
+        NamaAmilZakatLabel = new javax.swing.JLabel();
+        AlamatAmilZakatLabel = new javax.swing.JLabel();
+        NoRekMandiri = new javax.swing.JLabel();
         NoRekBCA = new javax.swing.JLabel();
-        NoHpAmilZakatLabel1 = new javax.swing.JLabel();
         NoHpAmilZakatLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -113,8 +129,8 @@ public class TransferBankMaal extends javax.swing.JFrame {
         MoqsueLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         MoqsueLabel.setText("Masjid Pilihan :");
 
-        MosqueLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
-        MosqueLabel.setText("Masjid Agung Ujung Berung");
+        ChoosenMosqueLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        ChoosenMosqueLabel.setText("masjid_piilihan");
 
         AlamatLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         AlamatLabel3.setText("Informasi Terkait :");
@@ -134,23 +150,20 @@ public class TransferBankMaal extends javax.swing.JFrame {
         AlamatLabel7.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         AlamatLabel7.setText(":");
 
-        NoRekBRI.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        NoRekBRI.setText("9023847598 (Bank BRI Syariah)");
-
-        NamaAmilZakatLabel2.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        NamaAmilZakatLabel2.setText("A/N Nikita Sabila");
-
-        AlamatAmilZakatLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        AlamatAmilZakatLabel1.setText("Jl. A.H Nasution No.177, Kec. Ujung Berung 40386");
-
         NoRekBNI.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        NoRekBNI.setText("9023847598 (Bank BNI)");
+        NoRekBNI.setText("9023847598 (Bank BRI Syariah)");
+
+        NamaAmilZakatLabel.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        NamaAmilZakatLabel.setText("A/N Nikita Sabila (08123456789)");
+
+        AlamatAmilZakatLabel.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        AlamatAmilZakatLabel.setText("Jl. A.H Nasution No.177, Kec. Ujung Berung 40386");
+
+        NoRekMandiri.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        NoRekMandiri.setText("9023847598 (Bank BNI)");
 
         NoRekBCA.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
         NoRekBCA.setText("9023847598 (Bank BCA)");
-
-        NoHpAmilZakatLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
-        NoHpAmilZakatLabel1.setText("(0831313131313)");
 
         NoHpAmilZakatLabel4.setFont(new java.awt.Font("Poppins Light", 0, 12)); // NOI18N
         NoHpAmilZakatLabel4.setText("<html>Pembayaran akan diverifikasi secara manual oleh admin maksimal 30 menit,<br>jika melebihi batas waktu, silahkan hubungi narahubung</html>");
@@ -182,7 +195,7 @@ public class TransferBankMaal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(MoqsueLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(MosqueLabel))
+                                .addComponent(ChoosenMosqueLabel))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -203,14 +216,11 @@ public class TransferBankMaal extends javax.swing.JFrame {
                                     .addComponent(AlamatLabel3, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(NamaAmilZakatLabel2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(NoHpAmilZakatLabel1))
+                                    .addComponent(NamaAmilZakatLabel)
+                                    .addComponent(NoRekMandiri)
                                     .addComponent(NoRekBNI)
-                                    .addComponent(NoRekBRI)
                                     .addComponent(NoRekBCA)
-                                    .addComponent(AlamatAmilZakatLabel1)))
+                                    .addComponent(AlamatAmilZakatLabel)))
                             .addComponent(NoHpAmilZakatLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(416, 416, 416)
@@ -231,29 +241,28 @@ public class TransferBankMaal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(MoqsueLabel)
-                            .addComponent(MosqueLabel))
+                            .addComponent(ChoosenMosqueLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(AlamatLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AlamatLabel1)
                             .addComponent(AlamatLabel5)
-                            .addComponent(NamaAmilZakatLabel2)
-                            .addComponent(NoHpAmilZakatLabel1))
+                            .addComponent(NamaAmilZakatLabel))
                         .addGap(9, 9, 9)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AlamatLabel4)
                             .addComponent(AlamatLabel6)
-                            .addComponent(AlamatAmilZakatLabel1))
+                            .addComponent(AlamatAmilZakatLabel))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(AlamatLabel2)
                             .addComponent(AlamatLabel7)
                             .addComponent(NoRekBCA))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NoRekBRI)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(NoRekBNI)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NoRekMandiri)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(NoHpAmilZakatLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35))
@@ -282,9 +291,23 @@ public class TransferBankMaal extends javax.swing.JFrame {
 
     private void btn_confirm_payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirm_payActionPerformed
         // TODO add your handling code here:
-        PaymentSuccessMaal paymentSuccessMaal = new PaymentSuccessMaal();
-        this.dispose();
-        paymentSuccessMaal.show();
+        
+        try {
+            String success = "Sukses";
+            String sql_history = "INSERT INTO zakat_history(name, type_zakat, nominal, mosque, phone_number, status, date) VALUES ('" + LoginMuzakki.name +  "', '" + HomePageMuzakki.choosenMenu + "', '" + OutputZakatMaal.nominal + "', '" + ChooseMosqueMaal.choosenMosque + "', '" + phone_number + "', '" + success +"', NOW());";
+            System.out.println(sql_history);
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            Statement stm = hubung.createStatement();
+            int x = stm.executeUpdate(sql_history);
+            if (x != 0) {
+                PaymentSuccessMaal paymentSuccessMaal = new PaymentSuccessMaal();
+                this.dispose();
+                paymentSuccessMaal.show();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.toString());
+        }
+        
     }//GEN-LAST:event_btn_confirm_payActionPerformed
 
     /**
@@ -572,13 +595,17 @@ public class TransferBankMaal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TransferBankMaal().setVisible(true);
+                try {
+                    new TransferBankMaal().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(TransferBankMaal.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel AlamatAmilZakatLabel1;
+    private javax.swing.JLabel AlamatAmilZakatLabel;
     private javax.swing.JLabel AlamatLabel;
     private javax.swing.JLabel AlamatLabel1;
     private javax.swing.JLabel AlamatLabel2;
@@ -587,16 +614,15 @@ public class TransferBankMaal extends javax.swing.JFrame {
     private javax.swing.JLabel AlamatLabel5;
     private javax.swing.JLabel AlamatLabel6;
     private javax.swing.JLabel AlamatLabel7;
+    private javax.swing.JLabel ChoosenMosqueLabel;
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
     private javax.swing.JLabel MoqsueLabel;
-    private javax.swing.JLabel MosqueLabel;
-    private javax.swing.JLabel NamaAmilZakatLabel2;
-    private javax.swing.JLabel NoHpAmilZakatLabel1;
+    private javax.swing.JLabel NamaAmilZakatLabel;
     private javax.swing.JLabel NoHpAmilZakatLabel4;
     private javax.swing.JLabel NoRekBCA;
     private javax.swing.JLabel NoRekBNI;
-    private javax.swing.JLabel NoRekBRI;
+    private javax.swing.JLabel NoRekMandiri;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_confirm_pay;
     private javax.swing.JLabel jLabel1;

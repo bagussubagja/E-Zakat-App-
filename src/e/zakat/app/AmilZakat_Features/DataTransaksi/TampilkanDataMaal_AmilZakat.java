@@ -4,6 +4,12 @@
  */
 package e.zakat.app.AmilZakat_Features.DataTransaksi;
 
+import e.zakat.app.KoneksiDB;
+import java.awt.Font;
+import java.sql.Connection;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+
 /**
  *
  * @author bagus
@@ -15,6 +21,7 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
      */
     public TampilkanDataMaal_AmilZakat() {
         initComponents();
+        display_table();
     }
 
     /**
@@ -28,7 +35,7 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        table_data_maal = new javax.swing.JTable();
         btn_back = new javax.swing.JButton();
         UsernameLabel = new javax.swing.JLabel();
 
@@ -37,7 +44,7 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Riwayat Pembayaran Zakat");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        table_data_maal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -49,7 +56,7 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
                 "No", "Nama Lengkap", "Alamat", "Nominal"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(table_data_maal);
 
         btn_back.setBackground(new java.awt.Color(221, 221, 221));
         btn_back.setFont(new java.awt.Font("Poppins Light", 0, 18)); // NOI18N
@@ -146,12 +153,54 @@ public class TampilkanDataMaal_AmilZakat extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void display_table()
+    {
+        DefaultTableModel table = new DefaultTableModel();
+        table.addColumn("ID");
+        table.addColumn("Nama");
+        table.addColumn("Alamat");
+        table.addColumn("Nominal");
+        JTableHeader Theader = table_data_maal.getTableHeader();
+        Theader.setFont(new Font("Poppins", Font.BOLD, 16));
+        table_data_maal.setFont(new Font("Poppins", Font.PLAIN, 16));
+        
+//        table.addColumn("Nilai");
+        
+        try {
+            int counter = 1;
+            //Query
+            String sql = "SELECT * FROM data_zakatfitrah_amilzakat";
+            
+            //Koneksi
+//            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
+            java.sql.Connection hubung = (Connection)KoneksiDB.configDB();
+            
+            //Parameter Java SQL
+            java.sql.Statement s = hubung.createStatement();
+            
+            //Eksekusi
+            java.sql.ResultSet rs = s.executeQuery(sql);
+            
+            //Looping
+            while (rs.next()) {
+                table.addRow(new Object[]{
+                   counter++,rs.getString(2),rs.getString(3),rs.getString(4)
+                });
+                
+            }
+            table_data_maal.setModel(table);
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable table_data_maal;
     // End of variables declaration//GEN-END:variables
 }

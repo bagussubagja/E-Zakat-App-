@@ -5,9 +5,11 @@
 package e.zakat.app.auth_screen.amilzakat;
 
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
+import e.zakat.app.KoneksiDB;
 import e.zakat.app.auth_screen.muzakki.RegisterMuzakki;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.HomePageMuzakki;
+import e.zakat.app.muzakki_features.maal.ChooseMosqueMaal;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.sql.*;  
@@ -216,32 +218,37 @@ public class LoginAmilZakat extends javax.swing.JFrame {
 
         try {
             // open connection
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
-             
-
+//            Class.forName("com.mysql.jdbc.Driver");
+//            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db?useSSL=false","root", "");
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            Statement stm = hubung.createStatement();
+            
+            HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+            
+            
             String username = edtUsername.getText();
             String password = edtPassword.getText();
+            
+            String sql_user = "SELECT * FROM users_amilzakat where username = '" + username + "' and password = '" + password + "'";
+            
+            
 
-            Statement stm = con.createStatement();
+            ResultSet rs_user = stm.executeQuery(sql_user);
+            
 
-            //            String sql = "SELECT * FROM users where username ='"+username+"' and password '"+password+"'";
-            String sql = "SELECT * FROM users_amilzakat where username = '" + username + "' and password = '" + password + "'";
-
-            ResultSet rs = stm.executeQuery(sql);
-
-            if (rs.next()) {
+            if (rs_user.next()) {
                 dispose();
-                HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
                 homePageAmilZakat.show();
-                homePageAmilZakat.UsernameLabel.setText(rs.getString("name"));
+                homePageAmilZakat.UsernameLabel.setText(rs_user.getString("name"));
+                
+                
             }else{
                 JOptionPane.showMessageDialog(this, "username or password wrong");
                 edtUsername.setText("");
                 edtPassword.setText("");
             }
 
-            con.close();
+            hubung.close();
 
         } catch (Exception e) {
             System.out.print(e.getMessage());
