@@ -7,8 +7,15 @@ package e.zakat.app.AmilZakat_Features;
 import e.zakat.app.AmilZakat_Features.DataAntrian.DataTransaksiFitrah_AmilZakat;
 import e.zakat.app.AmilZakat_Features.StrukturKepengurusan.StrukturKepengurusan_AmilZakat;
 import e.zakat.app.AmilZakat_Features.DataTransaksi.DataTransaksiMaal_AmilZakat;
+import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -20,16 +27,17 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
     /**
      * Creates new form HomePageAmilZakat
      */
-    public HomePageAmilZakat() {
+    public HomePageAmilZakat() throws SQLException {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/main-menu-logo.png")));
-    
+    Connection hubung = (Connection)KoneksiDB.configDB();
+            Statement stm = hubung.createStatement();
     Image img1 = myimage.getImage();
     Image img2 = img1.getScaledInstance(IconLabel.getWidth(), IconLabel.getHeight(), Image.SCALE_SMOOTH);
     ImageIcon i = new ImageIcon(img2);
     
     IconLabel.setIcon(i);
-    
+    MosqueLabel.setText(LoginAmilZakat.mosqueName);
     ImageIcon myimage2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-copyright.png")));
     
     Image img3 = myimage2.getImage();
@@ -59,7 +67,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         btn_back = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         CopyrightLabel = new javax.swing.JLabel();
-        UsernameLabel = new javax.swing.JLabel();
+        MosqueLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,9 +122,9 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         jLabel3.setText("Menu Utama");
 
-        UsernameLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        UsernameLabel.setForeground(new java.awt.Color(153, 153, 153));
-        UsernameLabel.setText("Masjid");
+        MosqueLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        MosqueLabel.setForeground(new java.awt.Color(153, 153, 153));
+        MosqueLabel.setText("Masjid");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -128,7 +136,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
                         .addGap(399, 399, 399)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UsernameLabel))
+                        .addComponent(MosqueLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -164,7 +172,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(UsernameLabel))
+                    .addComponent(MosqueLabel))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(65, 65, 65)
@@ -252,7 +260,11 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomePageAmilZakat().setVisible(true);
+                try {
+                    new HomePageAmilZakat().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(HomePageAmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -260,7 +272,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
-    public javax.swing.JLabel UsernameLabel;
+    public javax.swing.JLabel MosqueLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_login;
     private javax.swing.ButtonGroup buttonGroup1;

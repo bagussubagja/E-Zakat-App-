@@ -4,9 +4,14 @@
  */
 package e.zakat.app.AmilZakat_Features.DataTransaksi;
 
+import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -128,9 +133,26 @@ public class HapusRiwayat_AmilZakat extends javax.swing.JFrame {
 
     private void btn_confirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirmActionPerformed
         // TODO add your handling code here:
+        try {
+            //        1. SQL
+          String SQL = "DELETE FROM data_zakat_amilzakat";
+//        2. Koneksi
+          Connection hubung = (Connection)KoneksiDB.configDB();
+//        3. Jalankan perintah SQL
+          PreparedStatement s = hubung.prepareStatement(SQL);
+
+//        4. Eksekusi
+          s.execute();
+          
+//            JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
         HapusRiwayatSuccess_AmilZakat hapusRiwayatSuccess_AmilZakat = new HapusRiwayatSuccess_AmilZakat();
         this.dispose();
         hapusRiwayatSuccess_AmilZakat.show();
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Gagal HAPUS \n"+e.getMessage());
+        }
+        
 
        
     }//GEN-LAST:event_btn_confirmActionPerformed

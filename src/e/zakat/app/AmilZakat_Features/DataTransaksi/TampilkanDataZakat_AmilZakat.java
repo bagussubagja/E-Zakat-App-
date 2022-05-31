@@ -5,6 +5,7 @@
 package e.zakat.app.AmilZakat_Features.DataTransaksi;
 
 import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Font;
 import java.sql.Connection;
 import javax.swing.table.DefaultTableModel;
@@ -22,6 +23,7 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
     public TampilkanDataZakat_AmilZakat() {
         initComponents();
         display_table();
+        UsernameLabel.setText(LoginAmilZakat.mosqueName);
     }
 
     /**
@@ -84,8 +86,8 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 987, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(127, 127, 127))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,9 +101,9 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(UsernameLabel)))
-                .addGap(45, 45, 45)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
 
         pack();
@@ -169,7 +171,7 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
         try {
             int counter = 1;
             //Query
-            String sql = "SELECT * FROM data_zakat_amilzakat where type_zakat = 'Zakat Maal'";
+            String sql = "SELECT * FROM data_zakat_amilzakat where type_zakat = 'Zakat Maal' AND mosque = '"+LoginAmilZakat.mosqueName+"'; ";
             
             //Koneksi
 //            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();

@@ -7,6 +7,9 @@ package e.zakat.app.AmilZakat_Features.DataTransaksi;
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -178,7 +181,12 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
         TampilkanDataZakat_AmilZakat tampilkanData_AmilZakat = new TampilkanDataZakat_AmilZakat();
-        ProsesTransaksi_AmilZakat prosesTransaksi_AmilZakat = new ProsesTransaksi_AmilZakat();
+        ProsesTransaksi_AmilZakat prosesTransaksi_AmilZakat = null;
+        try {
+            prosesTransaksi_AmilZakat = new ProsesTransaksi_AmilZakat();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataTransaksiMaal_AmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+        }
         HapusRiwayat_AmilZakat hapusRiwayat_AmilZakat = new HapusRiwayat_AmilZakat();
         if(showDataTransaksi_radio.isSelected()){
             this.dispose();
@@ -195,7 +203,12 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+        HomePageAmilZakat homePageAmilZakat = null;
+        try {
+            homePageAmilZakat = new HomePageAmilZakat();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataTransaksiMaal_AmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
         homePageAmilZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed

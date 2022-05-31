@@ -5,6 +5,9 @@
 package e.zakat.app.AmilZakat_Features.DataAntrian;
 
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -136,7 +139,12 @@ public class CariDataResult_NotFound_AmilZakat1 extends javax.swing.JFrame {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-        HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+        HomePageAmilZakat homePageAmilZakat = null;
+        try {
+            homePageAmilZakat = new HomePageAmilZakat();
+        } catch (SQLException ex) {
+            Logger.getLogger(CariDataResult_NotFound_AmilZakat1.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
         homePageAmilZakat.show();
     }//GEN-LAST:event_btnConfirmActionPerformed

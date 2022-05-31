@@ -7,6 +7,9 @@ package e.zakat.app.AmilZakat_Features.DataTransaksi;
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -123,7 +126,12 @@ public class PesanKonfirmasiZakatMaal_AmilZakat extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+        HomePageAmilZakat homePageAmilZakat = null;
+        try {
+            homePageAmilZakat = new HomePageAmilZakat();
+        } catch (SQLException ex) {
+            Logger.getLogger(PesanKonfirmasiZakatMaal_AmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
         homePageAmilZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed
