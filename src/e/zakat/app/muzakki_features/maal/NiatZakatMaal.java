@@ -98,7 +98,7 @@ public class NiatZakatMaal extends javax.swing.JFrame {
             }
         });
 
-        AlamatLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        AlamatLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         AlamatLabel.setText("Niat Zakat Maal");
 
         AlamatLabel1.setFont(new java.awt.Font("Poppins Light", 0, 20)); // NOI18N

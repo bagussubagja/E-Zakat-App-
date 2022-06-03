@@ -78,6 +78,7 @@ public class ChooseMosqueMaal extends javax.swing.JFrame {
         setTitle("Choose Mosque Muzakki");
         setBackground(new java.awt.Color(238, 238, 238));
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
@@ -86,7 +87,7 @@ public class ChooseMosqueMaal extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel2.setText("Lokasi :");
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         jLabel3.setText("Masjid Pengumpul Zakat");
 
         btn_select_mosque.setBackground(new java.awt.Color(24, 152, 139));

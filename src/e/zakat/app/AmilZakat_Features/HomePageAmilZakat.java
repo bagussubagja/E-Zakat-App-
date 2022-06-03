@@ -75,12 +75,12 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         jLabel1.setText("é-Zakat - Amil Zakat");
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Selamat datang,");
 
         buttonGroup1.add(dataTransaksi_radio);
-        dataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        dataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         dataTransaksi_radio.setText("Data Transaksi Zakat Maal");
+        dataTransaksi_radio.setIconTextGap(10);
         dataTransaksi_radio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataTransaksi_radioActionPerformed(evt);
@@ -88,8 +88,9 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(dataAntrian_radio);
-        dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         dataAntrian_radio.setText("Data Antrian Zakat Fitrah");
+        dataAntrian_radio.setIconTextGap(10);
         dataAntrian_radio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataAntrian_radioActionPerformed(evt);
@@ -97,8 +98,9 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(struktur_radio);
-        struktur_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        struktur_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         struktur_radio.setText("Struktur Kepengurusan Amil Zakat");
+        struktur_radio.setIconTextGap(10);
 
         btn_login.setBackground(new java.awt.Color(24, 152, 139));
         btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
@@ -119,11 +121,10 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel3.setText("Menu Utama");
 
-        MosqueLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        MosqueLabel.setForeground(new java.awt.Color(153, 153, 153));
+        MosqueLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         MosqueLabel.setText("Masjid");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -150,9 +151,9 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
                                 .addGap(34, 34, 34)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(dataTransaksi_radio)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(dataAntrian_radio)
-                                    .addComponent(struktur_radio))))))
+                                    .addComponent(struktur_radio)
+                                    .addComponent(jLabel3))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(441, Short.MAX_VALUE)
@@ -175,22 +176,22 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
                     .addComponent(MosqueLabel))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(97, 97, 97)
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(dataTransaksi_radio)
                         .addGap(18, 18, 18)
                         .addComponent(dataAntrian_radio)
                         .addGap(18, 18, 18)
                         .addComponent(struktur_radio)
-                        .addGap(143, 143, 143)
+                        .addGap(120, 120, 120)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
