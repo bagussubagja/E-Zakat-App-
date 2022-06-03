@@ -7,7 +7,10 @@ package e.zakat.app.AmilZakat_Features.DataTransaksi;
 import e.zakat.app.KoneksiDB;
 import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.Connection;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
@@ -24,6 +27,14 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
         initComponents();
         display_table();
         UsernameLabel.setText(LoginAmilZakat.mosqueName);
+        
+    ImageIcon myimage2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-copyright.png")));
+    
+    Image img3 = myimage2.getImage();
+    Image img4 = img3.getScaledInstance(CopyrightLabel.getWidth(), CopyrightLabel.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon j = new ImageIcon(img4);
+    
+    CopyrightLabel.setIcon(j);
     }
 
     /**
@@ -40,8 +51,12 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
         table_data_zakat = new javax.swing.JTable();
         btn_back = new javax.swing.JButton();
         UsernameLabel = new javax.swing.JLabel();
+        CopyrightLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tampil Data Transaksi");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Riwayat Pembayaran Zakat");
@@ -53,8 +68,22 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
             new String [] {
                 "No", "Nama Lengkap", "Alamat", "Nominal"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(table_data_zakat);
+        if (table_data_zakat.getColumnModel().getColumnCount() > 0) {
+            table_data_zakat.getColumnModel().getColumn(0).setResizable(false);
+            table_data_zakat.getColumnModel().getColumn(1).setResizable(false);
+            table_data_zakat.getColumnModel().getColumn(2).setResizable(false);
+            table_data_zakat.getColumnModel().getColumn(3).setResizable(false);
+        }
 
         btn_back.setBackground(new java.awt.Color(221, 221, 221));
         btn_back.setFont(new java.awt.Font("Poppins Light", 0, 18)); // NOI18N
@@ -73,40 +102,41 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(330, 330, 330))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(338, 338, 338)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1214, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(539, 539, 539))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(UsernameLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30))
+                        .addGap(488, 488, 488))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(61, 61, 61)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UsernameLabel)))
+                .addGap(61, 61, 61)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UsernameLabel)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(150, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
@@ -198,6 +228,7 @@ public class TampilkanDataZakat_AmilZakat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CopyrightLabel;
     public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;

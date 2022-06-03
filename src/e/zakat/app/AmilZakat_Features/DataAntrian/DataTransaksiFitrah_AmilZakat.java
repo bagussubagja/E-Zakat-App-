@@ -61,13 +61,16 @@ public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
         CopyrightLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Data Transaksi Fitrah");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Proses Zakat Fitrah");
 
         buttonGroup1.add(showDataTransaksi_radio);
-        showDataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        showDataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         showDataTransaksi_radio.setText("Tampilkan Data Antrian Zakat Fitrah");
+        showDataTransaksi_radio.setIconTextGap(10);
         showDataTransaksi_radio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showDataTransaksi_radioActionPerformed(evt);
@@ -75,8 +78,9 @@ public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(dataAntrian_radio);
-        dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         dataAntrian_radio.setText("Proses Data Zakat Fitrah");
+        dataAntrian_radio.setIconTextGap(10);
         dataAntrian_radio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataAntrian_radioActionPerformed(evt);
@@ -84,8 +88,9 @@ public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(cariNama_radio);
-        cariNama_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        cariNama_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         cariNama_radio.setText("Cari Data Antrian Berdasarkan Nama");
+        cariNama_radio.setIconTextGap(10);
 
         btn_login.setBackground(new java.awt.Color(24, 152, 139));
         btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
@@ -106,7 +111,7 @@ public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         jLabel3.setText("Menu Proses Zakat Fitrah");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -116,29 +121,27 @@ public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(showDataTransaksi_radio)
-                            .addComponent(dataAntrian_radio)
-                            .addComponent(cariNama_radio)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 276, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(403, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(showDataTransaksi_radio)
+                        .addComponent(dataAntrian_radio)
+                        .addComponent(cariNama_radio)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 318, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(35, 35, 35))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(410, 410, 410))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(410, 410, 410))))
+                        .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(446, 446, 446))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,27 +150,28 @@ public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
                         .addComponent(jLabel1)
-                        .addGap(75, 75, 75)
+                        .addGap(101, 101, 101)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(showDataTransaksi_radio)
                         .addGap(18, 18, 18)
                         .addComponent(dataAntrian_radio)
                         .addGap(18, 18, 18)
-                        .addComponent(cariNama_radio)
-                        .addGap(143, 143, 143)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cariNama_radio))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void showDataTransaksi_radioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDataTransaksi_radioActionPerformed
