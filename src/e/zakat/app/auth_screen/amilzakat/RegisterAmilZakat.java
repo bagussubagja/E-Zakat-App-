@@ -248,25 +248,36 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
         String wilayah = edtRegion.getText();
         String msg = "" + nama_masjid;
 
+        if(checkUsername(username)){
+            JOptionPane.showMessageDialog(null, "username sudah ada");
+        } else {
+        
         try {
            
 
-            String query = "INSERT INTO users_amilzakat(name, address, postalcode, username, password, region) VALUES ('" + nama_masjid + "', '" + alamat + "', '" + kodePos + "', '" + username + "', '" + password +"', '" + wilayah +"');";
+            String query_user = "INSERT INTO users_amilzakat(name, address, postalcode, username, password, region) VALUES ('" + nama_masjid + "', '" + alamat + "', '" + kodePos + "', '" + username + "', '" + password +"', '" + wilayah +"');";
 
             Connection hubung = (Connection)KoneksiDB.configDB();
             Statement stm = hubung.createStatement();
+            
+            int x = stm.executeUpdate(query_user);
+            if(x > 0){
+                this.dispose();
+                amilZakat.show();
+            }
 
-            int x = stm.executeUpdate(query);
-            if (x == 0) {
-                        JOptionPane.showMessageDialog(btnRegister, "Akun sudah ada!");
-                    } else {
-                        this.dispose();
-                        amilZakat.show();
-                    }
-                    hubung.close();
+//            int x = stm.executeUpdate(query);
+//            if (x == 0) {
+//                        JOptionPane.showMessageDialog(btnRegister, "Akun sudah ada!");
+//                    } else {
+//                        this.dispose();
+//                        amilZakat.show();
+//                    }
+//                    hubung.close();
 
         } catch (Exception e) {
             e.printStackTrace();
+        }
         }
     }//GEN-LAST:event_btnRegisterActionPerformed
 
@@ -318,6 +329,26 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
                 new RegisterAmilZakat().setVisible(true);
             }
         });
+    }
+    
+    public boolean checkUsername(String username){
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean checkUser = false;
+        String query = "SELECT * FROM `users_amilzakat` WHERE `username` = ?";
+        
+        try {
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            ps = hubung.prepareStatement(query);
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                checkUser = true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return checkUser;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
