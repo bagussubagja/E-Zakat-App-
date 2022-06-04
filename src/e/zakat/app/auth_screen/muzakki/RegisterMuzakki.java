@@ -258,6 +258,9 @@ public class RegisterMuzakki extends javax.swing.JFrame {
         String wilayah = edtRegion.getText();
        String msg = "" + nama;
 
+       if(checkUsername(username)){
+            JOptionPane.showMessageDialog(null, "username sudah ada");
+        } else{
         try {
 //            Class.forName("com.mysql.jdbc.Driver");
 //            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
@@ -282,6 +285,7 @@ public class RegisterMuzakki extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+       }
     }//GEN-LAST:event_btn_registerActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
@@ -332,6 +336,26 @@ public class RegisterMuzakki extends javax.swing.JFrame {
                 new RegisterMuzakki().setVisible(true);
             }
         });
+    }
+    
+    public boolean checkUsername(String username){
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean checkUser = false;
+        String query = "SELECT * FROM `users_muzakki` WHERE `username` = ?";
+        
+        try {
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            ps = hubung.prepareStatement(query);
+            ps.setString(1, username);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                checkUser = true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return checkUser;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
