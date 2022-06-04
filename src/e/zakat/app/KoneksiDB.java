@@ -20,7 +20,7 @@ public class KoneksiDB {
                 String alamat_url = "jdbc:mysql://localhost:3306/ezakat_db";
                 String user_database = "root";
                 String password_database = "";
-                DriverManager.registerDriver(new com.mysql.jdbc.Driver());//inti koneksi
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());//inti koneksi
                 koneksi = DriverManager.getConnection(alamat_url, user_database,password_database);
             } catch (Exception e) {
                 //koneksi error

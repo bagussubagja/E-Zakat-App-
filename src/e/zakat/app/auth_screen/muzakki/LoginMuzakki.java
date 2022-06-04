@@ -323,14 +323,13 @@ public class LoginMuzakki extends javax.swing.JFrame {
              userName = rs_user.getString("username");
              pwd = rs_user.getString("password");
              postalcode = rs_user.getString("postalcode");
-             dependents = rs_user.getString("dependents");
              id = rs_user.getInt("id");
             }
              System.out.println("id user : '"+id+"'");
             
             hubung.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, "Silahkan periksa kembali username / password yang anda masukkan sebelumnya!", "Username / Password Salah ", HEIGHT);
         }
     }
