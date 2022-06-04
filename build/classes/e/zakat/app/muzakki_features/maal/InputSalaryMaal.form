@@ -44,7 +44,7 @@
                       <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="AlamatLabel1" max="32767" attributes="0"/>
-                          <Component id="inputSalary" min="-2" pref="370" max="-2" attributes="0"/>
+                          <Component id="inputSalary" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -90,8 +90,8 @@
                       <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Component id="AlamatLabel1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="inputSalary" min="-2" pref="47" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="inputSalary" min="-2" pref="43" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
@@ -174,12 +174,15 @@
         <Property name="text" type="java.lang.String" value="Jumlah pendapatan per bulan"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="inputSalary">
+    <Component class="javax.swing.JFormattedTextField" name="inputSalary">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Poppins" size="24" style="0"/>
+          <Font name="Poppins Light" size="12" style="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="inputSalaryKeyTyped"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

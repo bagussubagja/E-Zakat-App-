@@ -10,6 +10,7 @@ import e.zakat.app.muzakki_features.kalkulator.OutputZakatCalc;
 import e.zakat.app.muzakki_features.maal.OutputZakatMaal;
 import java.awt.Image;
 import java.awt.Toolkit; 
+import java.awt.event.KeyEvent;
 import java.sql.*;  
 import java.sql.Statement;
 import java.sql.Connection;
@@ -62,7 +63,7 @@ public class InputSalaryMaal extends javax.swing.JFrame {
         CopyrightLabel = new javax.swing.JLabel();
         AlamatLabel = new javax.swing.JLabel();
         AlamatLabel1 = new javax.swing.JLabel();
-        inputSalary = new javax.swing.JTextField();
+        inputSalary = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Input Salary Muzakki");
@@ -102,7 +103,12 @@ public class InputSalaryMaal extends javax.swing.JFrame {
         AlamatLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         AlamatLabel1.setText("Jumlah pendapatan per bulan");
 
-        inputSalary.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        inputSalary.setFont(new java.awt.Font("Poppins Light", 0, 12)); // NOI18N
+        inputSalary.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputSalaryKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -118,7 +124,7 @@ public class InputSalaryMaal extends javax.swing.JFrame {
                         .addGap(37, 37, 37)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(AlamatLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inputSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(inputSalary))))
                 .addContainerGap(128, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -153,8 +159,8 @@ public class InputSalaryMaal extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
                         .addComponent(AlamatLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inputSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(inputSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btn_calc_zakat, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -187,6 +193,15 @@ public class InputSalaryMaal extends javax.swing.JFrame {
         outputZakatMaal.show();
         System.out.println("Jumlah zakat yang harus diberikan " + zakatSalary);
     }//GEN-LAST:event_btn_calc_zakatActionPerformed
+
+    private void inputSalaryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputSalaryKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || c == KeyEvent.VK_DELETE)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_inputSalaryKeyTyped
 
     /**
      * @param args the command line arguments
@@ -261,7 +276,7 @@ public class InputSalaryMaal extends javax.swing.JFrame {
     private javax.swing.JLabel IconLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_calc_zakat;
-    private javax.swing.JTextField inputSalary;
+    private javax.swing.JFormattedTextField inputSalary;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables
