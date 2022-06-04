@@ -251,30 +251,21 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
         if(checkUsername(username)){
             JOptionPane.showMessageDialog(null, "username sudah ada");
         } else {
-        
         try {
-           
-
             String query_user = "INSERT INTO users_amilzakat(name, address, postalcode, username, password, region) VALUES ('" + nama_masjid + "', '" + alamat + "', '" + kodePos + "', '" + username + "', '" + password +"', '" + wilayah +"');";
-
             Connection hubung = (Connection)KoneksiDB.configDB();
             Statement stm = hubung.createStatement();
-            
             int x = stm.executeUpdate(query_user);
-            if(x > 0){
-                this.dispose();
-                amilZakat.show();
+            if(edtNama.getText().equals("") || edtAlamat.getText().equals("") || edtKodePos.getText().equals("") || edtUsername.getText().equals("") || edtPassword.getText().equals("") || edtRegion.getText().equals("")){
+             JOptionPane.showMessageDialog(rootPane, "Kamu harus mengisi semua field yang ada", "Fields Tidak Boleh Kosong!", HEIGHT);
+            }else{
+            this.dispose();
+            amilZakat.show();
             }
-
-//            int x = stm.executeUpdate(query);
-//            if (x == 0) {
-//                        JOptionPane.showMessageDialog(btnRegister, "Akun sudah ada!");
-//                    } else {
-//                        this.dispose();
-//                        amilZakat.show();
-//                    }
-//                    hubung.close();
-
+//            if(x > 0){
+//                this.dispose();
+//                amilZakat.show();
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }

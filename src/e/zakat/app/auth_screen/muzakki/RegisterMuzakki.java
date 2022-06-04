@@ -277,13 +277,6 @@ public class RegisterMuzakki extends javax.swing.JFrame {
                         reg.show();
                         hubung.close();
                     }
-//                    if (x == 0) {
-//                        JOptionPane.showMessageDialog(btn_register, "This is alredy exist");
-//                    } else {
-//                        RegisterSuccessMuzakki reg = new RegisterSuccessMuzakki();
-//                        this.dispose();
-//                        reg.show();
-//                    }
                     
             
         } catch (Exception e) {
