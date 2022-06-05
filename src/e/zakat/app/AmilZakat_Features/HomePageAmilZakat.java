@@ -262,13 +262,11 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    new HomePageAmilZakat().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(HomePageAmilZakat.class.getName()).log(Level.SEVERE, null, ex);
-                }
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
+                new HomePageAmilZakat().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(HomePageAmilZakat.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }

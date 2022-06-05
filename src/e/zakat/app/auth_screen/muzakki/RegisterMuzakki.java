@@ -249,23 +249,17 @@ public class RegisterMuzakki extends javax.swing.JFrame {
 
     private void btn_registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_registerActionPerformed
         // TODO add your handling code here:
-        int id;
         String nama = edtNama.getText();
         String alamat = edtAlamat.getText();
         String kodePos = edtKodePos.getText();
         String username = edtUsername.getText();
         String password = edtPassword.getText();
         String wilayah = edtRegion.getText();
-       String msg = "" + nama;
 
        if(checkUsername(username)){
             JOptionPane.showMessageDialog(null, "username sudah ada");
         } else{
         try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/ezakat_db", "root", "");
-            
-            
             String query = "INSERT INTO users_muzakki(username, password, name, address, postalcode, region) VALUES ('" + username + "', '" + password + "', '" + nama + "', '" + alamat + "', '" + kodePos +"', '" + wilayah +"');";
             System.out.println(query);
                     

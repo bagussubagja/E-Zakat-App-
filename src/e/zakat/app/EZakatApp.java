@@ -16,9 +16,6 @@ public class EZakatApp {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-//        ChooseRoles chooseroles = new ChooseRoles();
-//        chooseroles.show();
         SplashScreen splashscreen = new SplashScreen();
         splashscreen.show();
     }

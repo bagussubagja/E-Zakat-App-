@@ -8,7 +8,9 @@ import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import e.zakat.app.auth_screen.muzakki.LoginMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit;
+import static java.awt.image.ImageObserver.HEIGHT;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -181,6 +183,8 @@ public class ChooseRoles extends javax.swing.JFrame {
         }else if(amilzakat_role.isSelected()){
         this.dispose();
         loginAmilZakat.show();
+        }else{
+        JOptionPane.showMessageDialog(rootPane, "Silahkan Pilih Peran yang Kamu Kehendaki", "Peringatan!", HEIGHT);
         }
     }//GEN-LAST:event_btn_nextActionPerformed
 

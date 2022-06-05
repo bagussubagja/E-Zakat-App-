@@ -21,6 +21,8 @@ import java.sql.*;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -220,8 +222,12 @@ public class LoginAmilZakat extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
-        // TODO add your handling code here:
-        login();
+        try {
+            // TODO add your handling code here:
+            login();
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginAmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
@@ -281,36 +287,52 @@ public class LoginAmilZakat extends javax.swing.JFrame {
         });
     }
     
-    public void login(){
-    try {
-
-            HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+    public void login() throws SQLException{
+        HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
             String username = edtUsername.getText();
             String password = edtPassword.getText();
             Connection hubung = (Connection)KoneksiDB.configDB();
             Statement stm = hubung.createStatement();
-           
-            
+            if(checkUsername(username, password)){
+            try {
             String sql_user = "SELECT * FROM users_amilzakat where username = '" + username + "' and password = '" + password + "'";
-        
             ResultSet rs_user = stm.executeQuery(sql_user);
-
             while(rs_user.next()){
             this.dispose();
-                
                 homePageAmilZakat.MosqueLabel.setText(rs_user.getString("name"));
                 mosqueName = rs_user.getString("name");
                 System.out.println(mosqueName);
-                
                 homePageAmilZakat.show();
             }
-             
-            
-//            hubung.close();
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Silahkan periksa kembali username / password yang anda masukkan sebelumnya!", "Username / Password Salah ", HEIGHT);
+            hubung.close();
+        } catch (SQLException e) {
+                System.out.println(e.getMessage());
         }
+            }else{
+            JOptionPane.showMessageDialog(rootPane, "Silahkan periksa kembali username / password yang anda masukkan sebelumnya!", "Username / Password Salah ", HEIGHT);
+            }
+    
+    }
+    
+    public boolean checkUsername(String username, String password){
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean checkUser = false;
+        String query = "SELECT * FROM `users_amilzakat` WHERE `username` = ? AND `password` = ?";
+        
+        try {
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            ps = hubung.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                checkUser = true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return checkUser;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

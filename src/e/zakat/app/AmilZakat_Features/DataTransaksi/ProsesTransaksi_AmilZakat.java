@@ -121,7 +121,6 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
 
         UsernameLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         UsernameLabel.setForeground(new java.awt.Color(51, 51, 51));
-        UsernameLabel.setText("Alif Ilman Nafian");
 
         NominalLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         NominalLabel.setForeground(new java.awt.Color(51, 51, 51));
@@ -244,21 +243,13 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
         // TODO add your handling code here:
        
         try {
-            //        1. SQL
           String SQL = "DELETE FROM data_zakat_amilzakat WHERE type_zakat = 'Zakat Maal' AND mosque = '"+LoginAmilZakat.mosqueName+"'";
-//        2. Koneksi
           Connection hubung = (Connection)KoneksiDB.configDB();
-//        3. Jalankan perintah SQL
           PreparedStatement s = hubung.prepareStatement(SQL);
-
-//        4. Eksekusi
           s.execute();
-          
-//            JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
           PesanKonfirmasiZakatMaal_AmilZakat pesanKonfirmasiZakatMaal_AmilZakat = new PesanKonfirmasiZakatMaal_AmilZakat();
           this.dispose();
           pesanKonfirmasiZakatMaal_AmilZakat.show();
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Gagal HAPUS \n"+e.getMessage());
         }
@@ -310,7 +301,7 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
     private javax.swing.JLabel IconLabel;
     private javax.swing.JLabel MosqueLabel;
     private javax.swing.JLabel NominalLabel;
-    private javax.swing.JLabel UsernameLabel;
+    public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;

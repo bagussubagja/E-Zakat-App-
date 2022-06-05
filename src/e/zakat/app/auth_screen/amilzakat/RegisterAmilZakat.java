@@ -239,14 +239,12 @@ public class RegisterAmilZakat extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         // TODO add your handling code here:
         RegisterSuccessAmilZakat amilZakat = new RegisterSuccessAmilZakat();
-        int id;
         String nama_masjid = edtNama.getText();
         String alamat = edtAlamat.getText();
         String kodePos = edtKodePos.getText();
         String username = edtUsername.getText();
         String password = edtPassword.getText();
         String wilayah = edtRegion.getText();
-        String msg = "" + nama_masjid;
 
         if(checkUsername(username)){
             JOptionPane.showMessageDialog(null, "username sudah ada");

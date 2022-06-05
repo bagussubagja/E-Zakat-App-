@@ -167,31 +167,28 @@ public class CariDataByName_AmilZakat extends javax.swing.JFrame {
         // TODO add your handling code here:
         String name = findUsername.getText();
         try {
-            int counter = 1;
-            //Query
             String sql = "SELECT name, date, nominal FROM data_zakat_amilzakat WHERE name = '"+name+"' ";
-            
-            //Koneksi
-//            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
             java.sql.Connection hubung = (Connection)KoneksiDB.configDB();
-            
-            //Parameter Java SQL
             java.sql.Statement s = hubung.createStatement();
-            
-            //Eksekusi
             java.sql.ResultSet rs = s.executeQuery(sql);
-            
-            //Looping
             while(rs.next()){
             resultDate = rs.getString("date");
             resultName = rs.getString("name");
             resultNominal = rs.getString("nominal");
             }
             
+            if(resultName.length() > 0){
             System.out.println(resultName);
             CariDataResult_AmilZakat result_AmilZakat = new CariDataResult_AmilZakat();
-        this.dispose();
-        result_AmilZakat.show();
+            this.dispose();
+            result_AmilZakat.show();
+            resultName = "";
+            }else{
+            CariDataResult_NotFound_AmilZakat1 notFound_AmilZakat1 = new CariDataResult_NotFound_AmilZakat1();
+            this.dispose();
+            notFound_AmilZakat1.show();
+            }
+            
         } catch (Exception e) {
             CariDataResult_NotFound_AmilZakat1 notFound_AmilZakat1 = new CariDataResult_NotFound_AmilZakat1();
             this.dispose();

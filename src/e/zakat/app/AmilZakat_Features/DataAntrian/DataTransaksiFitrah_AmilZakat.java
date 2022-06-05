@@ -7,10 +7,12 @@ package e.zakat.app.AmilZakat_Features.DataAntrian;
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import static java.awt.image.ImageObserver.HEIGHT;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -196,8 +198,12 @@ public class DataTransaksiFitrah_AmilZakat extends javax.swing.JFrame {
             this.dispose();
             tampilkanDataFitrah_AmilZakat.show();
         }else if(dataAntrian_radio.isSelected()){
+            if(prosesFitrah_AmilZakat.UsernameLabel.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Tidak Ada Data yang bisa diproses", "Peringatan!", HEIGHT);
+            }else{
             this.dispose();
             prosesFitrah_AmilZakat.show();
+            }
         }else if(cariNama_radio.isSelected()){
             this.dispose();
             byName_AmilZakat.show();

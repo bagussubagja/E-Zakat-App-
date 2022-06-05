@@ -7,10 +7,12 @@ package e.zakat.app.AmilZakat_Features.DataTransaksi;
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import static java.awt.image.ImageObserver.HEIGHT;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -197,11 +199,21 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
             this.dispose();
             tampilkanData_AmilZakat.show();
         }else if(dataAntrian_radio.isSelected()){
+            if(prosesTransaksi_AmilZakat.UsernameLabel.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Tidak Ada Data yang bisa diproses", "Peringatan!", HEIGHT);
+            }else{
             this.dispose();
             prosesTransaksi_AmilZakat.show();
+            }
+            
         }else if(hapusRiwayat_radio.isSelected()){
+            if(prosesTransaksi_AmilZakat.UsernameLabel.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Tidak Ada Data yang bisa diproses", "Peringatan!", HEIGHT);
+            }else{
             this.dispose();
             hapusRiwayat_AmilZakat.show();
+            }
+            
         }
 
     }//GEN-LAST:event_btn_loginActionPerformed

@@ -290,7 +290,6 @@ public class LoginMuzakki extends javax.swing.JFrame {
     
     public void login(){
     try {
-
             HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
             String username = edtUsername.getText();
             String password = edtPassword.getText();
@@ -309,11 +308,11 @@ public class LoginMuzakki extends javax.swing.JFrame {
 
             
             if(isExist){
+            if(checkUsername(username, password)){
             this.dispose();
-                HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
                 homePageMuzakki.UsernameLabel.setText(rs_user.getString("name"));
-                
                 homePageMuzakki.show();
+            }
             }
              while(rs_mosque.next()){
              masjid.add(rs_mosque.getString("name"));
@@ -332,6 +331,27 @@ public class LoginMuzakki extends javax.swing.JFrame {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, "Silahkan periksa kembali username / password yang anda masukkan sebelumnya!", "Username / Password Salah ", HEIGHT);
         }
+    }
+    
+    public boolean checkUsername(String username, String password){
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean checkUser = false;
+        String query = "SELECT * FROM `users_muzakki` WHERE `username` = ? AND `password` = ?";
+        
+        try {
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            ps = hubung.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                checkUser = true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return checkUser;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

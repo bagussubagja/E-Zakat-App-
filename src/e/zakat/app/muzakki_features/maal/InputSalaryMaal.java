@@ -103,7 +103,7 @@ public class InputSalaryMaal extends javax.swing.JFrame {
         AlamatLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         AlamatLabel1.setText("Jumlah pendapatan per bulan");
 
-        inputSalary.setFont(new java.awt.Font("Poppins Light", 0, 12)); // NOI18N
+        inputSalary.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
         inputSalary.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 inputSalaryKeyTyped(evt);
