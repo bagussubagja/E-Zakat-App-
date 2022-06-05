@@ -62,6 +62,7 @@ public class PaymentSuccessFitrah extends javax.swing.JFrame {
         setTitle("Payment Success Muzakki");
         setBackground(new java.awt.Color(238, 238, 238));
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         DescLabel.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
@@ -120,14 +121,14 @@ public class PaymentSuccessFitrah extends javax.swing.JFrame {
                         .addComponent(DescLabel)
                         .addGap(18, 18, 18)
                         .addComponent(btn_home_page)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(272, 272, 272)
                     .addComponent(DescLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(355, Short.MAX_VALUE)))
+                    .addContainerGap(350, Short.MAX_VALUE)))
         );
 
         pack();

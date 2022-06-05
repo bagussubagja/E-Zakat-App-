@@ -89,7 +89,7 @@ public class OutputZakatMaal extends javax.swing.JFrame {
             }
         });
 
-        AlamatLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        AlamatLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         AlamatLabel.setText("Besaran Zakat Maal");
 
         AlamatLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N

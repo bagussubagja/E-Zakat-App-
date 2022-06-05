@@ -66,6 +66,7 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
         setTitle("Output Zakat Muzakki");
         setBackground(new java.awt.Color(238, 238, 238));
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
@@ -90,7 +91,7 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
             }
         });
 
-        AlamatLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        AlamatLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         AlamatLabel.setText("Besaran Zakat Fitrah");
 
         AlamatLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
@@ -106,10 +107,8 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(189, 189, 189)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(AlamatLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ZakatLabel))
+                .addGap(156, 156, 156)
+                .addComponent(ZakatLabel)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(460, Short.MAX_VALUE)
@@ -121,13 +120,15 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(466, 466, 466))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(AlamatLabel)
-                        .addGap(519, 519, 519))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(btn_pay_zakat, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(41, 41, 41)
                         .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(464, 464, 464))))
+                        .addGap(464, 464, 464))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AlamatLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(AlamatLabel))
+                        .addGap(513, 513, 513))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,9 +143,9 @@ public class OutputZakatFitrah extends javax.swing.JFrame {
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(14, 14, 14))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(96, 96, 96)
+                        .addGap(93, 93, 93)
                         .addComponent(AlamatLabel1)
-                        .addGap(53, 53, 53)
+                        .addGap(56, 56, 56)
                         .addComponent(ZakatLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)

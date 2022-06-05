@@ -65,7 +65,6 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
         setTitle("History Transaction Muzakki");
         setBackground(new java.awt.Color(238, 238, 238));
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
-        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
@@ -222,7 +221,7 @@ public class HistoryTransactionMuzakki extends javax.swing.JFrame {
     private void display_table()
     {
         DefaultTableModel table = new DefaultTableModel();
-        table.addColumn("ID");
+        table.addColumn("No");
         table.addColumn("Nama");
         table.addColumn("Jenis Zakat");
         table.addColumn("Nominal");

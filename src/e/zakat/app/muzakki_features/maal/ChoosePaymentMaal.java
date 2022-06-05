@@ -96,7 +96,7 @@ public class ChoosePaymentMaal extends javax.swing.JFrame {
             }
         });
 
-        PaymentLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        PaymentLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         PaymentLabel.setText("Metode Pembayaran");
 
         buttonGroup1.add(radio_transfer_bank);

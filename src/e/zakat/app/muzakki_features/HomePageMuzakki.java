@@ -10,12 +10,15 @@ import e.zakat.app.muzakki_features.fitrah.ChooseMosqueFitrah;
 import e.zakat.app.muzakki_features.history.HistoryTransactionMuzakki;
 import e.zakat.app.muzakki_features.maal.ChooseMosqueMaal;
 import e.zakat.app.muzakki_features.kalkulator.InputSalaryZakat;
+import e.zakat.app.muzakki_updateprofile.UpdateMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -70,11 +73,13 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         radio_riwayat_transaksi = new javax.swing.JRadioButton();
         radio_zakat_fitrah = new javax.swing.JRadioButton();
         radio_kalkulator_zakat1 = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home Page Muzakki");
         setBackground(new java.awt.Color(238, 238, 238));
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
@@ -83,7 +88,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel2.setText("Selamat datang, ");
 
-        jLabel3.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         jLabel3.setText("Menu Utama");
 
         btn_select_menu.setBackground(new java.awt.Color(24, 152, 139));
@@ -93,6 +98,12 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         btn_select_menu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_select_menuActionPerformed(evt);
+            }
+        });
+
+        IconLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                IconLabelMouseClicked(evt);
             }
         });
 
@@ -148,17 +159,19 @@ public class HomePageMuzakki extends javax.swing.JFrame {
             }
         });
 
+        jLabel4.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        jLabel4.setText("Klik Icon Ka'bah untuk Edit Profil!");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
+                .addGap(411, 411, 411)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
                     .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(UsernameLabel))
@@ -166,7 +179,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
                     .addComponent(radio_zakat_fitrah)
                     .addComponent(radio_riwayat_transaksi)
                     .addComponent(radio_kalkulator_zakat1))
-                .addContainerGap(398, Short.MAX_VALUE))
+                .addContainerGap(365, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,12 +188,17 @@ public class HomePageMuzakki extends javax.swing.JFrame {
                         .addGap(28, 28, 28))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(492, 492, 492))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_select_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(464, 464, 464))))
+                        .addGap(492, 492, 492))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btn_select_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(464, 464, 464))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -191,11 +209,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(UsernameLabel))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
-                        .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(176, 176, 176))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(jLabel3)
@@ -207,11 +221,17 @@ public class HomePageMuzakki extends javax.swing.JFrame {
                         .addComponent(radio_kalkulator_zakat1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(radio_riwayat_transaksi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btn_select_menu, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btn_exit, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(97, 97, 97)))
+                        .addGap(97, 97, 97))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel4)
+                        .addGap(98, 98, 98)))
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -246,6 +266,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         this.dispose();
         inputSalaryZakat.show();
         }else if(radio_riwayat_transaksi.isSelected()){
+        this.dispose();
         historyTransactionMuzakki.show();
         }
         
@@ -266,6 +287,18 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     private void radio_kalkulator_zakat1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_kalkulator_zakat1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_radio_kalkulator_zakat1ActionPerformed
+
+    private void IconLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_IconLabelMouseClicked
+        // TODO add your handling code here:
+        UpdateMuzakki updateMuzakki = null;
+        try {
+            updateMuzakki = new UpdateMuzakki();
+        } catch (SQLException ex) {
+            Logger.getLogger(HomePageMuzakki.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        this.dispose();
+        updateMuzakki.show();
+    }//GEN-LAST:event_IconLabelMouseClicked
 
     /**
      * @param args the command line arguments
@@ -315,6 +348,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JRadioButton radio_kalkulator_zakat1;
     private javax.swing.JRadioButton radio_riwayat_transaksi;
     private javax.swing.JRadioButton radio_zakat_fitrah;

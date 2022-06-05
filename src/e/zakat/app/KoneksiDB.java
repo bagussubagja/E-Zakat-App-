@@ -16,14 +16,13 @@ import javax.swing.JOptionPane;
 public class KoneksiDB {
     public static Connection koneksi;
     public static Connection configDB() throws SQLException{
-            try {//koneksi berhasil
+            try {
                 String alamat_url = "jdbc:mysql://localhost:3306/ezakat_db";
                 String user_database = "root";
                 String password_database = "";
-                DriverManager.registerDriver(new com.mysql.jdbc.Driver());//inti koneksi
+                DriverManager.registerDriver(new com.mysql.cj.jdbc.Driver());
                 koneksi = DriverManager.getConnection(alamat_url, user_database,password_database);
-            } catch (Exception e) {
-                //koneksi error
+            } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null,"Konkesi Gagal "+ e.getMessage());
             }
     return koneksi;

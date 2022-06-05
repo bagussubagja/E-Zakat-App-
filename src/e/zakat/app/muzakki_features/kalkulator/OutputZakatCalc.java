@@ -83,15 +83,14 @@ public class OutputZakatCalc extends javax.swing.JFrame {
             }
         });
 
-        AlamatLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 20)); // NOI18N
+        AlamatLabel1.setFont(new java.awt.Font("Poppins", 0, 20)); // NOI18N
         AlamatLabel1.setText("<html>Berdasarkan Peraturan Menteri Agama Nomor 31 tahun 2019, kadar zakat yang<br>harus dikeluarkan adalah sebesar 2.5% dari total pendapatan selama sebulan</html>");
 
         ZakatLabel.setFont(new java.awt.Font("Poppins Medium", 0, 64)); // NOI18N
         ZakatLabel.setText("0");
 
         AlamatLabel.setBackground(new java.awt.Color(170, 170, 170));
-        AlamatLabel.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        AlamatLabel.setForeground(new java.awt.Color(170, 170, 170));
+        AlamatLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         AlamatLabel.setText("Ketahui besaran zakatmu!");
 
         AlamatLabel2.setBackground(new java.awt.Color(170, 170, 170));
@@ -143,7 +142,7 @@ public class OutputZakatCalc extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
                                 .addComponent(ZakatLabel)))))
-                .addGap(0, 110, Short.MAX_VALUE))
+                .addGap(0, 120, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

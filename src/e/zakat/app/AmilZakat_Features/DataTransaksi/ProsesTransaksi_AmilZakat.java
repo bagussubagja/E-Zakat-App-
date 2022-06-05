@@ -5,28 +5,56 @@
 package e.zakat.app.AmilZakat_Features.DataTransaksi;
 
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
+import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
+import e.zakat.app.muzakki_features.maal.ChooseMosqueMaal;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author bagus
  */
 public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form ProsesTransaksi_AmilZakat
+     * @throws java.sql.SQLException
      */
-    public ProsesTransaksi_AmilZakat() {
+    public ProsesTransaksi_AmilZakat() throws SQLException {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/ilust-onboarding-one.png")));
-    
+    Connection hubung = (Connection)KoneksiDB.configDB();
+     Statement stm = hubung.createStatement(); 
+     String sql_user = "SELECT name, date, nominal FROM data_zakat_amilzakat WHERE type_zakat = 'Zakat Maal' AND mosque = '"+LoginAmilZakat.mosqueName+"' LIMIT 1";
+     ResultSet result_mosque = stm.executeQuery(sql_user);
+     if(result_mosque.next()){
+     UsernameLabel.setText(result_mosque.getString("name"));
+     NominalLabel.setText(result_mosque.getString("nominal"));
+     DateLabel.setText(result_mosque.getString("date"));
+     }
     Image img1 = myimage.getImage();
     Image img2 = img1.getScaledInstance(IconLabel.getWidth(), IconLabel.getHeight(), Image.SCALE_SMOOTH);
     ImageIcon i = new ImageIcon(img2);
     
     IconLabel.setIcon(i);
+    
+    ImageIcon myimage2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-copyright.png")));
+    
+    Image img3 = myimage2.getImage();
+    Image img4 = img3.getScaledInstance(CopyrightLabel.getWidth(), CopyrightLabel.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon j = new ImageIcon(img4);
+    
+    CopyrightLabel.setIcon(j);
     }
 
     /**
@@ -43,17 +71,21 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         btn_back = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        MosqueLabel = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        DateLabel = new javax.swing.JLabel();
+        UsernameLabel = new javax.swing.JLabel();
+        NominalLabel = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         btnConfirm = new javax.swing.JButton();
+        CopyrightLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Proses Data Transaksi");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Proses Transaksi Amil Zakat");
@@ -72,32 +104,27 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(153, 153, 153));
         jLabel4.setText("Nama ");
 
-        jLabel5.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel5.setText("Masjid Nurul Falah");
+        MosqueLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        MosqueLabel.setText("Masjid Nurul Falah");
 
         jLabel6.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(153, 153, 153));
-        jLabel6.setText("Alamat");
+        jLabel6.setText("Tanggal Transaksi");
 
         jLabel7.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(153, 153, 153));
         jLabel7.setText("Nominal");
 
-        jLabel8.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel8.setText("Ujung Berung");
+        DateLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        DateLabel.setForeground(new java.awt.Color(51, 51, 51));
+        DateLabel.setText("NOW");
 
-        jLabel9.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel9.setText("Alif Ilman Nafian");
+        UsernameLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        UsernameLabel.setForeground(new java.awt.Color(51, 51, 51));
 
-        jLabel10.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel10.setText("Rp1.000.000,00");
+        NominalLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        NominalLabel.setForeground(new java.awt.Color(51, 51, 51));
+        NominalLabel.setText("Rp1.000.000,00");
 
         jLabel11.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(51, 51, 51));
@@ -128,76 +155,81 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 315, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(124, 124, 124)
+                                .addGap(60, 60, 60)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel3)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(145, 145, 145)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel8)
-                                            .addComponent(jLabel9)
-                                            .addComponent(jLabel10)))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(127, 127, 127)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel7)
-                                    .addComponent(jLabel6)
+                                            .addComponent(jLabel4)
+                                            .addComponent(jLabel6)
+                                            .addComponent(jLabel7))
+                                        .addGap(110, 110, 110)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(NominalLabel)
+                                            .addComponent(DateLabel)
+                                            .addComponent(UsernameLabel)))
                                     .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 657, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(91, 91, 91)
+                                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(40, 40, 40)
+                                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(108, 108, 108)
+                        .addGap(334, 334, 334)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(502, 502, 502)
-                        .addComponent(jLabel5)))
-                .addContainerGap(326, Short.MAX_VALUE))
+                        .addGap(528, 528, 528)
+                        .addComponent(MosqueLabel)))
+                .addContainerGap(174, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(57, 57, 57)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                        .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(118, 118, 118))
+                        .addGap(0, 59, Short.MAX_VALUE)
+                        .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel5)
-                        .addGap(49, 49, 49)
+                        .addComponent(MosqueLabel)
+                        .addGap(45, 45, 45)
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel9))
-                        .addGap(35, 35, 35)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel8))
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel10))
-                        .addGap(33, 33, 33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(UsernameLabel)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jLabel7))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(DateLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(NominalLabel)))
+                        .addGap(26, 26, 26)
                         .addComponent(jLabel12)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel11)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(46, 46, 46))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(52, 52, 52)
+                .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
@@ -209,9 +241,18 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
         // TODO add your handling code here:
-        PesanKonfirmasiZakatMaal_AmilZakat pesanKonfirmasiZakatMaal_AmilZakat = new PesanKonfirmasiZakatMaal_AmilZakat();
-        this.dispose();
-        pesanKonfirmasiZakatMaal_AmilZakat.show();
+       
+        try {
+          String SQL = "DELETE FROM data_zakat_amilzakat WHERE type_zakat = 'Zakat Maal' AND mosque = '"+LoginAmilZakat.mosqueName+"'";
+          Connection hubung = (Connection)KoneksiDB.configDB();
+          PreparedStatement s = hubung.prepareStatement(SQL);
+          s.execute();
+          PesanKonfirmasiZakatMaal_AmilZakat pesanKonfirmasiZakatMaal_AmilZakat = new PesanKonfirmasiZakatMaal_AmilZakat();
+          this.dispose();
+          pesanKonfirmasiZakatMaal_AmilZakat.show();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Gagal HAPUS \n"+e.getMessage());
+        }
         
     }//GEN-LAST:event_btnConfirmActionPerformed
 
@@ -245,25 +286,30 @@ public class ProsesTransaksi_AmilZakat extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ProsesTransaksi_AmilZakat().setVisible(true);
+                try {
+                    new ProsesTransaksi_AmilZakat().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(ProsesTransaksi_AmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CopyrightLabel;
+    private javax.swing.JLabel DateLabel;
     private javax.swing.JLabel IconLabel;
+    private javax.swing.JLabel MosqueLabel;
+    private javax.swing.JLabel NominalLabel;
+    public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btnConfirm;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

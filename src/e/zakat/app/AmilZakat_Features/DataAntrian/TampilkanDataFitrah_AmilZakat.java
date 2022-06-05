@@ -6,8 +6,12 @@ package e.zakat.app.AmilZakat_Features.DataAntrian;
 
 import e.zakat.app.AmilZakat_Features.DataTransaksi.DataTransaksiMaal_AmilZakat;
 import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.sql.Connection;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 
@@ -23,6 +27,15 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
     public TampilkanDataFitrah_AmilZakat() {
         initComponents();
         display_table();
+        UsernameLabel.setText(LoginAmilZakat.mosqueName);
+    
+    ImageIcon myimage2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-copyright.png")));
+    
+    Image img3 = myimage2.getImage();
+    Image img4 = img3.getScaledInstance(CopyrightLabel.getWidth(), CopyrightLabel.getHeight(), Image.SCALE_SMOOTH);
+    ImageIcon j = new ImageIcon(img4);
+    
+    CopyrightLabel.setIcon(j);
     }
 
     /**
@@ -39,8 +52,12 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
         btn_back = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         table_data_fitrah = new javax.swing.JTable();
+        CopyrightLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Tampil Data Fitrah");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Riwayat Pembayaran Zakat");
@@ -75,47 +92,53 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(133, 133, 133)
-                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(252, 252, 252))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(304, 304, 304)
-                        .addComponent(UsernameLabel)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(357, 357, 357)
+                        .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(317, 317, 317))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(UsernameLabel)
+                        .addGap(476, 476, 476))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(102, 102, 102)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1063, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addGap(0, 115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UsernameLabel)
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UsernameLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(106, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(42, Short.MAX_VALUE))))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        DataTransaksiMaal_AmilZakat amilZakat = new DataTransaksiMaal_AmilZakat();
+        DataTransaksiFitrah_AmilZakat fitrah_AmilZakat = new DataTransaksiFitrah_AmilZakat();
         this.dispose();
-        amilZakat.show();
+        fitrah_AmilZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     /**
@@ -156,22 +179,21 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
     private void display_table()
     {
         DefaultTableModel table = new DefaultTableModel();
-        table.addColumn("ID");
+        table.addColumn("No");
         table.addColumn("Nama");
-        table.addColumn("Alamat");
+        table.addColumn("Jenis Zakat");
+        table.addColumn("Nominal");
+        table.addColumn("Masjid");
+        table.addColumn("Nomor HP");
         table.addColumn("Tanggal");
-        table.addColumn("Kode Pos");
-
         JTableHeader Theader = table_data_fitrah.getTableHeader();
         Theader.setFont(new Font("Poppins", Font.BOLD, 16));
         table_data_fitrah.setFont(new Font("Poppins", Font.PLAIN, 16));
         
-//        table.addColumn("Nilai");
-        
         try {
             int counter = 1;
             //Query
-            String sql = "SELECT * FROM queue_fitrah_amilzakat";
+            String sql = "SELECT * FROM data_zakat_amilzakat where type_zakat = 'Zakat Fitrah' AND mosque = '"+LoginAmilZakat.mosqueName+"'; ";
             
             //Koneksi
 //            java.sql.Connection Hubung = (Connection)koneksi_DB.configDB()();
@@ -186,7 +208,7 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
             //Looping
             while (rs.next()) {
                 table.addRow(new Object[]{
-                   counter++,rs.getString(2),rs.getString(3),rs.getString(4), rs.getString(5)
+                   counter++,rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5), rs.getString(6), rs.getString(7) 
                 });
                 
             }
@@ -198,6 +220,7 @@ public class TampilkanDataFitrah_AmilZakat extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel CopyrightLabel;
     public javax.swing.JLabel UsernameLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JLabel jLabel1;

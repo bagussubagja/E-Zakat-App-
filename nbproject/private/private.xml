@@ -3,11 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/muzakki_features/maal/ChooseMosqueMaal.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/auth_screen/amilzakat/LoginAmilZakat.java</file>
             <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/auth_screen/muzakki/LoginMuzakki.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/KoneksiDB.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/DataAntrian/TampilkanDataFitrah_AmilZakat.java</file>
-            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/muzakki_features/history/HistoryTransactionMuzakki.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/DataTransaksi/DataTransaksiMaal_AmilZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/auth_screen/muzakki/RegisterMuzakki.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/initial_screen/ChooseRoles.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/muzakki_features/maal/InputSalaryMaal.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/muzakki_features/kalkulator/InputSalaryZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/auth_screen/amilzakat/RegisterAmilZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/DataTransaksi/ProsesTransaksi_AmilZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/DataAntrian/DataTransaksiFitrah_AmilZakat.java</file>
+            <file>file:/D:/Kuliah/Semester%204/Pemrograman%20Berorientasi%20Objek/Pertemuan%2016%20UAS/E-Zakat-App-JavaGUI/src/e/zakat/app/AmilZakat_Features/DataAntrian/ProsesFitrah_AmilZakat.java</file>
         </group>
     </open-files>
 </project-private>

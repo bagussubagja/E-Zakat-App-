@@ -28,6 +28,13 @@ public class LoginMuzakki extends javax.swing.JFrame {
     public static ArrayList<String> masjid = new ArrayList<String>();
     public static String userLocation;
     public static String name;
+    public static String address;
+    public static String postalcode;
+    public static String userName;
+    public static String pwd;
+    public static String dependents;
+    public static int id;
+    
     /**
      * Creates new form LoginMuzakki
      */
@@ -180,7 +187,7 @@ public class LoginMuzakki extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addGap(18, 18, 18)
                         .addComponent(btnNavigateToRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(397, 397, 397))))
+                        .addGap(401, 401, 401))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,7 +196,7 @@ public class LoginMuzakki extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
@@ -209,7 +216,7 @@ public class LoginMuzakki extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNavigateToRegister)
                     .addComponent(jLabel6))
-                .addGap(91, 91, 91)
+                .addGap(88, 88, 88)
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -276,17 +283,13 @@ public class LoginMuzakki extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new LoginMuzakki().setVisible(true);
-                
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new LoginMuzakki().setVisible(true);
         });
     }
     
     public void login(){
     try {
-
             HomePageMuzakki homePageMuzakki = new HomePageMuzakki();
             String username = edtUsername.getText();
             String password = edtPassword.getText();
@@ -305,23 +308,50 @@ public class LoginMuzakki extends javax.swing.JFrame {
 
             
             if(isExist){
+            if(checkUsername(username, password)){
             this.dispose();
-                HistoryTransactionMuzakki historyTransactionMuzakki = new HistoryTransactionMuzakki();
                 homePageMuzakki.UsernameLabel.setText(rs_user.getString("name"));
-                
                 homePageMuzakki.show();
+            }
             }
              while(rs_mosque.next()){
              masjid.add(rs_mosque.getString("name"));
              userLocation = rs_user.getString("region");
              name = rs_user.getString("name");
+             address = rs_user.getString("address");
+             userName = rs_user.getString("username");
+             pwd = rs_user.getString("password");
+             postalcode = rs_user.getString("postalcode");
+             id = rs_user.getInt("id");
             }
+             System.out.println("id user : '"+id+"'");
             
             hubung.close();
             
-        } catch (Exception e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(rootPane, "Silahkan periksa kembali username / password yang anda masukkan sebelumnya!", "Username / Password Salah ", HEIGHT);
         }
+    }
+    
+    public boolean checkUsername(String username, String password){
+        PreparedStatement ps;
+        ResultSet rs;
+        boolean checkUser = false;
+        String query = "SELECT * FROM `users_muzakki` WHERE `username` = ? AND `password` = ?";
+        
+        try {
+            Connection hubung = (Connection)KoneksiDB.configDB();
+            ps = hubung.prepareStatement(query);
+            ps.setString(1, username);
+            ps.setString(2, password);
+            rs = ps.executeQuery();
+            if (rs.next()){
+                checkUser = true;
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+        return checkUser;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

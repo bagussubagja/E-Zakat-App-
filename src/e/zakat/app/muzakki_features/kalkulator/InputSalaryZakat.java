@@ -10,6 +10,7 @@ import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.HomePageMuzakki;
 import java.awt.Image;
 import java.awt.Toolkit; 
+import java.awt.event.KeyEvent;
 import java.sql.*;  
 import java.sql.Statement;
 import java.sql.Connection;
@@ -62,12 +63,13 @@ public class InputSalaryZakat extends javax.swing.JFrame {
         CopyrightLabel = new javax.swing.JLabel();
         AlamatLabel = new javax.swing.JLabel();
         AlamatLabel1 = new javax.swing.JLabel();
-        inputSalary = new javax.swing.JTextField();
+        inputSalary = new javax.swing.JFormattedTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Input Salary Calculator");
         setBackground(new java.awt.Color(238, 238, 238));
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
@@ -96,14 +98,18 @@ public class InputSalaryZakat extends javax.swing.JFrame {
         });
 
         AlamatLabel.setBackground(new java.awt.Color(170, 170, 170));
-        AlamatLabel.setFont(new java.awt.Font("Poppins Light", 0, 24)); // NOI18N
-        AlamatLabel.setForeground(new java.awt.Color(170, 170, 170));
+        AlamatLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         AlamatLabel.setText("Ketahui besaran zakatmu!");
 
         AlamatLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         AlamatLabel1.setText("Jumlah pendapatan per bulan");
 
-        inputSalary.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
+        inputSalary.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        inputSalary.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inputSalaryKeyTyped(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,8 +125,13 @@ public class InputSalaryZakat extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(129, 129, 129)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(AlamatLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inputSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 370, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(inputSalary)
+                            .addComponent(AlamatLabel1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(btn_calc_zakat, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(41, 41, 41)
+                                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(101, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -128,11 +139,6 @@ public class InputSalaryZakat extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(28, 28, 28))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btn_calc_zakat, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(464, 464, 464))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addGap(419, 419, 419))
@@ -153,16 +159,16 @@ public class InputSalaryZakat extends javax.swing.JFrame {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(AlamatLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(inputSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(inputSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btn_calc_zakat, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(115, 115, 115))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(14, 14, 14)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btn_calc_zakat, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(115, 115, 115)
+                        .addGap(176, 176, 176)))
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(23, 23, 23))
         );
@@ -191,6 +197,15 @@ public class InputSalaryZakat extends javax.swing.JFrame {
         outputZakatCalc.show();
         System.out.println("Jumlah zakat yang harus diberikan " + zakatSalary);
     }//GEN-LAST:event_btn_calc_zakatActionPerformed
+
+    private void inputSalaryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inputSalaryKeyTyped
+        // TODO add your handling code here:
+        char c = evt.getKeyChar();
+        if(!(Character.isDigit(c) || (c == KeyEvent.VK_BACK_SPACE) || c == KeyEvent.VK_DELETE)){
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_inputSalaryKeyTyped
 
     /**
      * @param args the command line arguments
@@ -297,7 +312,7 @@ public class InputSalaryZakat extends javax.swing.JFrame {
     private javax.swing.JLabel IconLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_calc_zakat;
-    private javax.swing.JTextField inputSalary;
+    private javax.swing.JFormattedTextField inputSalary;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     // End of variables declaration//GEN-END:variables

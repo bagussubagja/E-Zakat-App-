@@ -7,7 +7,12 @@ package e.zakat.app.AmilZakat_Features.DataTransaksi;
 import e.zakat.app.AmilZakat_Features.HomePageAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import static java.awt.image.ImageObserver.HEIGHT;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -58,13 +63,17 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
         CopyrightLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Data Transaksi Zakat Maal");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Data Transaksi Zakat Maal");
 
         buttonGroup1.add(showDataTransaksi_radio);
-        showDataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        showDataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         showDataTransaksi_radio.setText("Tampilkan Data Transaksi");
+        showDataTransaksi_radio.setIconTextGap(10);
         showDataTransaksi_radio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showDataTransaksi_radioActionPerformed(evt);
@@ -72,8 +81,9 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(dataAntrian_radio);
-        dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         dataAntrian_radio.setText("Proses Data Transaksi");
+        dataAntrian_radio.setIconTextGap(10);
         dataAntrian_radio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataAntrian_radioActionPerformed(evt);
@@ -81,8 +91,9 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(hapusRiwayat_radio);
-        hapusRiwayat_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        hapusRiwayat_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         hapusRiwayat_radio.setText("Hapus Riwayat Transaksi Zakat Maal");
+        hapusRiwayat_radio.setIconTextGap(10);
 
         btn_login.setBackground(new java.awt.Color(24, 152, 139));
         btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
@@ -103,7 +114,7 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         jLabel3.setText("Menu Data Transaksi");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -113,19 +124,12 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(93, 93, 93)
                 .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(41, 41, 41)
-                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(showDataTransaksi_radio)
-                            .addComponent(dataAntrian_radio)
-                            .addComponent(hapusRiwayat_radio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(showDataTransaksi_radio)
+                    .addComponent(dataAntrian_radio)
+                    .addComponent(hapusRiwayat_radio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(386, Short.MAX_VALUE)
@@ -135,7 +139,12 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
                         .addGap(35, 35, 35))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addGap(304, 304, 304))))
+                        .addGap(304, 304, 304))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(433, 433, 433))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -144,27 +153,28 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(jLabel1)
-                        .addGap(78, 78, 78)
+                        .addGap(107, 107, 107)
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(showDataTransaksi_radio)
                         .addGap(18, 18, 18)
                         .addComponent(dataAntrian_radio)
                         .addGap(18, 18, 18)
-                        .addComponent(hapusRiwayat_radio)
-                        .addGap(143, 143, 143)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(hapusRiwayat_radio))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(200, 200, 200)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 98, Short.MAX_VALUE)
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void showDataTransaksi_radioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDataTransaksi_radioActionPerformed
@@ -177,25 +187,45 @@ public class DataTransaksiMaal_AmilZakat extends javax.swing.JFrame {
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
         // TODO add your handling code here:
-        TampilkanDataMaal_AmilZakat tampilkanData_AmilZakat = new TampilkanDataMaal_AmilZakat();
-        ProsesTransaksi_AmilZakat prosesTransaksi_AmilZakat = new ProsesTransaksi_AmilZakat();
+        TampilkanDataZakat_AmilZakat tampilkanData_AmilZakat = new TampilkanDataZakat_AmilZakat();
+        ProsesTransaksi_AmilZakat prosesTransaksi_AmilZakat = null;
+        try {
+            prosesTransaksi_AmilZakat = new ProsesTransaksi_AmilZakat();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataTransaksiMaal_AmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+        }
         HapusRiwayat_AmilZakat hapusRiwayat_AmilZakat = new HapusRiwayat_AmilZakat();
         if(showDataTransaksi_radio.isSelected()){
             this.dispose();
             tampilkanData_AmilZakat.show();
         }else if(dataAntrian_radio.isSelected()){
+            if(prosesTransaksi_AmilZakat.UsernameLabel.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Tidak Ada Data yang bisa diproses", "Peringatan!", HEIGHT);
+            }else{
             this.dispose();
             prosesTransaksi_AmilZakat.show();
+            }
+            
         }else if(hapusRiwayat_radio.isSelected()){
+            if(prosesTransaksi_AmilZakat.UsernameLabel.getText().equals("")){
+            JOptionPane.showMessageDialog(rootPane, "Tidak Ada Data yang bisa diproses", "Peringatan!", HEIGHT);
+            }else{
             this.dispose();
             hapusRiwayat_AmilZakat.show();
+            }
+            
         }
 
     }//GEN-LAST:event_btn_loginActionPerformed
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        HomePageAmilZakat homePageAmilZakat = new HomePageAmilZakat();
+        HomePageAmilZakat homePageAmilZakat = null;
+        try {
+            homePageAmilZakat = new HomePageAmilZakat();
+        } catch (SQLException ex) {
+            Logger.getLogger(DataTransaksiMaal_AmilZakat.class.getName()).log(Level.SEVERE, null, ex);
+        }
         this.dispose();
         homePageAmilZakat.show();
     }//GEN-LAST:event_btn_backActionPerformed

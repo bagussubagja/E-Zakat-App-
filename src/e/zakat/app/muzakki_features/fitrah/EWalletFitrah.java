@@ -4,12 +4,16 @@
  */
 package e.zakat.app.muzakki_features.fitrah;
 
-import e.zakat.app.KoneksiDB;
 import e.zakat.app.muzakki_features.maal.*;
+import e.zakat.app.KoneksiDB;
 import e.zakat.app.auth_screen.muzakki.*;
 import e.zakat.app.initial_screen.ChooseRoles;
 import e.zakat.app.muzakki_features.HomePageMuzakki;
-import static e.zakat.app.muzakki_features.maal.EWalletMaal.phone_number;
+import e.zakat.app.muzakki_features.fitrah.ChooseMosqueFitrah;
+import e.zakat.app.muzakki_features.fitrah.OutputZakatFitrah;
+import e.zakat.app.muzakki_features.fitrah.PaymentSuccessFitrah;
+import static e.zakat.app.muzakki_features.fitrah.TransferBankFitrah.phone_number;
+import static e.zakat.app.muzakki_features.maal.TransferBankMaal.phone_number;
 import java.awt.Image;
 import java.awt.Toolkit; 
 import java.sql.*;  
@@ -26,7 +30,7 @@ import javax.swing.JOptionPane;
  * @author bagus
  */
 public class EWalletFitrah extends javax.swing.JFrame {
-
+    public static String phone_number;
     /**
      * Creates new form LoginMuzakki
      */
@@ -55,9 +59,10 @@ public class EWalletFitrah extends javax.swing.JFrame {
     ImageIcon k = new ImageIcon(img6);
     
     QrLabel.setIcon(k);
+    
     Connection hubung = (Connection)KoneksiDB.configDB();
      Statement stm = hubung.createStatement(); 
-     String sql_mosque = "SELECT * FROM mosque where name = '"+ ChooseMosqueMaal.choosenMosque + "'; ";
+     String sql_mosque = "SELECT * FROM mosque where name = '"+ ChooseMosqueFitrah.choosenMosque + "'; ";
      ResultSet result_mosque = stm.executeQuery(sql_mosque);
      if(result_mosque.next()){
      choosenMosqueLabel.setText(result_mosque.getString("name"));
@@ -124,7 +129,7 @@ public class EWalletFitrah extends javax.swing.JFrame {
             }
         });
 
-        AlamatLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        AlamatLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         AlamatLabel.setText("Informasi Pembayaran e-Wallet");
 
         AlamatLabel1.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
@@ -169,9 +174,9 @@ public class EWalletFitrah extends javax.swing.JFrame {
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39))
             .addGroup(layout.createSequentialGroup()
-                .addGap(433, 433, 433)
-                .addComponent(AlamatLabel)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(459, 459, 459)
+                .addComponent(jLabel1)
+                .addGap(0, 467, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -210,24 +215,23 @@ public class EWalletFitrah extends javax.swing.JFrame {
                                 .addGap(36, 36, 36)
                                 .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(450, 450, 450)
-                        .addComponent(jLabel1)))
+                        .addGap(446, 446, 446)
+                        .addComponent(AlamatLabel)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(AlamatLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(AlamatLabel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(124, 124, 124))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(94, 94, 94)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(MoqsueLabel)
                             .addComponent(choosenMosqueLabel))
@@ -269,24 +273,28 @@ public class EWalletFitrah extends javax.swing.JFrame {
 
     private void btn_backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_backActionPerformed
         // TODO add your handling code here:
-        ChoosePaymentFitrah paymentFitrah = new ChoosePaymentFitrah();
+        ChoosePaymentFitrah choosePaymentFitrah = new ChoosePaymentFitrah();
         this.dispose();
-        paymentFitrah.show();
+        choosePaymentFitrah.show();
     }//GEN-LAST:event_btn_backActionPerformed
 
     private void btn_confirm_payActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_confirm_payActionPerformed
         // TODO add your handling code here:
+        
         try {
             String success = "Sukses";
             String sql_history = "INSERT INTO zakat_history(name, type_zakat, nominal, mosque, phone_number, status, date) VALUES ('" + LoginMuzakki.name +  "', '" + HomePageMuzakki.choosenMenu + "', '" + OutputZakatFitrah.nominal + "', '" + ChooseMosqueFitrah.choosenMosque + "', '" + phone_number + "', '" + success +"', NOW());";
+            String sql_data_amilzakat = "INSERT INTO data_zakat_amilzakat(name, type_zakat, nominal, mosque, phone_number, date) VALUES ('" + LoginMuzakki.name +  "', '" + HomePageMuzakki.choosenMenu + "', '" + OutputZakatFitrah.nominal + "', '" + ChooseMosqueFitrah.choosenMosque + "', '" + phone_number + "', NOW());";
             System.out.println(sql_history);
+            System.out.println(sql_data_amilzakat);
             Connection hubung = (Connection)KoneksiDB.configDB();
             Statement stm = hubung.createStatement();
             int x = stm.executeUpdate(sql_history);
-            if (x != 0) {
-                PaymentSuccessFitrah successFitrah = new PaymentSuccessFitrah();
-        this.dispose();
-        successFitrah.show();
+            int y = stm.executeUpdate(sql_data_amilzakat);
+            if (x != 0 && y != 0) {
+                PaymentSuccessMaal maal = new PaymentSuccessMaal();
+                this.dispose();
+                maal.show();
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e.toString());
@@ -320,7 +328,10 @@ public class EWalletFitrah extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(EWalletFitrah.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+       
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

@@ -13,6 +13,8 @@ import java.sql.*;
 import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -95,7 +97,7 @@ public class ChoosePaymentFitrah extends javax.swing.JFrame {
             }
         });
 
-        PaymentLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        PaymentLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         PaymentLabel.setText("Metode Pembayaran");
 
         buttonGroup1.add(radio_transfer_bank);
@@ -189,15 +191,21 @@ public class ChoosePaymentFitrah extends javax.swing.JFrame {
 
     private void btn_select_paymentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_select_paymentActionPerformed
         // TODO add your handling code here:
-        TransferBankFitrah bankFitrah = new TransferBankFitrah();
-        EWalletFitrah walletFitrah = new EWalletFitrah();
-        if(radio_transfer_bank.isSelected()){
+        try {
+           TransferBankFitrah bankFitrah = new TransferBankFitrah();
+           EWalletFitrah walletFitrah = new EWalletFitrah();
+           if(radio_transfer_bank.isSelected()){
         this.dispose();
         bankFitrah.show();
         }else if(radio_e_wallet.isSelected()){
         this.dispose();
         walletFitrah.show();
         }
+        } catch (SQLException ex) {
+            Logger.getLogger(ChoosePaymentFitrah.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
     }//GEN-LAST:event_btn_select_paymentActionPerformed
 
     private void radio_transfer_bankActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio_transfer_bankActionPerformed

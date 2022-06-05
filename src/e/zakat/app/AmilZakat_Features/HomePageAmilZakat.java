@@ -7,8 +7,15 @@ package e.zakat.app.AmilZakat_Features;
 import e.zakat.app.AmilZakat_Features.DataAntrian.DataTransaksiFitrah_AmilZakat;
 import e.zakat.app.AmilZakat_Features.StrukturKepengurusan.StrukturKepengurusan_AmilZakat;
 import e.zakat.app.AmilZakat_Features.DataTransaksi.DataTransaksiMaal_AmilZakat;
+import e.zakat.app.KoneksiDB;
+import e.zakat.app.auth_screen.amilzakat.LoginAmilZakat;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 
 /**
@@ -20,16 +27,17 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
     /**
      * Creates new form HomePageAmilZakat
      */
-    public HomePageAmilZakat() {
+    public HomePageAmilZakat() throws SQLException {
         initComponents();
         ImageIcon myimage = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/main-menu-logo.png")));
-    
+    Connection hubung = (Connection)KoneksiDB.configDB();
+            Statement stm = hubung.createStatement();
     Image img1 = myimage.getImage();
     Image img2 = img1.getScaledInstance(IconLabel.getWidth(), IconLabel.getHeight(), Image.SCALE_SMOOTH);
     ImageIcon i = new ImageIcon(img2);
     
     IconLabel.setIcon(i);
-    
+    MosqueLabel.setText(LoginAmilZakat.mosqueName);
     ImageIcon myimage2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-copyright.png")));
     
     Image img3 = myimage2.getImage();
@@ -59,20 +67,23 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         btn_back = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         CopyrightLabel = new javax.swing.JLabel();
-        UsernameLabel = new javax.swing.JLabel();
+        MosqueLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Home Page Amil Zakat");
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/assets/icon-app.png")));
+        setPreferredSize(new java.awt.Dimension(1280, 720));
 
         jLabel1.setFont(new java.awt.Font("Poppins Medium", 0, 32)); // NOI18N
         jLabel1.setText("é-Zakat - Amil Zakat");
 
         jLabel2.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(153, 153, 153));
         jLabel2.setText("Selamat datang,");
 
         buttonGroup1.add(dataTransaksi_radio);
-        dataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        dataTransaksi_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         dataTransaksi_radio.setText("Data Transaksi Zakat Maal");
+        dataTransaksi_radio.setIconTextGap(10);
         dataTransaksi_radio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataTransaksi_radioActionPerformed(evt);
@@ -80,8 +91,9 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(dataAntrian_radio);
-        dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        dataAntrian_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         dataAntrian_radio.setText("Data Antrian Zakat Fitrah");
+        dataAntrian_radio.setIconTextGap(10);
         dataAntrian_radio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dataAntrian_radioActionPerformed(evt);
@@ -89,8 +101,9 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(struktur_radio);
-        struktur_radio.setFont(new java.awt.Font("Poppins", 0, 18)); // NOI18N
+        struktur_radio.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
         struktur_radio.setText("Struktur Kepengurusan Amil Zakat");
+        struktur_radio.setIconTextGap(10);
 
         btn_login.setBackground(new java.awt.Color(24, 152, 139));
         btn_login.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
@@ -111,12 +124,11 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 18)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
         jLabel3.setText("Menu Utama");
 
-        UsernameLabel.setFont(new java.awt.Font("Poppins", 0, 24)); // NOI18N
-        UsernameLabel.setForeground(new java.awt.Color(153, 153, 153));
-        UsernameLabel.setText("Masjid");
+        MosqueLabel.setFont(new java.awt.Font("Poppins Medium", 0, 24)); // NOI18N
+        MosqueLabel.setText("Masjid");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,36 +137,35 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(399, 399, 399)
+                        .addGap(449, 449, 449)
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(UsernameLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(MosqueLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(93, 93, 93)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(121, 121, 121)
-                                .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(41, 41, 41)
-                                .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(34, 34, 34)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dataTransaksi_radio)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(dataAntrian_radio)
-                                    .addComponent(struktur_radio))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(dataTransaksi_radio)
+                            .addComponent(dataAntrian_radio)
+                            .addComponent(struktur_radio)
+                            .addComponent(jLabel3)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(20, 20, 20)))
+                .addContainerGap(446, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(441, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(504, 504, 504))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
+                        .addGap(35, 35, 35))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(465, 465, 465))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,30 +175,31 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(UsernameLabel))
+                    .addComponent(MosqueLabel))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(65, 65, 65)
+                        .addGap(97, 97, 97)
                         .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(dataTransaksi_radio)
                         .addGap(18, 18, 18)
                         .addComponent(dataAntrian_radio)
                         .addGap(18, 18, 18)
-                        .addComponent(struktur_radio)
-                        .addGap(143, 143, 143)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(struktur_radio))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(IconLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btn_login, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btn_back, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(74, 74, 74)
                 .addComponent(CopyrightLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_loginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_loginActionPerformed
@@ -250,9 +262,11 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(() -> {
+            try {
                 new HomePageAmilZakat().setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(HomePageAmilZakat.class.getName()).log(Level.SEVERE, null, ex);
             }
         });
     }
@@ -260,7 +274,7 @@ public class HomePageAmilZakat extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel CopyrightLabel;
     private javax.swing.JLabel IconLabel;
-    public javax.swing.JLabel UsernameLabel;
+    public javax.swing.JLabel MosqueLabel;
     private javax.swing.JButton btn_back;
     private javax.swing.JButton btn_login;
     private javax.swing.ButtonGroup buttonGroup1;
