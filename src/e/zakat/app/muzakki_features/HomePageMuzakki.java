@@ -266,6 +266,7 @@ public class HomePageMuzakki extends javax.swing.JFrame {
         this.dispose();
         inputSalaryZakat.show();
         }else if(radio_riwayat_transaksi.isSelected()){
+        this.dispose();
         historyTransactionMuzakki.show();
         }
         
